@@ -1,7 +1,7 @@
 # UX Principles & Views
 
 ## UX Tenets
-- **Generic views auto-derived from capabilities:** list/table (facets), detail, history (captures), reader mode (stories/threads), media panel (downloads/subtitles), workflow boards (tasks/projects), annotations.
+- **Generic views auto-derived from capabilities:** list/table (facets), detail, history (captures), reader mode (stories/threads), media panel (downloads/subtitles), card views, and annotations for all items; `Workflown` adds Kanban boards, `Schedulable` adds calendar/timeline views, and `Geocoded` adds map/heatmap visualizations.
 - **Inputs:** paste box, watched folders, browser extension/bookmarklet, CLI (`kki capture <url> --realm R --tags a,b`).
 - **Collections:** saved searches (dynamic, first-class data type) and snapshots (static exports with manifests); curated primarily on desktop UI, viewable on mobile.
 - **Exports:** handled via automation/maintenance flows; UX ensures discoverability of export status but not authoring.

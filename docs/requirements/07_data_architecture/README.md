@@ -6,14 +6,22 @@ Items = base fields + capabilities.
 ### Base Fields
 `id, type, realm, sensitivity, title, description, created_at, updated_at, tags[], source_url?, canonical_url?, captures[], attachments[], links[], checksum, size, metadata{}`
 
+Session context assigns the default `realm`; overrides are expressed through dedicated share relation items so that scoping changes remain auditable and composable.
+
 ### Capabilities (Mix-ins)
-Viewable, Listable, Queryable, Storable, Importable/Exportable, Versioned, Scrapeable, Downloadable, Readable, Playable, Workflown, Schedulable, Annotatable.
+Viewable, Listable, Queryable, Storable, Importable/Exportable, Versioned, Scrapeable, Downloadable, Readable, Playable, Workflown, Schedulable, Annotatable, Geocoded.
+
+Capability declarations drive derived UX: `Workflown` surfaces Kanban boards, `Schedulable` emits calendar and timeline views, and `Geocoded` enables map/heatmap visualizations. Removing the capability retracts the view without schema churn.
 
 ### Type Registry
-`{type_key, version, capabilities[], schema.json, facets[], actions[], migrations[]}`.
+`{type_key, version, capabilities[], schema.json, facets[], actions[], migrations[], relations[]?}`.
+
+Plugins bundle data definitions, named relations, view descriptors, workflows, and automations. Core plugins ship reusable relation item types (e.g., tags, sharing links) that downstream plugins compose rather than duplicating or introducing deep inheritance chains.
 
 ### Captures
 `capture_id, captured_at, paths, hashes, size, tool_versions` (multiple per Item).
+
+Complex traversals across relation items should be served through composable queries and, when needed, cached as saved searches or materialized lists to keep unified query performance predictable.
 
 ### Storage Layout (Illustrative)
 `/data/archive/<realm>/<type>/<YYYY>/<MM>/<id>/<captured_at-ISO8601>/` with `meta.json`, normalized content (`.md/.html/.cbz/.pdf`), assets, optional `snapshot.pdf`/`page.warc`.
