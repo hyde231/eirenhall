@@ -3,8 +3,9 @@
 ## UX Tenets
 - **Generic views auto-derived from capabilities:** list/table (facets), detail, history (captures), reader mode (stories/threads), media panel (downloads/subtitles), workflow boards (tasks/projects), annotations.
 - **Inputs:** paste box, watched folders, browser extension/bookmarklet, CLI (`kki capture <url> --realm R --tags a,b`).
-- **Collections:** saved searches (dynamic) and snapshots (static exports with manifests).
-- **Exports:** realm banners, redaction profiles, Markdown/CSV bundles + assets; masters untouched.
+- **Collections:** saved searches (dynamic, first-class data type) and snapshots (static exports with manifests); curated primarily on desktop UI, viewable on mobile.
+- **Exports:** handled via automation/maintenance flows; UX ensures discoverability of export status but not authoring.
+- **APIs:** ingestion and automation endpoints expose the same collection/saved-search surfaces for tooling.
 
 ## 9.1 Saved Searches & Collections Specification
 

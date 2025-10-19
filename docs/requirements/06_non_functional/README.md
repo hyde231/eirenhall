@@ -1,4 +1,6 @@
-# Non-Functional Requirements
+# Non-Functional Requirements (Aspirational Draft)
+
+> These targets are placeholders while we validate functional feasibility. Treat them as directional goals rather than binding commitments for the current phase.
 
 ## Reliability
 Orchestrator uptime ≥99.5%; durable queues.

@@ -14,7 +14,7 @@
 
 | ID | Title | Description | Priority | Acceptance Criteria |
 | --- | --- | --- | --- | --- |
-| FR-006 | Power-aware scheduling | WoL heavy nodes; auto-sleep idle | Must | Verified by metrics/tests |
+| FR-006 | Power-aware scheduling | WoL heavy nodes; auto-sleep idle; defer storage-heavy automation and GPU workloads to scheduled windows aligned with desktop/server availability | Must | Verified by metrics/tests |
 | FR-007 | Orchestrated agents | Spawn/stop containers across nodes | Must | Policy-based placement works |
 | FR-008 | Secure remote intake | VPN/SSH/bot with authZ | Should | Key-based auth; rate-limited; audited |
 
@@ -22,7 +22,7 @@
 
 | ID | Title | Description | Priority | Acceptance Criteria |
 | --- | --- | --- | --- | --- |
-| FR-014 | Link capture & normalization | Ingest URLs; assign realm; create **time-stamped local copy** | Must | Paste URL → archived artifact with canonical URL + capture timestamp |
+| FR-014 | Link capture & normalization | Ingest URLs; assign realm; create **time-stamped local copy**; follow pagination/linked assets automatically; manage secrets/cookies with minimal human intervention | Must | Paste URL → archived artifact with canonical URL + capture timestamp |
 | FR-015 | Offline archiving | Store snapshots/media; maintain **version history** per URL | Must | Items render offline; checksums saved; captures listed chronologically |
 | FR-016 | Plugin processors | Extensible item-type plugins | Must | Hooks: identify/fetch/enrich/render/schedule |
 | FR-017 | AI enrichment | Optional local LLM summaries/tags/entities/quotes | Should | Realm-aware; skippable; provenance recorded |
@@ -31,7 +31,7 @@
 
 | ID | Title | Description | Priority | Acceptance Criteria |
 | --- | --- | --- | --- | --- |
-| FR-018 | Unified query | Full-text + facets (type, realm, tags, date, **capture version/time**) | Must | p95 < 800ms; facet counts consistent |
+| FR-018 | Unified query | Full-text + facets (type, realm, tags, date, **capture version/time**) | Must | p95 < 800ms (aspirational, non-binding during feasibility); facet counts consistent |
 | FR-019 | Bulk operations | Mass-tagging, realm move (down-scope by default), export static sets | Should | Dry-run; audited; undo |
 | FR-020 | Dynamic & static collections | Saved dynamic (query-backed) and static (snapshot/export) | Must | Views auto-refresh; exports reproducible |
 
@@ -51,3 +51,7 @@
 | --- | --- | --- | --- | --- |
 | FR-026 | Large-binary handling | Multi-TB photos/media without Git cloning | Must | Manifests reference files; integrity via checksums |
 | FR-027 | Tiered caching | Mini PC edge cache by policy (realm/recency/favorites/saved searches) | Must | Cache metrics; offline manifests enable browsing without full media |
+
+### Tooling Expectations
+- Core stack shared across personas: Python, Git, Docker, NFS/Samba-accessible storage, and vector databases backing long-term AI memory.
+- Persona-specific tooling will be explored later; prefer alignment to the common stack wherever possible.
