@@ -56,6 +56,17 @@
 | FR-026 | Large-binary handling | Multi-TB photos/media without Git cloning | Must | Manifests reference files; integrity via checksums |
 | FR-027 | Tiered caching | Mini PC edge cache by policy (realm/recency/favorites/saved searches) | Must | Cache metrics; offline manifests enable browsing without full media |
 
+## 5.7 Operations, Collaboration & Compliance
+
+| ID | Title | Description | Priority | Acceptance Criteria |
+| --- | --- | --- | --- | --- |
+| FR-032 | Unified observability | Centralize logs, metrics, and traces across orchestrated agents with lightweight dashboards and alert thresholds tailored to solo-operator needs. | Should | Core services emit structured logs/metrics; single dashboard surfaces health; threshold breach triggers local notification |
+| FR-033 | Realm-aware user lifecycle | Provide self-service onboarding/offboarding, role tiers, and audit trails scoped by realm, even if limited to a handful of trusted accounts. | Could | User creation/deactivation flows update audit log; roles enforce realm-scoped access in tests |
+| FR-034 | Collaboration cues | Offer lightweight commenting, tagging for follow-up, or notification hooks so future human collaborators can coordinate around artifacts and automations. | Could | Users can leave comments/flags; notification hook delivers summary to configured channel; history retained with artifact |
+| FR-035 | Resilience drills | Automate periodic backup verification, dependency heartbeat checks, and runbooks for restoring critical services after failure. | Should | Scheduled job exercises restore on sample dataset; heartbeat alerts on dependency outage; runbook validated quarterly |
+| FR-036 | Accessible client experience | Ensure UI components follow accessibility best practices (contrast, keyboard navigation) and remain usable on constrained or offline-first devices. | Could | Accessibility audit checklist passes; core flows keyboard-navigable; responsive layout renders on mobile |
+| FR-037 | Data lifecycle policies | Define retention, legal hold, and export procedures that respect realm boundaries and personal compliance goals. | Should | Configurable retention per realm/type; legal hold prevents deletion; export produces auditable package |
+
 ### Tooling Expectations
 - Core stack shared across personas: Python, Git, Docker, NFS/Samba-accessible storage, and vector databases backing long-term AI memory.
 - Persona-specific tooling will be explored later; prefer alignment to the common stack wherever possible.
