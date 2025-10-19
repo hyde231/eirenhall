@@ -1,18 +1,22 @@
 # Requirement Backlog (Living Table)
 
+Status legend: **Draft** → **Refinement** → **Ready for Build** → **In Progress** → **Done**. Items marked “Ready for Build”
+have baselined scope, acceptance criteria, and supporting non-functional commitments for a solo delivery flow with AI
+pairing.
+
 | Key | Type | Title | Priority | Acceptance Criteria | Owner | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| FR‑001 | FR | Local‑only execution | Must | No external egress; tests verify | You | Draft |
-| FR‑002 | FR | Open data formats | Must | Readable externally; round-trip tests | You | Draft |
-| FR‑003 | FR | Realm tagging & scoping | Must | Zero cross‑realm retrievals in tests | You | Draft |
-| FR‑006 | FR | Power-aware scheduling | Must | WoL + idle sleep verified | You | Draft |
-| FR‑014 | FR | Link capture & normalization | Must | URL → archived item with metadata + timestamped copy | You | Draft |
-| FR‑015 | FR | Offline archiving (versioned) | Must | Items render offline; checksums saved; captures listed | You | Draft |
-| FR‑016 | FR | Plugin processors | Must | Identify/fetch/enrich/render hooks pass tests | You | Draft |
-| FR‑018 | FR | Unified query | Must | p95 < 800ms; saved searches work | You | Draft |
-| FR‑019 | FR | Bulk operations | Should | Mass‑tag/move/export with audit | You | Draft |
-| FR‑020 | FR | Dynamic & static collections | Must | Views auto‑refresh; exports reproducible | You | Draft |
-| FR‑026 | FR | Large-binary handling | Must | Manifests; integrity via checksums | You | Draft |
-| FR‑027 | FR | Tiered caching | Must | Cache metrics; offline manifests enable browsing | You | Draft |
-| NFR‑SEC | NFR | E2E encryption & egress block | Must | WG/mTLS + firewall verified | You | Draft |
-| NFR‑PERF | NFR | Capture/search performance | Must | Enqueue <300ms; query p95 <800ms | You | Draft |
+| FR‑001 | FR | Local‑only execution | Must | See AC‑FR‑001 | You | Ready for Build |
+| FR‑002 | FR | Open data formats | Must | See AC‑FR‑002 | You | Ready for Build |
+| FR‑003 | FR | Realm tagging & scoping | Must | See AC‑FR‑003 | You | Ready for Build |
+| FR‑006 | FR | Power-aware scheduling | Must | See AC‑FR‑006 | You | Ready for Build |
+| FR‑014 | FR | Link capture & normalization | Must | See AC‑FR‑014 | You | Ready for Build |
+| FR‑015 | FR | Offline archiving (versioned) | Must | See AC‑FR‑015 | You | Ready for Build |
+| FR‑016 | FR | Plugin processors | Must | See AC‑FR‑016 | You | Ready for Build |
+| FR‑018 | FR | Unified query | Must | See AC‑FR‑018 | You | Ready for Build |
+| FR‑019 | FR | Bulk operations | Should | See AC‑FR‑019 | You | Refinement |
+| FR‑020 | FR | Dynamic & static collections | Must | See AC‑FR‑020 | You | Ready for Build |
+| FR‑026 | FR | Large-binary handling | Must | See AC‑FR‑026 | You | Ready for Build |
+| FR‑027 | FR | Tiered caching | Must | See AC‑FR‑027 | You | Ready for Build |
+| NFR‑SEC | NFR | E2E encryption & egress block | Must | See AC‑NFR‑SEC | You | Ready for Build |
+| NFR‑PERF | NFR | Capture/search performance | Must | See AC‑NFR‑PERF | You | Ready for Build |
