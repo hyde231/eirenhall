@@ -14,8 +14,8 @@
 
 | ID | Title | Description | Priority | Acceptance Criteria |
 | --- | --- | --- | --- | --- |
-| FR-006 | Power-aware scheduling | WoL heavy nodes; auto-sleep idle; defer storage-heavy automation and GPU workloads to scheduled windows aligned with desktop/server availability | Must | Verified by metrics/tests |
-| FR-007 | Orchestrated agents | Spawn/stop containers across nodes | Must | Policy-based placement works |
+| FR-006 | Power-aware scheduling | WoL heavy nodes; auto-sleep idle; defer storage-heavy automation and GPU workloads to scheduled windows aligned with desktop/server availability | Must | Nightly report captures WoL success rate, idle-to-sleep latency, and % of deferred GPU/storage jobs per node; thresholds reviewed when outliers appear |
+| FR-007 | Orchestrated agents | Spawn/stop containers across nodes | Must | Placement policies enumerate node roles (desktop GPU, storage server, Raspberry Pi orchestrator) and hardware capabilities; tests assert workloads land on compatible, available hardware |
 | FR-008 | Secure remote intake | VPN/SSH/bot with authZ | Should | Key-based auth; rate-limited; audited |
 
 ## 5.3 Capture, Archival & Enrichment
@@ -34,7 +34,7 @@
 | FR-018 | Unified query | Full-text + facets (type, realm, tags, date, **capture version/time**) | Must | p95 < 800ms (aspirational, non-binding during feasibility); facet counts consistent |
 | FR-019 | Bulk operations | Mass-tagging, realm move (down-scope by default), export static sets | Should | Dry-run; audited; undo |
 | FR-020 | Dynamic & static collections | Saved dynamic (query-backed) and static (snapshot/export) | Must | Views auto-refresh; exports reproducible |
-| FR-031 | Hierarchical browsing | Provide quick, navigable browsing of stored documents mirroring directory-style hierarchies; may leverage on-demand list generation or cached dynamic queries tied to hierarchy metadata. | Should | Users can traverse hierarchy fields (e.g., full path/wiki structure) without search input; navigation latency comparable to directory browsing |
+| FR-031 | Hierarchical browsing | Provide quick, navigable browsing of stored documents mirroring directory-style hierarchies; may leverage on-demand list generation or cached dynamic queries tied to hierarchy metadata. | Should | Users can traverse arbitrarily deep hierarchy fields (e.g., full path/wiki structure) without search input; on-demand loading keeps desktop navigation snappy while mobile performance is best-effort |
 
 ## 5.5 Extensibility & Evolution
 
