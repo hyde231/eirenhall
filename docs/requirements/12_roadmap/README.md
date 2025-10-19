@@ -1,10 +1,10 @@
 # Roadmap & Releases (Indicative)
 
-- **M1 Discovery:** finalize realm model; type registry skeleton; capture schema/storage layout; persona scaffolding.
-- **M2 Walking Skeleton:** paste URL → archived Markdown; realm enforcement; search; basic Librarian flows; Public demo session.
-- **M3 Alpha:** adapters (web page, YouTube, Instagram); mass tagging; saved searches; backups; GTD board.
-- **M4 Beta:** headless snapshots (Playwright), WARC export, enrichment pipeline, export bundles, ingestion scheduling; Advisor proposals.
-- **M5 GA:** hardening, dashboards, restore drills, full docs & ADRs.
+- **M1 Discovery:** flexible data/metadata model; storage + repository setup; realm model validation; baseline document/GTD/wiki workflows.
+- **M2 Walking Skeleton:** end-to-end capture/search path with realm enforcement; foundational persona scaffolding.
+- **M3 Alpha:** broaden adapters and automation at a high level (capture, saved searches, backups) without deep specification.
+- **M4 Beta:** expand enrichment/export capabilities and scheduling concepts.
+- **M5 GA:** hardening, observability, documentation.
 
 ## Dependencies
 WoL; VPN; storage planning; per-realm key management.
