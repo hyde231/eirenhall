@@ -44,6 +44,9 @@
 | FR-023 | Assistant-led evolution | Expose registry/schemas so assistant can propose/apply changes | Should | Draft type+actions, run sandbox tests, produce report; human gate |
 | FR-024 | Type-specific actions | Plugins declare actions (e.g., read_mode, download_media) | Must | Actions visible in UI/CLI; param validation; audited |
 | FR-025 | Automation rules | If-this-then-that across types | Should | Rule engine evaluates on ingest/update; dry-run; audit |
+| FR-028 | Capability-driven derived views | Items that declare `Workflown`, `Schedulable`, or `Geocoded` capabilities automatically surface Kanban, calendar/timeline, or map heatmap views; plugins opt-in by adding the capability. | Must | Declaring capability exposes the matching view with no manual wiring; removing capability withdraws the view; default list/detail/card views remain available. |
+| FR-029 | Realm-aware defaults & sharing overrides | Newly created items inherit the session's active realm; sharing overrides are modeled as first-class relation items that can supersede the default realm per target. | Must | Items record the session realm by default; share records specify target realm/scope and audit trail; UI exposes active realm & overrides. |
+| FR-030 | First-class relations & composable queries | Named relations (tags, sharing, links) are represented as items managed by core plugins; plugins extend via composition rather than deep inheritance, with expensive relation traversals cacheable as saved lists. | Should | Relations persist as items with source/target metadata; plugins reuse core relation types; heavy multi-hop queries can be materialized into saved searches without schema changes. |
 
 ## 5.6 Large Binaries & Caching
 
