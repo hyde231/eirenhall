@@ -14,8 +14,8 @@
 
 | ID | Title | Description | Priority | Acceptance Criteria |
 | --- | --- | --- | --- | --- |
-| FR-006 | Power-aware scheduling | WoL heavy nodes; auto-sleep idle; defer storage-heavy automation and GPU workloads to scheduled windows aligned with desktop/server availability | Must | Verified by metrics/tests |
-| FR-007 | Orchestrated agents | Spawn/stop containers across nodes | Must | Policy-based placement works |
+| FR-006 | Power-aware scheduling | WoL heavy nodes; auto-sleep idle; defer storage-heavy automation and GPU workloads to scheduled windows aligned with desktop/server availability | Must | Nightly report captures WoL success rate, idle-to-sleep latency, and % of deferred GPU/storage jobs per node; thresholds reviewed when outliers appear. Reports should be stored a "system report" data type, integrated into the system, not external logs |
+| FR-007 | Orchestrated agents | Spawn/stop containers across nodes | Must | Placement policies enumerate node roles (desktop GPU, storage server, Raspberry Pi orchestrator) and hardware capabilities; tests assert workloads land on compatible, available hardware |
 | FR-008 | Secure remote intake | VPN/SSH/bot with authZ | Should | Key-based auth; rate-limited; audited |
 
 ## 5.3 Capture, Archival & Enrichment
@@ -34,7 +34,7 @@
 | FR-018 | Unified query | Full-text + facets (type, realm, tags, date, **capture version/time**) | Must | p95 < 800ms (aspirational, non-binding during feasibility); facet counts consistent |
 | FR-019 | Bulk operations | Mass-tagging, realm move (down-scope by default), export static sets | Should | Dry-run; audited; undo |
 | FR-020 | Dynamic & static collections | Saved dynamic (query-backed) and static (snapshot/export) | Must | Views auto-refresh; exports reproducible |
-| FR-031 | Hierarchical browsing | Provide quick, navigable browsing of stored documents mirroring directory-style hierarchies; may leverage on-demand list generation or cached dynamic queries tied to hierarchy metadata. | Should | Users can traverse hierarchy fields (e.g., full path/wiki structure) without search input; navigation latency comparable to directory browsing |
+| FR-031 | Hierarchical browsing | Provide quick, navigable browsing of stored documents mirroring directory-style hierarchies; may leverage on-demand list generation or cached dynamic queries tied to hierarchy metadata. | Should | Users can traverse arbitrarily deep hierarchy fields (e.g., full path/wiki structure) without search input; on-demand loading keeps desktop navigation snappy while mobile performance is best-effort |
 
 ## 5.5 Extensibility & Evolution
 
@@ -55,6 +55,17 @@
 | --- | --- | --- | --- | --- |
 | FR-026 | Large-binary handling | Multi-TB photos/media without Git cloning | Must | Manifests reference files; integrity via checksums |
 | FR-027 | Tiered caching | Mini PC edge cache by policy (realm/recency/favorites/saved searches) | Must | Cache metrics; offline manifests enable browsing without full media |
+
+## 5.7 Operations, Collaboration & Compliance
+
+| ID | Title | Description | Priority | Acceptance Criteria |
+| --- | --- | --- | --- | --- |
+| FR-032 | Unified observability | Centralize logs, metrics, and traces across orchestrated agents with lightweight dashboards and alert thresholds tailored to solo-operator needs. | Should | Core services emit structured logs/metrics; single dashboard surfaces health; threshold breach triggers local notification |
+| FR-033 | Realm-aware user lifecycle | Provide self-service onboarding/offboarding, role tiers, and audit trails scoped by realm, even if limited to a handful of trusted accounts. | Could | User creation/deactivation flows update audit log; roles enforce realm-scoped access in tests |
+| FR-034 | Collaboration cues | Offer lightweight commenting, tagging for follow-up, or notification hooks so future human collaborators can coordinate around artifacts and automations. | Could | Users can leave comments/flags; notification hook delivers summary to configured channel; history retained with artifact |
+| FR-035 | Resilience drills | Automate periodic backup verification, dependency heartbeat checks, and runbooks for restoring critical services after failure. | Should | Scheduled job exercises restore on sample dataset; heartbeat alerts on dependency outage; runbook validated quarterly |
+| FR-036 | Accessible client experience | Ensure UI components follow accessibility best practices (contrast, keyboard navigation) and remain usable on constrained or offline-first devices. | Could | Accessibility audit checklist passes; core flows keyboard-navigable; responsive layout renders on mobile |
+| FR-037 | Data lifecycle policies | Define retention, legal hold, and export procedures that respect realm boundaries and personal compliance goals. | Should | Configurable retention per realm/type; legal hold prevents deletion; export produces auditable package |
 
 ### Tooling Expectations
 - Core stack shared across personas: Python, Git, Docker, NFS/Samba-accessible storage, and vector databases backing long-term AI memory.
