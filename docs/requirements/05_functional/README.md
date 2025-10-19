@@ -1,5 +1,9 @@
 # Functional Requirements
 
+## Companion Artifacts
+
+- [Home Lab Infrastructure Requirements (v0.6 Draft)](home_lab_infrastructure.md)
+
 ## 5.1 Platform & Security
 
 | ID | Title | Description | Priority | Acceptance Criteria |
