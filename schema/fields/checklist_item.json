@@ -1,0 +1,24 @@
+{
+  "$id": "https://kki.example.com/schema/fields/checklist_item.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Checklist Item",
+  "type": "object",
+  "required": ["id", "label", "checked"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "$ref": "./identifier.json"
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "checked": {
+      "type": "boolean"
+    },
+    "due_at": {
+      "$ref": "./timestamp.json"
+    }
+  }
+}

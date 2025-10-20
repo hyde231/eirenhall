@@ -1,0 +1,33 @@
+{
+  "$id": "https://kki.example.com/schema/fields/rich_text.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Rich Text",
+  "type": "object",
+  "required": ["type", "ops"],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "delta"
+    },
+    "ops": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["insert"],
+        "properties": {
+          "insert": {
+            "type": ["string", "object"]
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": ["string", "number", "boolean"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

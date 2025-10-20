@@ -1,0 +1,56 @@
+{
+  "id": "doc_123456",
+  "item_type": "document",
+  "title": "Quarterly Planning Narrative",
+  "realm": {
+    "id": "corp-strategy",
+    "path": ["global", "corp", "corp-strategy"],
+    "sensitivity_floor": "internal"
+  },
+  "sensitivity": {
+    "classification": "internal",
+    "inherited": true
+  },
+  "capabilities": {
+    "editor.collab": {
+      "enabled": true,
+      "version": "1.2.0",
+      "config": {
+        "max_sessions": 16
+      }
+    },
+    "search.highlight": {
+      "enabled": true,
+      "version": "1.0.0",
+      "config": null
+    }
+  },
+  "owner": {
+    "id": "user_abcd1234",
+    "display_name": "Jamie Strategy",
+    "email": "jamie.strategy@example.com"
+  },
+  "created_at": "2024-01-12T09:30:00Z",
+  "updated_at": "2024-01-14T14:02:11Z",
+  "fields": {
+    "body": {
+      "type": "delta",
+      "ops": [
+        {"insert": "This quarter we will focus on...\n"}
+      ]
+    },
+    "tags": ["q1", "planning"],
+    "last_reviewed_at": "2024-01-14T14:00:00Z"
+  },
+  "metadata": {
+    "sys.last_indexed_at": "2024-01-14T14:05:00Z",
+    "ext.crm.record_id": "sf-5555",
+    "cap.editor": {
+      "autosave": true
+    }
+  },
+  "derived": {
+    "word_count": 428,
+    "reading_time_minutes": 3.1
+  }
+}

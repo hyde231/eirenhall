@@ -1,0 +1,23 @@
+{
+  "$id": "https://kki.example.com/schema/fields/progress_summary.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Progress Summary",
+  "type": "object",
+  "required": ["total", "completed"],
+  "additionalProperties": false,
+  "properties": {
+    "total": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "completed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "percent_complete": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}

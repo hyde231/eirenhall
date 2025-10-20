@@ -1,0 +1,132 @@
+{
+  "$id": "https://kki.example.com/schema/item_base.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Knowledge Item",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "item_type",
+    "title",
+    "realm",
+    "sensitivity",
+    "capabilities",
+    "fields",
+    "metadata",
+    "derived"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "./fields/identifier.json"
+    },
+    "item_type": {
+      "type": "string",
+      "pattern": "^[a-z]+(?:_[a-z]+)*$"
+    },
+    "title": {
+      "$ref": "./fields/title.json"
+    },
+    "realm": {
+      "$ref": "./fields/realm_descriptor.json"
+    },
+    "sensitivity": {
+      "$ref": "./fields/sensitivity_descriptor.json"
+    },
+    "capabilities": {
+      "$ref": "./fields/capabilities.json"
+    },
+    "owner": {
+      "$ref": "./fields/user_reference.json"
+    },
+    "created_at": {
+      "$ref": "./fields/timestamp.json"
+    },
+    "updated_at": {
+      "$ref": "./fields/timestamp.json"
+    },
+    "fields": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "$ref": "./fields/rich_text.json"
+          },
+          {
+            "$ref": "./fields/tag_list.json"
+          },
+          {
+            "$ref": "./fields/timestamp.json"
+          },
+          {
+            "$ref": "./fields/user_reference.json"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "./fields/checklist_item.json"
+            }
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "./fields/user_reference.json"
+            },
+            "minItems": 1
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "./fields/link.json"
+            }
+          }
+        ]
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?:sys|cap|ext\\.[a-z0-9_-]+|tmp)\\..+"
+      }
+    },
+    "derived": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "$ref": "./fields/progress_summary.json"
+          },
+          {
+            "$ref": "./fields/timestamp.json"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$id": "https://kki.example.com/schema/fields/link.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Link",
+  "type": "object",
+  "required": ["title", "url"],
+  "additionalProperties": false,
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["reference", "attachment", "source"]
+    }
+  }
+}

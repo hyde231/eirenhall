@@ -1,0 +1,14 @@
+{
+  "$id": "https://kki.example.com/schema/fields/tag_list.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tag List",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 32,
+    "pattern": "^[a-z0-9][a-z0-9_-]*$"
+  },
+  "uniqueItems": true,
+  "maxItems": 50
+}
