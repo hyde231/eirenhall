@@ -52,6 +52,16 @@
 | FR-028 | Capability-driven derived views | Items that declare `Workflown`, `Schedulable`, or `Geocoded` capabilities automatically surface Kanban, calendar/timeline, or map heatmap views; plugins opt-in by adding the capability. | Must | Declaring capability exposes the matching view with no manual wiring; removing capability withdraws the view; default list/detail/card views remain available. |
 | FR-029 | Realm-aware defaults & sharing overrides | Newly created items inherit the session's active realm; sharing overrides are modeled as first-class relation items that can supersede the default realm per target. | Must | Items record the session realm by default; share records specify target realm/scope and audit trail; UI exposes active realm & overrides. |
 | FR-030 | First-class relations & composable queries | Named relations (tags, sharing, links) are represented as items managed by core plugins; plugins extend via composition rather than deep inheritance, with expensive relation traversals cacheable as saved lists. | Should | Relations persist as items with source/target metadata; plugins reuse core relation types; heavy multi-hop queries can be materialized into saved searches without schema changes. |
+| FR-038 | Derived value pipeline | Schema-declared formulas generate read-only fields (e.g., BMI, age) using canonicalized source data and register provenance for recalculation. | Should | Measurement values normalize to canonical units before evaluation; derived fields refresh whenever inputs change; API/UI flag derived status with traceable formula metadata. |
+| FR-039 | Multi-value & annotation support | Schemas declare cardinality and supply list widgets, ratings, and note threads so repeated fields, reviews, and inline commentary remain first-class without custom plugins. | Should | List fields enforce element type validation; rating scales expose configurable bounds; notes/annotations capture scope, author, timestamps, and resolution metadata; list editors can spawn permitted child items inline so flows like "festival → add concert" never require leaving the parent form. |
+
+### Plugin & Recipe Ecosystem
+
+- **Importers:** OCR, CSV, JSON, HTML, and other structured/unstructured intake surfaces.
+- **Transformers:** Unit converters, schema normalizers, parsers, and enrichment helpers.
+- **Exporters:** CSV/JSON/PDF/HTML packages and webhook targets.
+- **Widgets:** Additional field editors and visualizations that bind to primitive types.
+- **Recipes:** Versioned conversion templates that can be reused and iterated across collections.
 
 ## 5.6 Large Binaries & Caching
 
@@ -74,3 +84,11 @@
 ### Tooling Expectations
 - Core stack shared across personas: Python, Git, Docker, NFS/Samba-accessible storage, and vector databases backing long-term AI memory.
 - Persona-specific tooling will be explored later; prefer alignment to the common stack wherever possible.
+
+## 5.8 Data Operations & Provenance
+
+- **Copy / Clone:** Duplicate objects with optional relation preservation.
+- **Split / Merge:** Combine or separate records with conflict resolution flows.
+- **Duplicate Detection:** Normalize titles, hashes, and metadata similarity to surface collisions.
+- **Similarity Search:** Support vector or heuristic comparisons to reveal related content.
+- **Security & Provenance:** Encrypt sensitive values at rest, log every AI/conversion step with inputs/outputs, and require user confirmation before applying automated transformations.

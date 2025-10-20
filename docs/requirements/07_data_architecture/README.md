@@ -18,6 +18,79 @@ Capability declarations drive derived UX: `Workflown` surfaces Kanban boards, `S
 
 Plugins bundle data definitions, named relations, view descriptors, workflows, and automations. Core plugins ship reusable relation item types (e.g., tags, sharing links) that downstream plugins compose rather than duplicating or introducing deep inheritance chains.
 
+## Primitive & Structured Data Types
+
+The registry defines a standard library of primitives so plugins and importers speak a common language.
+
+| Type | Description | Example | Notes |
+| --- | --- | --- | --- |
+| **Text** | Plain or formatted string | "Annual checkup" | Optional Markdown, HTML, or BBCode markup |
+| **Integer** | Whole number | `12` | Supports signed/unsigned, min/max constraints |
+| **Float / Decimal** | Floating-point or high-precision value | `3.1415` | Distinct type for monetary or scientific accuracy |
+| **Boolean** | True/false (optional null) | `true` | Shown as switch or checkbox |
+| **Date** | Calendar date | `2025-10-20` | ISO format internally |
+| **Time** | Time of day | `13:45:00` | Timezone support optional |
+| **DateTime** | Full timestamp | `2025-10-20T13:45:00+01:00` | Always stored UTC with local display |
+| **Duration** | Time span | `PT1H30M` | ISO-8601 or numeric seconds |
+| **Measurement** | Numeric value + physical unit | `{value: 7.2, unit: "mmol/L"}` | Validated via unit registry; auto-convertible |
+| **Percentage** | Fraction of 100 | `12.5%` | Displayed as percent or slider input |
+| **Currency** | Monetary value + currency code | `{value: 199.99, currency: "EUR"}` | Conversion via rate table, precision rules |
+| **Enum** | One-of predefined list | `"Open"` | Editable or fixed options, scope aware |
+| **Tag (multi)** | Dynamic keyword list | `["finance", "2025"]` | Searchable, sortable, user-extendable |
+| **List<Primitive>** | Ordered set of same-typed primitives | `["red", "blue"]` | Enforces element type; optionally de-duplicates |
+| **List<ItemRef>** | Ordered collection of typed object references | `[{type: "LabResult", id: "abc"}]` | Carries per-entry metadata (`order`, `role?`, `annotation?`, `inline_create?`) |
+| **Markdown / HTML / BBCode** | Formatted text | Markdown content | Optional, depending on context |
+| **JSON** | Structured data | `{...}` | Schema-aware editor |
+| **CSV** | Tabular data | Comma or tab-separated | Header and type inference supported |
+| **URL** | Valid link | `https://example.com` | Metadata enrichment optional |
+| **Image** | Still media | File ref | Preview, EXIF stripping optional |
+| **Video** | Moving media | File ref | Thumbnail, duration metadata |
+| **File** | Arbitrary file ref | Path or blob ID | Checksum dedupe supported |
+| **Folder** | Folder ref | Path | Local or remote scope |
+| **Password / Secret** | Secure string | (masked) | Encrypted at rest, never logged |
+| **GeoPoint** | Lat/long coordinate | `{lat: 50.1, lon: 8.7}` | Accuracy metadata optional |
+| **Rating** | Normalized score within defined scale | `{value: 4, scale: {min: 1, max: 5, step: 1}}` | Supports star/thumb/likert renderings; optional weighting |
+| **Ref<T>** | Reference to another object | Object ID | Single-directional |
+| **Relation<T↔U>** | Typed link between objects | Edge in graph | Bidirectional semantics |
+| **Note / Annotation** | Rich-text comment scoped to item or field | `{body_md, authored_by, authored_at, scope}` | Threaded replies, resolves, provenance |
+
+Lists inherit validation from their element types: a `List<Measurement>` enforces unit declarations per entry, while `List<Tag>` maps to the multi-select taxonomy helper. Item reference lists include ordering and role metadata so playlists, reading lists, or source citations remain explicit, and they advertise whether inline creation is allowed so a parent schema can instantiate new child items (e.g., create a concert while editing a festival) without leaving context. Notes/annotations exist as first-class primitives that plugins can embed within schemas or as capability-provided related items when collaboration is optional.
+
+### Schema Behavior
+
+- **Extensibility:** Schemas can evolve on the fly when new fields are discovered.
+- **Validation:** Type-aware validation (e.g., currency requires numeric value + valid ISO code).
+- **Constraint Levels:** Hard (block save) or soft (warn only).
+- **Versioning:** Schema versions tracked and diffable.
+- **Cardinality:** Fields declare whether they hold a single value or a `List<T>`; list cardinality inherits validation, defaulting, and auditing rules from the underlying primitive or structured type.
+- **Derived formulas:** Schemas declare derived fields as expressions (`derived[]{id, label, source_fields[], expression, unit?}`) that operate on canonicalized source data and emit read-only facets persisted alongside metadata with provenance (`computed_at, inputs, formula_id`).
+
+### Derived & Calculated Values
+
+- **Canonical units:** Measurement and duration primitives normalize into registry-defined base units (e.g., meters, kilograms, seconds) before any derived formula runs; currency amounts convert to configured base currency when the expression requests it.
+- **Execution location:** Plugins own the evaluators/transforms for their data types, but the registry keeps the declarative formula definitions so orchestration, auditing, and UI can reason about them.
+- **Invalidation & refresh:** Derived values recompute whenever a source field changes, when conversion tables update (e.g., currency rates), or on scheduled maintenance runs; failures surface as validation warnings rather than silently serving stale data.
+- **Exposure:** Derived outputs live under a reserved `metadata.derived` namespace, are queryable like other fields, and carry explanatory strings/tooltips so downstream clients can present the formula and units used.
+
+### Notes, Annotations & Review Trails
+
+- **Storage model:** Notes can live inline as `Note / Annotation` primitives on a field (e.g., a measurement with technician remark) or as related items through the `Annotatable` capability when collaboration is optional.
+- **Scoping:** Each note declares its scope (`item`, `field`, `relation`) and inherits the parent realm/sensitivity tags to prevent leaks across compartments.
+- **Lifecycle:** Notes support reply threads, resolution state, and provenance metadata (`authored_by`, `authored_at`, `resolved_at?`, `resolution_note?`) so that audits and collaboration timelines remain reconstructable.
+
+### Conversion & Mapping
+
+#### Intelligent Conversion
+- AI-assisted parsing of unstructured inputs (e.g., OCR from a photo or PDF).
+- Pattern recognition for currencies (€, $, etc.), units (mg/dL), percentages (%), and dates.
+- Auto-suggestion of field types and relations.
+
+#### Guided Mapping UI
+- **Left panel:** Detected fields and inferred types.
+- **Right panel:** Target schema with required fields.
+- **Connections:** Drawn as splines, colored by confidence and type compatibility.
+- **Conversion Recipes:** Saved, editable, reusable across similar imports.
+
 ### Captures
 `capture_id, captured_at, paths, hashes, size, tool_versions` (multiple per Item).
 
