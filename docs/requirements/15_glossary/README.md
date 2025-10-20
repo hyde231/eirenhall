@@ -2,7 +2,8 @@
 
 - **Item:** Typed, realm-scoped content entity.
 - **Capture:** Time-stamped snapshot/version of an Item.
-- **Realm:** Privacy boundary (configurable names) such as `Shared`, `Household`, `Personal`, `Intimate`; governs storage prefixes, credentials, and sharing policies.
+- **Access Level:** Governance tier (e.g., `Intimate`, `Personal`, `Household`, `Shared`, `Guest`) that defines sensitivity, audit expectations, and default policies for any realms instantiated under it.
+- **Realm:** Workspace instance bound to a single access level (e.g., "Travel Planning" at the Personal level) that inherits policy defaults while maintaining its own membership, storage prefixes, credentials, and lifecycle history.
 - **Sensitivity:** Visibility control (configurable levels) determining UI/API presentation within a realm.
 - **Tag:** First-class classification entity (ID, aliases, hierarchy, lineage).
 - **Manifest:** Open JSON/YAML index of Items & file references (sidecar files that travel with content).

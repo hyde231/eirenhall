@@ -11,6 +11,7 @@
 | FR-001 | Local-only execution | All inference/tools run on LAN/local hosts only | Must | Egress monitor: 0 external connections in core flows |
 | FR-002 | Open data formats | Store as Markdown/CSV/JSON/YAML (no lock-in) | Must | Round-trip tests; external readability |
 | FR-003 | Realm tagging & scoping | Every artifact carries a realm tag; tools respect active cap | Must | Zero cross-realm leakage in tests |
+| FR-040 | Access-level templates & realm lifecycle | Access levels define reusable policy bundles; operators can create, clone, split, merge, and archive realms derived from those templates with full audit trails. | Must | Admin can instantiate a new realm from an access level, execute clone/split/merge flows in tests, and observe lineage + policy inheritance in audit logs |
 | FR-004 | Encrypted backup/restore | One-command encrypted backup; selective restore | Must | Nightly job; restore drills pass |
 | FR-005 | Capability/type registry | Types declare schema, capabilities, facets, actions, migrations | Must | New types auto-gain generic views; migrations pass tests |
 
@@ -75,7 +76,7 @@
 | ID | Title | Description | Priority | Acceptance Criteria |
 | --- | --- | --- | --- | --- |
 | FR-032 | Unified observability | Centralize logs, metrics, and traces across orchestrated agents with lightweight dashboards and alert thresholds tailored to solo-operator needs. | Should | Core services emit structured logs/metrics; single dashboard surfaces health; threshold breach triggers local notification |
-| FR-033 | Realm-aware user lifecycle | Provide self-service onboarding/offboarding, role tiers, and audit trails scoped by realm, even if limited to a handful of trusted accounts. | Could | User creation/deactivation flows update audit log; roles enforce realm-scoped access in tests |
+| FR-033 | Realm-aware user lifecycle | Provide self-service onboarding/offboarding, role tiers, and audit trails scoped by realm, even if limited to a handful of trusted accounts. Ensure each access level supports delegated admins who can manage realms instantiated at that level. | Could | User creation/deactivation flows update audit log; roles enforce realm-scoped access in tests; delegated admins can manage realm lifecycle actions for their access level without elevating to global root |
 | FR-034 | Collaboration cues | Offer lightweight commenting, tagging for follow-up, or notification hooks so future human collaborators can coordinate around artifacts and automations. | Could | Users can leave comments/flags; notification hook delivers summary to configured channel; history retained with artifact |
 | FR-035 | Resilience drills | Automate periodic backup verification, dependency heartbeat checks, and runbooks for restoring critical services after failure. | Should | Scheduled job exercises restore on sample dataset; heartbeat alerts on dependency outage; runbook validated quarterly |
 | FR-036 | Accessible client experience | Ensure UI components follow accessibility best practices (contrast, keyboard navigation) and remain usable on constrained or offline-first devices. | Could | Accessibility audit checklist passes; core flows keyboard-navigable; responsive layout renders on mobile |
@@ -87,8 +88,8 @@
 
 ## 5.8 Data Operations & Provenance
 
-- **Copy / Clone:** Duplicate objects with optional relation preservation.
-- **Split / Merge:** Combine or separate records with conflict resolution flows.
+- **Copy / Clone:** Duplicate objects or whole realms with optional relation preservation and inherited access-level policies.
+- **Split / Merge:** Combine or separate records or realms with conflict resolution flows and explicit lineage tracking.
 - **Duplicate Detection:** Normalize titles, hashes, and metadata similarity to surface collisions.
 - **Similarity Search:** Support vector or heuristic comparisons to reveal related content.
 - **Security & Provenance:** Encrypt sensitive values at rest, log every AI/conversion step with inputs/outputs, and require user confirmation before applying automated transformations.
