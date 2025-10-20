@@ -1,0 +1,7 @@
+{
+  "$id": "https://kki.example.com/schema/fields/task_status.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Task Status",
+  "type": "string",
+  "enum": ["not_started", "in_progress", "blocked", "complete"]
+}

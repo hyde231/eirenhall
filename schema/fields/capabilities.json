@@ -1,0 +1,13 @@
+{
+  "$id": "https://kki.example.com/schema/fields/capabilities.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Capabilities Map",
+  "type": "object",
+  "propertyNames": {
+    "type": "string",
+    "pattern": "^[a-z]+(?:\\.[a-z0-9_]+)*$"
+  },
+  "additionalProperties": {
+    "$ref": "./capability_entry.json"
+  }
+}

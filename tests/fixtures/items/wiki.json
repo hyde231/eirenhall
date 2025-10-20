@@ -1,0 +1,60 @@
+{
+  "id": "wiki_987654",
+  "item_type": "wiki",
+  "title": "Runbook: Incident Response",
+  "realm": {
+    "id": "it-operations",
+    "path": ["global", "operations", "it-operations"],
+    "sensitivity_floor": "internal"
+  },
+  "sensitivity": {
+    "classification": "internal",
+    "inherited": true
+  },
+  "capabilities": {
+    "wiki.nav": {
+      "enabled": true,
+      "version": "1.1.0",
+      "config": {
+        "breadcrumbs": true
+      }
+    },
+    "alerts.subscribe": {
+      "enabled": false,
+      "version": "0.9.0",
+      "config": {
+        "allowed_roles": ["oncall"]
+      }
+    }
+  },
+  "created_at": "2023-11-20T12:15:00Z",
+  "updated_at": "2024-01-02T18:22:44Z",
+  "fields": {
+    "body": {
+      "type": "delta",
+      "ops": [
+        {"insert": "Use this runbook to triage incidents...\n"}
+      ]
+    },
+    "links": [
+      {
+        "title": "PagerDuty Escalation",
+        "url": "https://pagerduty.example.com/escalation",
+        "kind": "reference"
+      },
+      {
+        "title": "Status Page",
+        "url": "https://status.example.com",
+        "kind": "reference"
+      }
+    ]
+  },
+  "metadata": {
+    "sys.owner_team": "operations",
+    "ext.confluence.page_id": "conf-112233"
+  },
+  "derived": {
+    "last_activity_at": "2024-01-02T18:22:44Z",
+    "word_count": 612
+  }
+}
