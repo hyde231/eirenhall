@@ -1,0 +1,6 @@
+type: document
+schema: item_base.json
+capabilities:
+  - read
+  - write
+  - comment
