@@ -1,0 +1,58 @@
+{
+  "$id": "https://kki.example.com/schema/fields/content_rating.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Content Rating",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["system", "rating"],
+  "properties": {
+    "system": {
+      "type": "string",
+      "enum": [
+        "mpaa",
+        "bbfc",
+        "fsk",
+        "pegi",
+        "esrb",
+        "csa",
+        "csae",
+        "oflc",
+        "cbfc",
+        "tvpg",
+        "commonsense"
+      ],
+      "description": "Rating authority or classification system."
+    },
+    "rating": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16,
+      "description": "Rating code defined by the classification system."
+    },
+    "age_recommendation": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 21,
+      "description": "Minimum recommended viewer age in years."
+    },
+    "descriptors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "uniqueItems": true,
+      "maxItems": 12,
+      "description": "Supplemental content descriptors published with the rating."
+    },
+    "region": {
+      "$ref": "./country_code.json",
+      "description": "Country or region where the rating applies."
+    },
+    "issued_on": {
+      "$ref": "./calendar_date.json",
+      "description": "Date when the rating was issued."
+    }
+  }
+}

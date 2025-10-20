@@ -1,0 +1,6 @@
+type: account_statement
+schema: item_base.json
+capabilities:
+  - read
+  - write
+  - comment

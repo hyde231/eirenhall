@@ -1,0 +1,69 @@
+{
+  "$id": "https://kki.example.com/schema/data_types/bank_account.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bank Account",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["account_number", "institution_code"],
+  "properties": {
+    "account_number": {
+      "$ref": "../fields/iban.json",
+      "description": "Primary account number in IBAN format."
+    },
+    "institution_code": {
+      "$ref": "../fields/financial_institution_identifier.json",
+      "description": "Identifier of the servicing financial institution (BIC or national code)."
+    },
+    "account_name": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Display name used for the account."
+    },
+    "institution_name": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Name of the financial institution."
+    },
+    "account_type": {
+      "type": "string",
+      "maxLength": 64,
+      "description": "Product category such as checking, savings, or credit card."
+    },
+    "owner": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Primary owner or holder of the account."
+    },
+    "country": {
+      "$ref": "../fields/country_code.json",
+      "description": "Country where the account is domiciled."
+    },
+    "primary_currency": {
+      "$ref": "../fields/currency_code.json",
+      "description": "Default operating currency for the account."
+    },
+    "current_balance": {
+      "$ref": "../fields/money_amount.json",
+      "description": "Most recent posted balance."
+    },
+    "available_balance": {
+      "$ref": "../fields/money_amount.json",
+      "description": "Available balance including pending transactions."
+    },
+    "transactions": {
+      "$ref": "./bank_transaction_list.json",
+      "description": "Recent transactions associated with the account."
+    },
+    "statements": {
+      "type": "array",
+      "items": {
+        "$ref": "./account_statement.json"
+      },
+      "description": "Historical account statements."
+    },
+    "contact": {
+      "$ref": "../fields/postal_address.json",
+      "description": "Mailing address associated with the account."
+    }
+  }
+}

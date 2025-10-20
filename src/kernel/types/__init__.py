@@ -10,6 +10,7 @@ from .base import (
     list_registered_types,
 )
 from .document import DocumentType
+from .finance import AccountStatementType, FinancialAccountType, FinancialTransactionType
 from .task import TaskType
 from .wiki import WikiType
 
@@ -21,6 +22,9 @@ __all__ = [
     "TypeManifest",
     "TypeDefinitionMixin",
     "DocumentType",
+    "FinancialTransactionType",
+    "AccountStatementType",
+    "FinancialAccountType",
     "TaskType",
     "WikiType",
 ]

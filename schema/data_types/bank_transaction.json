@@ -1,0 +1,80 @@
+{
+  "$id": "https://kki.example.com/schema/data_types/bank_transaction.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bank Transaction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["booking_date", "amount"],
+  "properties": {
+    "transaction_id": {
+      "type": "string",
+      "maxLength": 64,
+      "description": "Identifier assigned to the transaction in the source system."
+    },
+    "booking_date": {
+      "$ref": "../fields/calendar_date.json",
+      "description": "Date the transaction was booked by the financial institution."
+    },
+    "value_date": {
+      "$ref": "../fields/calendar_date.json",
+      "description": "Value date on which the amount impacts the account balance."
+    },
+    "entry_type": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Booking classification or operation description supplied by the bank."
+    },
+    "counterparty_name": {
+      "type": "string",
+      "maxLength": 256,
+      "description": "Name of the counterparty involved in the transaction."
+    },
+    "counterparty_account": {
+      "$ref": "../fields/iban.json",
+      "description": "IBAN of the counterparty when available."
+    },
+    "counterparty_bank": {
+      "$ref": "../fields/financial_institution_identifier.json",
+      "description": "Identifier of the counterparty's financial institution."
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1024,
+      "description": "Detailed text description from the bank statement."
+    },
+    "amount": {
+      "$ref": "../fields/money_amount.json",
+      "description": "Signed monetary amount of the transaction."
+    },
+    "balance_after_transaction": {
+      "$ref": "../fields/money_amount.json",
+      "description": "Account balance directly after the transaction was applied."
+    },
+    "tags": {
+      "$ref": "../fields/tag_list.json",
+      "description": "User-defined tags categorizing the transaction."
+    },
+    "manual_entry": {
+      "type": "boolean",
+      "description": "True when the transaction was entered or adjusted manually by a user."
+    },
+    "source_system": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Originating import connector or source system."
+    },
+    "comment": {
+      "type": "string",
+      "maxLength": 1024,
+      "description": "Reviewer comments or internal notes."
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "$ref": "../fields/object_reference.json"
+      },
+      "description": "References to supporting documents such as invoices or receipts."
+    }
+  }
+}

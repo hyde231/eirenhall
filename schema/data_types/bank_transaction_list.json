@@ -1,0 +1,26 @@
+{
+  "$id": "https://kki.example.com/schema/data_types/bank_transaction_list.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bank Transaction List",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["transactions"],
+  "properties": {
+    "transactions": {
+      "type": "array",
+      "items": {
+        "$ref": "./bank_transaction.json"
+      },
+      "description": "Ordered collection of bank transactions."
+    },
+    "generated_at": {
+      "$ref": "../fields/timestamp.json",
+      "description": "Timestamp when the list was generated or imported."
+    },
+    "source_system": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Originating system or connector that supplied the transactions."
+    }
+  }
+}

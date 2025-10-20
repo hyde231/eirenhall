@@ -1,0 +1,29 @@
+{
+  "$id": "https://kki.example.com/schema/fields/price.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Price",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["amount"],
+  "description": "Monetary amount representing a price, including optional tax metadata.",
+  "properties": {
+    "amount": {
+      "$ref": "./money_amount.json",
+      "description": "Base monetary amount for the price."
+    },
+    "tax_included": {
+      "type": "boolean",
+      "description": "Indicates whether the price already includes applicable taxes."
+    },
+    "tax_code": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "description": "Identifier of the tax regime applied to the price."
+    },
+    "effective_date": {
+      "$ref": "./calendar_date.json",
+      "description": "Date when the price becomes effective."
+    }
+  }
+}

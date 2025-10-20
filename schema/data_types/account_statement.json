@@ -1,0 +1,54 @@
+{
+  "$id": "https://kki.example.com/schema/data_types/account_statement.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Account Statement",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["period_start", "period_end", "transactions"],
+  "properties": {
+    "statement_id": {
+      "type": "string",
+      "maxLength": 64,
+      "description": "Identifier assigned to the account statement by the source system."
+    },
+    "statement_name": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Human-readable label for the statement."
+    },
+    "issued_on": {
+      "$ref": "../fields/calendar_date.json",
+      "description": "Date the statement was issued."
+    },
+    "period_start": {
+      "$ref": "../fields/calendar_date.json",
+      "description": "First calendar date covered by the statement."
+    },
+    "period_end": {
+      "$ref": "../fields/calendar_date.json",
+      "description": "Last calendar date covered by the statement."
+    },
+    "opening_balance": {
+      "$ref": "../fields/money_amount.json",
+      "description": "Account balance at the start of the statement period."
+    },
+    "closing_balance": {
+      "$ref": "../fields/money_amount.json",
+      "description": "Account balance at the end of the statement period."
+    },
+    "source_system": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "System that produced or supplied the statement."
+    },
+    "transactions": {
+      "$ref": "./bank_transaction_list.json",
+      "description": "Transactions included in this statement."
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 1024,
+      "description": "Optional reviewer notes."
+    }
+  }
+}

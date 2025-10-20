@@ -1,0 +1,52 @@
+{
+  "$id": "https://kki.example.com/schema/fields/social_media_contact.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Social Media Contact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["platform", "handle"],
+  "properties": {
+    "platform": {
+      "type": "string",
+      "enum": [
+        "instagram",
+        "tiktok",
+        "facebook",
+        "twitter",
+        "x",
+        "linkedin",
+        "youtube",
+        "twitch",
+        "threads",
+        "mastodon",
+        "bluesky",
+        "snapchat",
+        "pinterest",
+        "wechat",
+        "whatsapp",
+        "reddit",
+        "discord"
+      ],
+      "description": "Supported social media platform."
+    },
+    "handle": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]{1,64}$",
+      "description": "Canonical handle or username on the platform."
+    },
+    "display_name": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Display name when it differs from the handle."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Direct link to the social media profile."
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Indicates whether the profile is marked as verified."
+    }
+  }
+}

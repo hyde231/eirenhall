@@ -1,0 +1,47 @@
+{
+  "$id": "https://kki.example.com/schema/fields/postal_address.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Postal Address",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["address_lines", "locality", "country"],
+  "properties": {
+    "address_lines": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+      "minItems": 1,
+      "maxItems": 4,
+      "description": "Ordered address lines from street to suite or building information."
+    },
+    "locality": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "description": "City, town, or locality."
+    },
+    "region": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "description": "State, province, or administrative region."
+    },
+    "postal_code": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "description": "Postal or ZIP code."
+    },
+    "country": {
+      "$ref": "./country_code.json",
+      "description": "ISO 3166-1 alpha-2 country code."
+    },
+    "geo": {
+      "$ref": "./geo_point.json",
+      "description": "Optional geographic coordinates for the address."
+    }
+  }
+}

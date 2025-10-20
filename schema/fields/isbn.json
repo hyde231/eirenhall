@@ -1,0 +1,10 @@
+{
+  "$id": "https://kki.example.com/schema/fields/isbn.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ISBN",
+  "type": "string",
+  "pattern": "^(97(8|9))?[0-9]{9}([0-9X])$",
+  "minLength": 10,
+  "maxLength": 13,
+  "description": "ISBN-10 or ISBN-13 code without separators or whitespace."
+}

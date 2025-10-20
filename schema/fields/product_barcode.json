@@ -1,0 +1,38 @@
+{
+  "$id": "https://kki.example.com/schema/fields/product_barcode.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Product Barcode",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scheme", "value"],
+  "properties": {
+    "scheme": {
+      "type": "string",
+      "enum": [
+        "ean8",
+        "ean13",
+        "ean14",
+        "upca",
+        "upce",
+        "code128",
+        "code39",
+        "itf14",
+        "qr",
+        "data_matrix"
+      ],
+      "description": "Barcode symbology or encoding."
+    },
+    "value": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]+$",
+      "minLength": 6,
+      "maxLength": 64,
+      "description": "Barcode value without separators or whitespace."
+    },
+    "label": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Optional label displayed alongside the barcode."
+    }
+  }
+}

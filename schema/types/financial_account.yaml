@@ -1,0 +1,7 @@
+type: financial_account
+schema: item_base.json
+capabilities:
+  - read
+  - write
+  - comment
+  - manage
