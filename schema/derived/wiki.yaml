@@ -1,0 +1,23 @@
+{
+  "type": "wiki",
+  "metrics": [
+    {
+      "key": "link_count",
+      "description": "Total number of links captured in the wiki entry.",
+      "operation": "length",
+      "config": {"path": "fields.links"}
+    },
+    {
+      "key": "reference_links",
+      "description": "Links that are explicitly tagged as external references.",
+      "operation": "count_where",
+      "config": {"path": "fields.links", "field": "kind", "equals": "reference"}
+    },
+    {
+      "key": "has_body",
+      "description": "Whether the wiki entry exposes any body content.",
+      "operation": "exists",
+      "config": {"path": "fields.body.ops"}
+    }
+  ]
+}

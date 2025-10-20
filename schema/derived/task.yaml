@@ -1,0 +1,29 @@
+{
+  "type": "task",
+  "metrics": [
+    {
+      "key": "checklist_total",
+      "description": "Total checklist entries captured on the task record.",
+      "operation": "length",
+      "config": {"path": "fields.checklist"}
+    },
+    {
+      "key": "checklist_completed",
+      "description": "Checklist entries that have been marked as completed.",
+      "operation": "count_where",
+      "config": {"path": "fields.checklist", "field": "checked", "equals": true}
+    },
+    {
+      "key": "completion_ratio",
+      "description": "Fraction of the checklist that has been completed.",
+      "operation": "ratio",
+      "depends_on": ["checklist_total", "checklist_completed"],
+      "config": {
+        "numerator": "checklist_completed",
+        "denominator": "checklist_total",
+        "default": 0.0,
+        "precision": 2
+      }
+    }
+  ]
+}
