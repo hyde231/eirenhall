@@ -74,6 +74,9 @@
             "$ref": "./fields/user_reference.json"
           },
           {
+            "$ref": "./fields/object_reference.json"
+          },
+          {
             "type": "array",
             "items": {
               "$ref": "./fields/checklist_item.json"
@@ -89,6 +92,12 @@
           {
             "type": "array",
             "items": {
+              "$ref": "./fields/object_reference.json"
+            }
+          },
+          {
+            "type": "array",
+            "items": {
               "$ref": "./fields/link.json"
             }
           }
@@ -99,7 +108,7 @@
       "type": "object",
       "propertyNames": {
         "type": "string",
-        "pattern": "^(?:sys|cap|ext\\.[a-z0-9_-]+|tmp)\\..+"
+        "pattern": "^(?:(?:sys|tmp)\\.[a-z0-9_.-]+|cap\\.[a-z0-9_]+(?:\\.[a-z0-9_]+)+|ext\\.[a-z0-9_-]+\\.[a-z0-9_.-]+)$"
       }
     },
     "derived": {

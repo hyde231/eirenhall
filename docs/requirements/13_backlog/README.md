@@ -20,3 +20,4 @@ pairing.
 | FR‑027 | FR | Tiered caching | Must | See AC‑FR‑027 | You | Ready for Build |
 | NFR‑SEC | NFR | E2E encryption & egress block | Must | See AC‑NFR‑SEC | You | Ready for Build |
 | NFR‑PERF | NFR | Capture/search performance | Must | See AC‑NFR‑PERF | You | Ready for Build |
+

@@ -40,6 +40,20 @@
         "display_name": "Eli Observability"
       }
     ],
+    "primary_dependency": {
+      "object_type": "task",
+      "object_id": "task_123123",
+      "uri": "kki://item/task_123123",
+      "relationship": "depends-on"
+    },
+    "related_objects": [
+      {
+        "object_type": "wiki",
+        "object_id": "wiki_runbook",
+        "uri": "kki://item/wiki_runbook",
+        "relationship": "runbook"
+      }
+    ],
     "checklist": [
       {
         "id": "chk1abcd",
@@ -59,7 +73,7 @@
   },
   "derived": {
     "is_overdue": false,
-    "progress": {
+    "progress_summary": {
       "total": 5,
       "completed": 2,
       "percent_complete": 0.4

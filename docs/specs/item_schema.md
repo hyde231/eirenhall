@@ -25,6 +25,18 @@ The schema disallows undeclared top-level properties to keep the envelope
 stable. Optional envelope members must be explicitly whitelisted in
 `schema/item_base.json`.
 
+Metadata namespace and capability naming follow the rules outlined in
+[Naming Conventions](naming_conventions.md) and the governance practices in
+[Metadata Governance](metadata_governance.md). Reusable field definitions live
+in the [Field Library](field_library.md) and should be referenced rather than
+duplicated in item schemas; link-related fields must follow the
+[Linking & Backlink Specification](linking_and_backlinks.md).
+
+Field payloads SHOULD reuse the cataloged composites. The base item schema now
+accepts both singular and array forms of `std.object_ref`, enabling items to
+point at related tasks, wikis, datasets, or other registry members without custom
+ad hoc objects.
+
 ## Realm & Sensitivity Inheritance
 
 Realms provide hierarchical context and drive default sensitivity. The schema

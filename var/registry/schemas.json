@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-10-20T13:46:10.295510Z",
+  "generated_at": "2025-10-20T14:21:01.895258Z",
   "schemas": {
     "dashboard.yaml": {
-      "checksum": "e72080f70b18bb8722e78d056a85b60af38213514bcb014265cf5f0bdbe2683d"
+      "checksum": "8789fc41f74986fe4770f36754def43880d19c932cb85d75f2d9aa48538aca28"
     },
     "document.yaml": {
       "checksum": "96703c8dd8791950c22137ad5002f3ed0cb4150eb275a7203150647d3e401e78"

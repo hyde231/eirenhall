@@ -45,9 +45,7 @@
   "metadata": {
     "sys.last_indexed_at": "2024-01-14T14:05:00Z",
     "ext.crm.record_id": "sf-5555",
-    "cap.editor": {
-      "autosave": true
-    }
+    "cap.editor.collab.autosave": true
   },
   "derived": {
     "word_count": 428,

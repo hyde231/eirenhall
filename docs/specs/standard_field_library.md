@@ -213,37 +213,47 @@ Composites compose primitives to capture real-world constructs.
      `email` (`std.email`), optional `avatar` (`std.url`).
    - Use cases: Assignments, audit trails, comment authorship.
 
-10. **Attachment Manifest** (`std.attachment_manifest`)
+10. **Object Reference** (`std.object_ref`)
+    - Properties: `object_type` (`std.slug` identifying the registry item or resource class),
+      `object_id` (`std.identifier`), optional `uri` (`std.url` supporting `kki://` and
+      external schemes), optional `display_name` (`std.short_text`), optional `relationship`
+      (`std.slug` scoped to the field definition), optional `version` (`std.integer`), and
+      optional `notes` (`std.rich_text` describing the linkage context).
+    - Use cases: Cross-object linking, dependency tracking, referencing upstream datasets,
+      embedding related incidents or assets in field payloads. Collections SHOULD be modeled
+      as arrays of `std.object_ref` unless a domain-specific composite is required.
+
+11. **Attachment Manifest** (`std.attachment_manifest`)
     - Properties: `attachmentId` (`std.identifier`), `label` (`std.short_text`),
       `binary` (`std.binary_ref`), `source` (`std.url`), `capturedAt`
       (`std.timestamp`), optional `checksum` (multihash), `capabilities`
       (`array` of `std.enum` describing view/annotate rights).
     - Use cases: Capture pipeline, archival metadata, compliance reviews.
 
-11. **Capture Metadata** (`std.capture_metadata`)
+12. **Capture Metadata** (`std.capture_metadata`)
     - Properties: `sourceSystem` (`std.short_text`), `ingestedAt` (`std.timestamp`),
       `ingestedBy` (`std.user_ref`), `pipeline` (`std.slug`), `quality`
       (`std.enum`), optional `notes` (`std.rich_text`).
     - Use cases: Ingestion recipes, audit reporting, data lineage.
 
-12. **Lifecycle State** (`std.lifecycle_state`)
+13. **Lifecycle State** (`std.lifecycle_state`)
     - Properties: `state` (`std.enum`), `enteredAt` (`std.timestamp`),
       `enteredBy` (`std.user_ref`), optional `transitionReason`
       (`std.rich_text`).
     - Use cases: Workflow automation, governance reporting.
 
-13. **Sensitivity Descriptor** (`std.sensitivity_descriptor`)
+14. **Sensitivity Descriptor** (`std.sensitivity_descriptor`)
     - Aligns with existing schema definition, extends to include `justification`
       (`std.rich_text`) and `reviewDate` (`std.date`).
     - Use cases: Access control, compliance attestations.
 
-14. **Realm Descriptor** (`std.realm_descriptor`)
+15. **Realm Descriptor** (`std.realm_descriptor`)
     - Properties: `realmId` (`std.slug`), `displayName` (`std.short_text`),
       `type` (`std.enum`), `defaultSensitivity` (`std.enum`), optional `parent`
       (`std.slug`).
     - Use cases: Multi-tenant scoping, capture routing, capability defaulting.
 
-15. **Capability Entry** (`std.capability_entry`)
+16. **Capability Entry** (`std.capability_entry`)
     - Properties: `capabilityId` (`std.slug`), `version` (`std.integer`),
       `surface` (`std.enum` of `viewable`, `workflown`, `schedulable`,
       `annotatable`), `actions` (array of `std.slug`), optional `constraints`

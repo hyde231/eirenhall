@@ -1,0 +1,48 @@
+﻿{
+  "$id": "https://kki.example.com/schema/relations/link_relation.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Link Relation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "source",
+    "target",
+    "kind",
+    "first_seen_at",
+    "last_seen_at"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "../fields/identifier.json"
+    },
+    "source": {
+      "$ref": "../fields/object_reference.json"
+    },
+    "target": {
+      "$ref": "../fields/object_reference.json"
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["item", "capture", "attachment", "realm", "external", "include"]
+    },
+    "context": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.]*(?:/[a-z0-9_.-]+)*$"
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "first_seen_at": {
+      "$ref": "../fields/timestamp.json"
+    },
+    "last_seen_at": {
+      "$ref": "../fields/timestamp.json"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

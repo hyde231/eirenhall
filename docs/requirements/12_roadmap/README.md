@@ -7,6 +7,7 @@ Each milestone now ties directly to backlog entries so progress can be tracked i
 - **M1 Discovery (Weeks 1‑2):**
   - Establish storage + repository, realm model validation → groundwork for FR‑003, NFR‑SEC.
   - Document baselines for formats and data contracts → FR‑002, FR‑015, Formats & Compatibility commitments.
+  - Defer infrastructure enablement (WoL, orchestration, hardware prep) to M2+ so the PoC can focus on data and storage.
 - **M2 Walking Skeleton (Weeks 3‑4):**
   - Deliver local-only capture loop with realm enforcement → FR‑001, FR‑014, FR‑018 (happy path).
   - Stand up telemetry + uptime checks → NFR‑PERF, Reliability targets.
@@ -21,6 +22,6 @@ Each milestone now ties directly to backlog entries so progress can be tracked i
   - Operability polish: dashboards, runbooks, docs → Operability commitments, residual FR/NFR cleanup.
 
 ## Dependencies
-- Wake-on-LAN readiness for FR‑006 and nightly maintenance windows.
+- Wake-on-LAN readiness for FR‑006 and nightly maintenance windows is rescheduled to M2 alongside wider infrastructure tasks.
 - VPN availability for remote administration without violating FR‑001.
 - Storage planning + per-realm key management ahead of M2 security tests.

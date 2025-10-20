@@ -3,6 +3,8 @@
 ## Overview
 Milestone M1 ("Discovery") establishes the foundational capabilities required for the knowledge kernel initiative. The sprint spans Weeks 1-2 and focuses on defining the canonical data model, validating realm and sensitivity handling, and preparing ingestion and storage pathways that later milestones will extend.
 
+> **Scope note:** Infrastructure enablement (e.g., Wake-on-LAN, power-aware orchestration, hardware readiness) is explicitly deferred to later milestones so M1 can concentrate on data modeling and storage primitives.
+
 ## Objectives
 - Deliver a unified Item model that supports documents, GTD-style tasks, and wiki entries from the outset.
 - Stand up the type registry and capability mix-in framework so new item types can be added safely.
@@ -43,9 +45,9 @@ Milestone M1 ("Discovery") establishes the foundational capabilities required fo
   - Validate registry lifecycle with plugin add/remove tests and document migration process.
 
 ## Dependencies & Coordination
-- Confirm Wake-on-LAN readiness for after-hours schema migrations and large ingestion jobs.
 - Align with security to approve per-realm key management approach before registry activation.
 - Coordinate with operations for storage provisioning that meets manifest-first handling requirements.
+- Schedule Wake-on-LAN and broader infrastructure readiness reviews for the next milestone (M2) once the PoC storage flows are validated.
 
 ## Acceptance Criteria
 - All core schemas and capability definitions reviewed and merged into the shared registry repository.

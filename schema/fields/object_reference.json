@@ -1,0 +1,44 @@
+{
+  "$id": "https://kki.example.com/schema/fields/object_reference.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Object Reference",
+  "type": "object",
+  "required": ["object_type", "object_id"],
+  "additionalProperties": false,
+  "properties": {
+    "object_type": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Registry slug identifying the referenced object class."
+    },
+    "object_id": {
+      "$ref": "./identifier.json",
+      "description": "Canonical identifier of the referenced object."
+    },
+    "uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional URI for dereferencing the object, supports kki:// and external schemes."
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Optional human-readable label for presentation contexts."
+    },
+    "relationship": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Optional slug describing how the host field relates to the referenced object."
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Optional monotonic version or revision number for the object."
+    },
+    "notes": {
+      "$ref": "./rich_text.json",
+      "description": "Optional rich text notes capturing provenance or context for the link."
+    }
+  }
+}

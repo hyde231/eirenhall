@@ -1,0 +1,24 @@
+{
+  "$id": "https://kki.example.com/schema/fields/geo_point.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Geo Point",
+  "type": "object",
+  "required": ["latitude", "longitude"],
+  "additionalProperties": false,
+  "properties": {
+    "latitude": {
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "longitude": {
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180
+    },
+    "altitude": {
+      "type": "number",
+      "description": "Altitude in meters relative to mean sea level."
+    }
+  }
+}

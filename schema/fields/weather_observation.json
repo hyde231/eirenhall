@@ -1,0 +1,149 @@
+{
+  "$id": "https://kki.example.com/schema/fields/weather_observation.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Weather Observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["observed_at", "location", "weather_code"],
+  "properties": {
+    "observed_at": {
+      "$ref": "./timestamp.json",
+      "description": "Timestamp when the observation was recorded."
+    },
+    "location": {
+      "$ref": "./geo_point.json",
+      "description": "Geospatial position of the observing station."
+    },
+    "temperature": {
+      "$ref": "./measurement.json",
+      "description": "Air temperature at two meters."
+    },
+    "humidity": {
+      "$ref": "./measurement.json",
+      "description": "Relative humidity percentage."
+    },
+    "pressure": {
+      "$ref": "./measurement.json",
+      "description": "Surface pressure."
+    },
+    "dew_point": {
+      "$ref": "./measurement.json",
+      "description": "Dew point temperature."
+    },
+    "apparent_temperature": {
+      "$ref": "./measurement.json",
+      "description": "Apparent (feels-like) temperature."
+    },
+    "weather_code": {
+      "type": "string",
+      "enum": [
+        "00","01","02","03","04","05","06","07","08","09",
+        "10","11","12","13","14","15","16","17","18","19",
+        "20","21","22","23","24","25","26","27","28","29",
+        "30","31","32","33","34","35","36","37","38","39",
+        "40","41","42","43","44","45","46","47","48","49",
+        "50","51","52","53","54","55","56","57","58","59",
+        "60","61","62","63","64","65","66","67","68","69",
+        "70","71","72","73","74","75","76","77","78","79",
+        "80","81","82","83","84","85","86","87","88","89",
+        "90","91","92","93","94","95","96","97","98","99"
+      ],
+      "description": "WMO SYNOP present weather code."
+    },
+    "weather_code_text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "description": "Human-readable WMO description (e.g., 'Rain, not freezing, moderate')."
+    },
+    "cloud_cover": {
+      "type": "object",
+      "required": ["percent"],
+      "additionalProperties": false,
+      "properties": {
+        "percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "category": {
+          "type": "string",
+          "enum": ["clear","few","scattered","broken","overcast","obscured","unknown"]
+        }
+      },
+      "description": "Aggregate cloud cover percentage and derived bucket."
+    },
+    "cloud_cover_layers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "low": { "type": "number", "minimum": 0, "maximum": 100 },
+        "mid": { "type": "number", "minimum": 0, "maximum": 100 },
+        "high": { "type": "number", "minimum": 0, "maximum": 100 }
+      },
+      "description": "Layer-specific cloud cover percentages."
+    },
+    "quality_flag": {
+      "type": "string",
+      "enum": ["raw","qc_passed","qc_flagged","estimated"]
+    },
+    "wind": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["speed"],
+      "properties": {
+        "speed": {
+          "$ref": "./measurement.json",
+          "description": "Sustained wind speed."
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+        },
+        "gust": {
+          "$ref": "./measurement.json",
+          "description": "Maximum gust recorded during the interval."
+        }
+      },
+      "description": "Wind vector details."
+    },
+    "precipitation": {
+      "$ref": "./measurement.json",
+      "description": "Total precipitation amount over the observation interval."
+    },
+    "rain": {
+      "$ref": "./measurement.json",
+      "description": "Liquid precipitation subset."
+    },
+    "snowfall": {
+      "$ref": "./measurement.json",
+      "description": "Snowfall depth."
+    },
+    "visibility": {
+      "$ref": "./measurement.json",
+      "description": "Horizontal visibility."
+    },
+    "solar_radiation": {
+      "$ref": "./measurement.json",
+      "description": "Solar radiation or irradiance."
+    },
+    "ozone": {
+      "$ref": "./measurement.json",
+      "description": "Ozone measurement (column or surface)."
+    },
+    "air_quality_index": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 500
+    },
+    "uv_index": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 15
+    },
+    "source": {
+      "$ref": "./object_reference.json",
+      "description": "Reference to the originating station or service."
+    }
+  }
+}
