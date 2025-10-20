@@ -1,0 +1,15 @@
+{
+  "generated_at": "2025-10-20T13:33:02.811287Z",
+  "schemas": {
+    "document.yaml": {
+      "checksum": "96703c8dd8791950c22137ad5002f3ed0cb4150eb275a7203150647d3e401e78"
+    },
+    "task.yaml": {
+      "checksum": "1ea8dcca1be962e54eb4a34d8d0e767f090771815fe68be814119113139fae8b"
+    },
+    "wiki.yaml": {
+      "checksum": "27fa8d86274e8eeaca4acb74e4611195deccc3af5728cf83c759e5d84e8f4b51"
+    }
+  },
+  "version": 1
+}
