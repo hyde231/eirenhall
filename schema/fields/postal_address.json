@@ -1,4 +1,30 @@
 {
+  "metadata": {
+    "id": "std.contact.postal_address",
+    "name": "Postal Address",
+    "description": "Structured postal mailing address with optional geolocation.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.directory",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "restricted",
+    "constraints": {
+      "required": ["address_lines", "locality", "country"]
+    },
+    "localization": {
+      "translatable": true,
+      "formatting": "address"
+    },
+    "example": {
+      "address_lines": ["123 Example Street", "Suite 5"],
+      "locality": "Berlin",
+      "region": "BE",
+      "postal_code": "10117",
+      "country": "DE"
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/postal_address.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Postal Address",

@@ -1,5 +1,5 @@
 {
-  "type": "wiki",
+  "type": "wiki_entry",
   "metrics": [
     {
       "key": "link_count",

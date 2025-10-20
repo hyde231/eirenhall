@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "id": "std.yaml_document",
+    "name": "YAML Document",
+    "description": "YAML document stored as UTF-8 text.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.integration",
+    "capabilities": ["viewable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "contentMediaType": "application/x-yaml"
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "service: api\\nreplicas: 3\\nregion: eu-central-1",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/yaml_document.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "YAML Document",
+  "type": "string",
+  "contentMediaType": "application/x-yaml",
+  "description": "YAML document stored as UTF-8 text."
+}

@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "id": "std.time_span",
+    "name": "Time Span",
+    "description": "Time span defined by inclusive start and end timestamps.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.workflow",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "public",
+    "constraints": {
+      "required": ["start", "end"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "start": "2024-03-01T08:00:00Z",
+      "end": "2024-03-01T12:00:00Z"
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/time_span.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Time Span",
+  "type": "object",
+  "required": ["start", "end"],
+  "additionalProperties": false,
+  "properties": {
+    "start": {
+      "$ref": "./timestamp.json",
+      "description": "Start of the time span."
+    },
+    "end": {
+      "$ref": "./timestamp.json",
+      "description": "End of the time span."
+    },
+    "duration": {
+      "$ref": "./duration.json",
+      "description": "Optional precomputed duration for the span."
+    }
+  }
+}

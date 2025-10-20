@@ -1,4 +1,27 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.sensitivity.descriptor",
+    "name": "Sensitivity Descriptor",
+    "description": "Sensitivity classification with inheritance flag and optional override reason.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.governance",
+    "capabilities": ["viewable", "manage"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["classification", "inherited"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "classification": "confidential",
+      "inherited": false,
+      "override_reason": "Contains production credentials"
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/sensitivity_descriptor.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Sensitivity Descriptor",

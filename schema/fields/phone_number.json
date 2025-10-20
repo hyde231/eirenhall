@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "id": "std.phone",
+    "name": "Phone Number",
+    "description": "E.164 formatted phone number including country code.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.identity",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "pattern": "^\\+[1-9]\\d{1,14}$"
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "+15551234567",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/phone_number.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Phone Number",
+  "type": "string",
+  "pattern": "^\\+[1-9]\\d{1,14}$",
+  "description": "E.164 formatted phone number including country code."
+}

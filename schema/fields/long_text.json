@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "id": "std.long_text",
+    "name": "Long Text",
+    "description": "Extended plain-text content supporting multi-line input.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.content",
+    "capabilities": ["viewable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "minLength": 0,
+      "maxLength": 8192
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": "Runbook steps:\\n1. Verify alert.\\n2. Notify on-call.",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/long_text.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Long Text",
+  "type": "string",
+  "maxLength": 8192,
+  "description": "Extended plain-text content supporting multi-line input."
+}

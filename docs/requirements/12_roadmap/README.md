@@ -14,9 +14,10 @@ Each milestone now ties directly to backlog entries so progress can be tracked i
 - **M3 Alpha (Weeks 5‑7):**
   - Expand adapters and offline workflows → FR‑015, FR‑026, FR‑027.
   - Introduce plugin sandbox and automation hooks → FR‑016, FR‑019 (initial mass actions).
-- **M4 Beta (Weeks 8‑10):**
+- **M4 Beta (Weeks 8–10):**
   - Harden power-aware scheduling and tiered caching → FR‑006, FR‑027.
   - Enrich export capabilities and saved searches → FR‑018 (full scope), FR‑020.
+  - Deliver open-format export/import pipeline (bundle spec, CLI, rehydrate tests) → FR‑019, FR‑037.
 - **M5 GA (Weeks 11‑12):**
   - Security/egress validation drills + key rotation → NFR‑SEC.
   - Operability polish: dashboards, runbooks, docs → Operability commitments, residual FR/NFR cleanup.

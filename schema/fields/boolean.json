@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "id": "std.boolean",
+    "name": "Boolean",
+    "description": "Boolean flag field.",
+    "fieldType": "primitive",
+    "dataType": "boolean",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "public",
+    "constraints": {},
+    "localization": {
+      "translatable": false
+    },
+    "example": true,
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/boolean.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Boolean",
+  "type": "boolean",
+  "description": "Boolean flag field."
+}

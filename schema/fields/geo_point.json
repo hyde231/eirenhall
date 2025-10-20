@@ -1,4 +1,26 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.geo.point",
+    "name": "Geo Point",
+    "description": "Geographic point with latitude, longitude, and optional altitude.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.geo",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["latitude", "longitude"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "latitude": 52.520008,
+      "longitude": 13.404954
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/geo_point.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Geo Point",

@@ -1,4 +1,27 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.realm.descriptor",
+    "name": "Realm Descriptor",
+    "description": "Realm identifier, hierarchy path, and optional sensitivity floor.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.platform",
+    "capabilities": ["viewable", "manage"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["id", "path"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "id": "eng-data",
+      "path": ["global", "engineering", "eng-data"],
+      "sensitivity_floor": "internal"
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/realm_descriptor.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Realm Descriptor",

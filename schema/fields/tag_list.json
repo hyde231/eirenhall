@@ -1,4 +1,23 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.tag_list",
+    "name": "Tag List",
+    "description": "Unique list of normalized tag slugs for categorisation.",
+    "fieldType": "composite",
+    "dataType": "array",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "public",
+    "constraints": {
+      "maxItems": 50
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": ["finance", "pending_review"],
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/tag_list.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Tag List",

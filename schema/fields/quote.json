@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "std.quote",
+    "name": "Quote",
+    "description": "Quoted text with optional attribution and source metadata.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.content",
+    "capabilities": ["viewable"],
+    "sensitivity": "public",
+    "constraints": {
+      "required": ["text"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "text": "Any sufficiently advanced technology is indistinguishable from magic.",
+      "attribution": "Arthur C. Clarke",
+      "source": "Profiles of the Future",
+      "source_url": "https://example.com/clarke"
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/quote.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Quote",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["text"],
+  "properties": {
+    "text": {
+      "$ref": "./long_text.json",
+      "description": "Quoted text content."
+    },
+    "attribution": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Person or entity credited with the quote."
+    },
+    "source": {
+      "type": "string",
+      "maxLength": 256,
+      "description": "Source work, publication, or context for the quote."
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional URL referencing the quote source."
+    },
+    "context": {
+      "$ref": "./long_text.json",
+      "description": "Additional context about when or why the quote was made."
+    }
+  }
+}

@@ -13,7 +13,7 @@ the [Linking & Backlink Specification](../linking_and_backlinks.md).
     "uri": "kki://item/task_456789"
   },
   "target": {
-    "object_type": "wiki",
+    "object_type": "wiki_entry",
     "object_id": "wiki_987654",
     "uri": "kki://item/wiki_987654"
   },
@@ -30,7 +30,7 @@ the [Linking & Backlink Specification](../linking_and_backlinks.md).
 {
   "id": "link_rel_e5f6g7h8",
   "source": {
-    "object_type": "wiki",
+    "object_type": "wiki_entry",
     "object_id": "wiki_987654",
     "uri": "kki://item/wiki_987654"
   },
@@ -77,7 +77,7 @@ the [Linking & Backlink Specification](../linking_and_backlinks.md).
 {
   "id": "link_rel_include01",
   "source": {
-    "object_type": "wiki",
+    "object_type": "wiki_entry",
     "object_id": "wiki_runbook",
     "uri": "kki://item/wiki_runbook"
   },

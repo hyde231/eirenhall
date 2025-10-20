@@ -1,4 +1,27 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.link.external",
+    "name": "External Link",
+    "description": "Curated external link entry used in item fields.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.content",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "public",
+    "constraints": {
+      "required": ["title", "url"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "title": "Status Page",
+      "url": "https://status.example.com",
+      "kind": "reference"
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/link.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "External Link",

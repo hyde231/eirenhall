@@ -1,4 +1,23 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.task.status",
+    "name": "Task Status",
+    "description": "Canonical task status enumeration.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.workflow",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "public",
+    "constraints": {
+      "enum": ["not_started", "in_progress", "blocked", "complete"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": "in_progress",
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/task_status.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Task Status",

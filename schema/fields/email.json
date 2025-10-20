@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "id": "std.email",
+    "name": "Email Address",
+    "description": "Email address following RFC 5322 format rules.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.identity",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "format": "email"
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "user@example.com",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/email.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Email Address",
+  "type": "string",
+  "format": "email",
+  "description": "Email address following RFC 5322 format rules."
+}

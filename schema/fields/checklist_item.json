@@ -1,4 +1,27 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.checklist.item",
+    "name": "Checklist Item",
+    "description": "Checklist entry with identifier, label, state, and optional due date.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.workflow",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["id", "label", "checked"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "id": "chk1abcd",
+      "label": "Inventory existing jobs",
+      "checked": true
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/checklist_item.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Checklist Item",

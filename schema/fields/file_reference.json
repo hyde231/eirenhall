@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "std.file_reference",
+    "name": "File Reference",
+    "description": "Reference to a stored file including metadata for rendering and provenance.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.storage",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["binary", "file_name"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "binary": {
+        "blob_id": "blob_01HR6SJ5BRFG7XZ5S7CV1D1H1N",
+        "media_type": "application/pdf",
+        "size_bytes": 58213
+      },
+      "file_name": "incident-report.pdf",
+      "original_uri": "https://files.example.com/incident-report.pdf"
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/file_reference.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "File Reference",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["binary", "file_name"],
+  "properties": {
+    "binary": {
+      "$ref": "./binary_reference.json",
+      "description": "Binary payload metadata associated with the file."
+    },
+    "file_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Original or display file name."
+    },
+    "original_uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Source URI where the file originated."
+    },
+    "description": {
+      "$ref": "./long_text.json",
+      "description": "Optional description or caption for the file."
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Optional version number for the referenced file."
+    }
+  }
+}

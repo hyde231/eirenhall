@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "id": "std.directory_path",
+    "name": "Directory Path",
+    "description": "Filesystem directory path using POSIX-style separators.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.infrastructure",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "pattern": "^/(?:[^/\\n]+/)*[^/\\n]*$"
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "/var/log/app",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/directory_path.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Directory Path",
+  "type": "string",
+  "pattern": "^/(?:[^/\\n]+/)*[^/\\n]*$",
+  "description": "Filesystem directory path using POSIX-style separators."
+}

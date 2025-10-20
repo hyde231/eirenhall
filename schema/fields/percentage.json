@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "id": "std.percentage",
+    "name": "Percentage",
+    "description": "Decimal percentage value expressed between 0.0 and 1.0.",
+    "fieldType": "primitive",
+    "dataType": "number",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "public",
+    "constraints": {
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "localization": {
+      "translatable": false,
+      "formatting": "percentage"
+    },
+    "example": 0.42,
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/percentage.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Percentage",
+  "type": "number",
+  "minimum": 0.0,
+  "maximum": 1.0,
+  "description": "Decimal percentage value expressed between 0.0 and 1.0."
+}

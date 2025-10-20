@@ -1,4 +1,27 @@
 {
+  "metadata": {
+    "id": "std.product.barcode",
+    "name": "Product Barcode",
+    "description": "Normalized product barcode with scheme metadata.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.inventory",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["scheme", "value"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "scheme": "ean13",
+      "value": "5901234123457",
+      "label": "Retail Package"
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/product_barcode.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Product Barcode",

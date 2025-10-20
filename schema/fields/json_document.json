@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "id": "std.json_document",
+    "name": "JSON Document",
+    "description": "Arbitrary JSON document payload stored inline.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.integration",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {},
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "source": "third_party",
+      "payload": {
+        "id": 123,
+        "status": "active"
+      }
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/json_document.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "JSON Document",
+  "type": "object",
+  "additionalProperties": true,
+  "description": "Arbitrary JSON document payload stored inline."
+}

@@ -1,4 +1,29 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.weather.observation",
+    "name": "Weather Observation",
+    "description": "Comprehensive weather observation record including measurements, codes, and metadata.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.data",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "public",
+    "constraints": {
+      "required": ["observed_at", "location", "weather_code"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "observed_at": "2024-02-01T08:00:00Z",
+      "location": {"latitude": 52.52, "longitude": 13.405},
+      "weather_code": "80",
+      "temperature": {"value": 1.5, "unit": "Cel"},
+      "wind": {"speed": {"value": 5.4, "unit": "m/s"}, "direction": "NW"}
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/weather_observation.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Weather Observation",

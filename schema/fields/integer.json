@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "id": "std.integer",
+    "name": "Integer",
+    "description": "64-bit signed integer value.",
+    "fieldType": "primitive",
+    "dataType": "integer",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "public",
+    "constraints": {
+      "minimum": -9223372036854775808,
+      "maximum": 9223372036854775807
+    },
+    "localization": {
+      "translatable": false,
+      "formatting": "integer"
+    },
+    "example": 42,
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/integer.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Integer",
+  "type": "integer",
+  "minimum": -9223372036854775808,
+  "maximum": 9223372036854775807,
+  "description": "64-bit signed integer value."
+}

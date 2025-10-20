@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "std.binary_ref",
+    "name": "Binary Reference",
+    "description": "Reference to binary content including identifier, media type, size, and checksum.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.storage",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["blob_id", "media_type"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "blob_id": "blob_01HR6SJ5BRFG7XZ5S7CV1D1H1N",
+      "media_type": "application/pdf",
+      "size_bytes": 58213,
+      "hash": "sha256:1b6453892473a467d07372d45eb05abc2031647a"
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/binary_reference.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Binary Reference",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["blob_id", "media_type"],
+  "properties": {
+    "blob_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "description": "Identifier of the binary payload in object storage."
+    },
+    "media_type": {
+      "type": "string",
+      "pattern": "^[a-z0-9!#$&^_.+-]+/[a-z0-9!#$&^_.+-]+$",
+      "description": "IANA media type describing the binary payload."
+    },
+    "size_bytes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Size of the payload in bytes."
+    },
+    "hash": {
+      "type": "string",
+      "description": "Checksum of the payload using prefixed multihash or algorithm marker."
+    }
+  }
+}

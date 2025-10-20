@@ -1,4 +1,4 @@
-type: wiki
+type: wiki_entry
 schema: item_base.json
 capabilities:
   - read

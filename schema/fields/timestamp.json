@@ -1,4 +1,25 @@
 {
+  "metadata": {
+    "id": "std.timestamp",
+    "name": "ISO Timestamp",
+    "description": "UTC ISO 8601 timestamp with seconds precision.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+    },
+    "localization": {
+      "translatable": false,
+      "formatting": "datetime"
+    },
+    "example": "2024-05-17T12:34:56Z",
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/timestamp.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "ISO Timestamp",

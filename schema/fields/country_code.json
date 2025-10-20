@@ -1,4 +1,23 @@
 {
+  "metadata": {
+    "id": "std.geo.country_code",
+    "name": "Country Code",
+    "description": "ISO 3166-1 alpha-2 country code in uppercase.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable"],
+    "sensitivity": "public",
+    "constraints": {
+      "pattern": "^[A-Z]{2}$"
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "DE",
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/country_code.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Country Code",

@@ -1,4 +1,25 @@
 {
+  "metadata": {
+    "id": "std.media.isbn",
+    "name": "ISBN",
+    "description": "International Standard Book Number stored without separators.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.content",
+    "capabilities": ["viewable"],
+    "sensitivity": "public",
+    "constraints": {
+      "pattern": "^(97(8|9))?[0-9]{9}([0-9X])$",
+      "minLength": 10,
+      "maxLength": 13
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "9783161484100",
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/isbn.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "ISBN",

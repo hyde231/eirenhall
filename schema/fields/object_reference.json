@@ -1,4 +1,28 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.object.reference",
+    "name": "Object Reference",
+    "description": "Reference to another object including type, identifier, and optional context.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.platform",
+    "capabilities": ["viewable", "workflown", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["object_type", "object_id"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "object_type": "task",
+      "object_id": "task_123123",
+      "uri": "kki://item/task_123123",
+      "relationship": "depends-on"
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/object_reference.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Object Reference",

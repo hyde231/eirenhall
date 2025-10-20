@@ -1,4 +1,27 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.user.reference",
+    "name": "User Reference",
+    "description": "Reference to a user including identifier and display name.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.identity",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["id", "display_name"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "id": "user_dataops1",
+      "display_name": "Morgan Dataops",
+      "email": "morgan@example.com"
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/user_reference.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "User Reference",

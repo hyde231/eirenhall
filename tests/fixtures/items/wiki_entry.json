@@ -1,6 +1,6 @@
 {
   "id": "wiki_987654",
-  "item_type": "wiki",
+  "item_type": "wiki_entry",
   "title": "Runbook: Incident Response",
   "realm": {
     "id": "it-operations",

@@ -38,7 +38,7 @@ Summary Report
 ============================================================
 Type: document (schema: item_base.json) -> 1 item(s)
 Type: task (schema: item_base.json) -> 1 item(s)
-Type: wiki (schema: item_base.json) -> 1 item(s)
+Type: wiki_entry (schema: item_base.json) -> 1 item(s)
 
 Item doc_123456 [document]
   - word_count: 6
@@ -50,7 +50,7 @@ Item task_456789 [task]
   - checklist_completed: 1
   - completion_ratio: 0.5
 
-Item wiki_987654 [wiki]
+Item wiki_987654 [wiki_entry]
   - link_count: 2
   - reference_links: 2
   - has_body: True
@@ -60,8 +60,8 @@ Item wiki_987654 [wiki]
 
 Two optional flags let you point the script at alternative directories:
 
-- `--items-dir PATH` – load JSON payloads from a different folder.
-- `--derived-root PATH` – read derived metric definitions from another
+- `--items-dir PATH` - load JSON payloads from a different folder.
+- `--derived-root PATH` - read derived metric definitions from another
   directory. This is useful when experimenting with new metrics alongside the
   bundled examples.
 

@@ -1,4 +1,26 @@
 {
+  "metadata": {
+    "id": "std.bank.iban",
+    "name": "IBAN",
+    "description": "Normalized International Bank Account Number without separators.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.finance",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "restricted",
+    "constraints": {
+      "pattern": "^[A-Z]{2}[0-9]{2}[A-Z0-9]{1,30}$",
+      "minLength": 15,
+      "maxLength": 34
+    },
+    "localization": {
+      "translatable": false,
+      "masking": "partial"
+    },
+    "example": "DE44500105175407324931",
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/iban.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "International Bank Account Number",

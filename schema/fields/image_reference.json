@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "id": "std.image_reference",
+    "name": "Image Reference",
+    "description": "Reference to an image resource with rendering metadata.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.content",
+    "capabilities": ["viewable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["file", "alt_text"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "file": {
+        "binary": {
+          "blob_id": "blob_img_001",
+          "media_type": "image/png",
+          "size_bytes": 13452
+        },
+        "file_name": "diagram.png"
+      },
+      "alt_text": "Service topology diagram",
+      "width": 1024,
+      "height": 768
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/image_reference.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Image Reference",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["file", "alt_text"],
+  "properties": {
+    "file": {
+      "$ref": "./file_reference.json",
+      "description": "File reference describing the stored image."
+    },
+    "alt_text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Alternative text describing the image for accessibility."
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Image width in pixels."
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Image height in pixels."
+    },
+    "thumbnail": {
+      "$ref": "./file_reference.json",
+      "description": "Optional thumbnail representation of the image."
+    }
+  }
+}

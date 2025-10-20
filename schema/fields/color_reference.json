@@ -1,4 +1,23 @@
 {
+  "metadata": {
+    "id": "std.visual.color",
+    "name": "Color Reference",
+    "description": "Color reference encoded as CSS name or hexadecimal triplet.",
+    "fieldType": "composite",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.design",
+    "capabilities": ["viewable"],
+    "sensitivity": "public",
+    "constraints": {
+      "formats": ["hex_rgb", "css_named"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "#1F75FE",
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/color_reference.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Color Reference",

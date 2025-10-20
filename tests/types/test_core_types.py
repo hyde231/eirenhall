@@ -8,7 +8,7 @@ from kernel.types import (
     FinancialAccountType,
     FinancialTransactionType,
     TaskType,
-    WikiType,
+    WikiEntryType,
     bootstrap_types,
     list_registered_types,
 )
@@ -17,15 +17,15 @@ from kernel.types.base import TypeManifest
 
 def test_bootstrap_registers_core_types() -> None:
     bootstrap_types(force=True)
-    registered = set(list_registered_types())
-    assert {
-        "document",
-        "task",
-        "wiki",
-        "financial_account",
+    assert list_registered_types() == (
         "account_statement",
+        "dashboard",
+        "document",
+        "financial_account",
         "financial_transaction",
-    } <= registered
+        "task",
+        "wiki_entry",
+    )
 
 
 def test_manifest_validation_success() -> None:
@@ -59,8 +59,8 @@ def test_manifest_validation_errors(payload: dict[str, object]) -> None:
         (DocumentType, "read", True),
         (DocumentType, "manage", False),
         (TaskType, "manage", True),
-        (WikiType, "comment", True),
-        (WikiType, "archive", False),
+        (WikiEntryType, "comment", True),
+        (WikiEntryType, "archive", False),
         (FinancialAccountType, "manage", True),
         (FinancialTransactionType, "comment", True),
         (FinancialTransactionType, "manage", False),
@@ -81,7 +81,7 @@ def test_metadata_accessors() -> None:
     bootstrap_types(force=True)
     assert DocumentType.schema_ref() == "item_base.json"
     assert TaskType.capabilities() == ("read", "write", "comment", "manage")
-    assert WikiType.type_key() == "wiki"
+    assert WikiEntryType.type_key() == "wiki_entry"
     assert FinancialAccountType.schema_ref() == "item_base.json"
     assert FinancialAccountType.capabilities() == ("read", "write", "comment", "manage")
     assert FinancialTransactionType.capabilities() == ("read", "write", "comment")

@@ -1,5 +1,47 @@
 {
-  "$id": "https://kki.example.com/schema/data_types/account_statement.json",
+  "metadata": {
+    "id": "std.finance.account_statement",
+    "name": "Account Statement",
+    "description": "Account statement summary including balance changes and transactions.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.finance",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "restricted",
+    "constraints": {
+      "required": ["period_start", "period_end", "transactions"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "statement_id": "STMT-2024-02",
+      "period_start": "2024-02-01",
+      "period_end": "2024-02-29",
+      "opening_balance": {
+        "value": 10234.12,
+        "currency": "EUR"
+      },
+      "closing_balance": {
+        "value": 9560.87,
+        "currency": "EUR"
+      },
+      "transactions": {
+        "transactions": [
+          {
+            "booking_date": "2024-02-15",
+            "amount": {
+              "value": -420.5,
+              "currency": "EUR"
+            }
+          }
+        ]
+      }
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/account_statement.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Account Statement",
   "type": "object",
@@ -17,23 +59,23 @@
       "description": "Human-readable label for the statement."
     },
     "issued_on": {
-      "$ref": "../fields/calendar_date.json",
+      "$ref": "./calendar_date.json",
       "description": "Date the statement was issued."
     },
     "period_start": {
-      "$ref": "../fields/calendar_date.json",
+      "$ref": "./calendar_date.json",
       "description": "First calendar date covered by the statement."
     },
     "period_end": {
-      "$ref": "../fields/calendar_date.json",
+      "$ref": "./calendar_date.json",
       "description": "Last calendar date covered by the statement."
     },
     "opening_balance": {
-      "$ref": "../fields/money_amount.json",
+      "$ref": "./money_amount.json",
       "description": "Account balance at the start of the statement period."
     },
     "closing_balance": {
-      "$ref": "../fields/money_amount.json",
+      "$ref": "./money_amount.json",
       "description": "Account balance at the end of the statement period."
     },
     "source_system": {

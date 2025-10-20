@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "id": "std.timezone",
+    "name": "Timezone Identifier",
+    "description": "IANA timezone database identifier.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable", "schedulable"],
+    "sensitivity": "public",
+    "constraints": {
+      "pattern": "^[A-Za-z_]+(?:/[A-Za-z_]+)+$"
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "Europe/Berlin",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/timezone.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Timezone Identifier",
+  "type": "string",
+  "pattern": "^[A-Za-z_]+(?:/[A-Za-z_]+)+$",
+  "description": "IANA timezone database identifier."
+}

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "id": "std.csv_document",
+    "name": "CSV Document",
+    "description": "Comma-separated values document stored as UTF-8 text.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.integration",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "contentMediaType": "text/csv"
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "name,score\\nAlice,95\\nBob,88",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/csv_document.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CSV Document",
+  "type": "string",
+  "contentMediaType": "text/csv",
+  "description": "Comma-separated values document stored as UTF-8 text."
+}

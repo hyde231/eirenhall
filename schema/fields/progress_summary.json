@@ -1,4 +1,29 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.progress.summary",
+    "name": "Progress Summary",
+    "description": "Aggregated progress metrics including totals and completion ratio.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.workflow",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["total", "completed"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "total": 5,
+      "completed": 2,
+      "percent_complete": 0.4
+    },
+    "provenance": {
+      "calculated": true
+    }
+  },
   "$id": "https://kki.example.com/schema/fields/progress_summary.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Progress Summary",

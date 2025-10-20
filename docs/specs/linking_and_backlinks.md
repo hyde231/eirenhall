@@ -1,4 +1,4 @@
-﻿# Linking & Backlink Specification
+# Linking & Backlink Specification
 
 Defines the canonical linking model for the Knowledge Kernel Initiative,
 covering internal URIs, inline reference syntaxes, storage, and backlink
@@ -143,7 +143,7 @@ To align with FR-030, each link creates or updates a `link_relation` item with:
     "uri": "kki://item/task_456789"
   },
   "target": {
-    "object_type": "wiki",
+    "object_type": "wiki_entry",
     "object_id": "wiki_987654",
     "uri": "kki://item/wiki_987654"
   },

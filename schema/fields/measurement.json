@@ -1,4 +1,26 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.measurement",
+    "name": "Measurement",
+    "description": "Numeric measurement normalized to a canonical unit with optional uncertainty.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.data",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["value", "unit"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "value": 23.5,
+      "unit": "Cel"
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/measurement.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Measurement",

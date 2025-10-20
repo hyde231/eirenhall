@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "id": "std.code_snippet",
+    "name": "Code Snippet",
+    "description": "Source code snippet with language metadata for syntax highlighting.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.engineering",
+    "capabilities": ["viewable"],
+    "sensitivity": "public",
+    "constraints": {
+      "required": ["code"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "language": "python",
+      "code": "def greet(name):\\n    return f\"Hello {name}!\""
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/code_snippet.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Code Snippet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["code"],
+  "properties": {
+    "language": {
+      "type": "string",
+      "maxLength": 64,
+      "pattern": "^[a-zA-Z0-9+#./_-]+$",
+      "description": "Programming language or format identifier (e.g., python, sql, bash)."
+    },
+    "code": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Source code content, preserved as-is."
+    },
+    "line_numbers": {
+      "type": "boolean",
+      "description": "Whether to display line numbers when rendering the snippet."
+    }
+  }
+}

@@ -1,4 +1,32 @@
 {
+  "metadata": {
+    "id": "std.money.price",
+    "name": "Price",
+    "description": "Price value including tax inclusion flags and effective date.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.finance",
+    "capabilities": ["viewable", "workflown", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["amount"]
+    },
+    "localization": {
+      "translatable": false,
+      "formatting": "currency"
+    },
+    "example": {
+      "amount": {
+        "value": 19.99,
+        "currency": "USD"
+      },
+      "tax_included": true,
+      "tax_code": "VAT19",
+      "effective_date": "2024-01-01"
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/price.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Price",

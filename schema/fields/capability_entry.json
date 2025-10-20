@@ -1,4 +1,27 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.capability.entry",
+    "name": "Capability Entry",
+    "description": "Capability definition entry describing enablement, version, and config.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.platform",
+    "capabilities": ["viewable", "manage"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["enabled", "version"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "enabled": true,
+      "version": "1.1.0",
+      "config": null
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/capability_entry.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Capability Entry",

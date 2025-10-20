@@ -1,4 +1,28 @@
 {
+  "metadata": {
+    "id": "std.money.amount",
+    "name": "Money Amount",
+    "description": "Monetary amount captured with numeric value and ISO currency code.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.finance",
+    "capabilities": ["viewable", "workflown", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["value", "currency"]
+    },
+    "localization": {
+      "translatable": false,
+      "formatting": "currency"
+    },
+    "example": {
+      "value": 1250.75,
+      "currency": "EUR",
+      "scale": 2
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/money_amount.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Money Amount",

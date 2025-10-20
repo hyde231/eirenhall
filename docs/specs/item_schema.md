@@ -2,7 +2,7 @@
 
 This document summarizes the structure of the baseline item schema defined in
 `schema/item_base.json`. The schema establishes a consistent envelope for all
-knowledge items—documents, tasks, wikis, or other entities—so that downstream
+knowledge items - documents, tasks, wiki entries, or other entities - so that downstream
 services can rely on predictable metadata and capability contracts.
 
 ## Required Envelope Fields
@@ -12,7 +12,7 @@ All item payloads **must** include the following top-level members:
 | Field | Type | Purpose |
 | --- | --- | --- |
 | `id` | string | Stable unique identifier that never reflows between realms. |
-| `item_type` | string | Machine readable type discriminator (e.g. `document`, `task`, `wiki`). |
+| `item_type` | string | Machine readable type discriminator (e.g. `document`, `task`, `wiki_entry`). |
 | `title` | string | Human friendly title that appears in navigation and search results. |
 | `realm` | object | Location descriptor tracking hierarchical containment. |
 | `sensitivity` | object | Classification of the item itself after realm inheritance is applied. |
@@ -34,7 +34,7 @@ duplicated in item schemas; link-related fields must follow the
 
 Field payloads SHOULD reuse the cataloged composites. The base item schema now
 accepts both singular and array forms of `std.object_ref`, enabling items to
-point at related tasks, wikis, datasets, or other registry members without custom
+point at related tasks, wiki entries, datasets, or other registry members without custom
 ad hoc objects.
 
 ## Realm & Sensitivity Inheritance

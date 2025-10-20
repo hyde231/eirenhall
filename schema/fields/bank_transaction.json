@@ -1,5 +1,37 @@
 {
-  "$id": "https://kki.example.com/schema/data_types/bank_transaction.json",
+  "metadata": {
+    "id": "std.finance.bank_transaction",
+    "name": "Bank Transaction",
+    "description": "Structured bank transaction entry including counterparty, amount, and classification.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.finance",
+    "capabilities": ["viewable", "workflown", "reportable"],
+    "sensitivity": "restricted",
+    "constraints": {
+      "required": ["booking_date", "amount"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "transaction_id": "TXN-2024-0001",
+      "booking_date": "2024-02-15",
+      "value_date": "2024-02-14",
+      "entry_type": "SEPA CREDIT TRANSFER",
+      "counterparty_name": "Example Supplies GmbH",
+      "counterparty_account": "DE44500105175407324931",
+      "amount": {
+        "value": -420.5,
+        "currency": "EUR"
+      },
+      "tags": ["office", "invoice"],
+      "source_system": "import.ebics"
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/bank_transaction.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Bank Transaction",
   "type": "object",
@@ -12,11 +44,11 @@
       "description": "Identifier assigned to the transaction in the source system."
     },
     "booking_date": {
-      "$ref": "../fields/calendar_date.json",
+      "$ref": "./calendar_date.json",
       "description": "Date the transaction was booked by the financial institution."
     },
     "value_date": {
-      "$ref": "../fields/calendar_date.json",
+      "$ref": "./calendar_date.json",
       "description": "Value date on which the amount impacts the account balance."
     },
     "entry_type": {
@@ -31,11 +63,11 @@
       "description": "Name of the counterparty involved in the transaction."
     },
     "counterparty_account": {
-      "$ref": "../fields/iban.json",
+      "$ref": "./iban.json",
       "description": "IBAN of the counterparty when available."
     },
     "counterparty_bank": {
-      "$ref": "../fields/financial_institution_identifier.json",
+      "$ref": "./financial_institution_identifier.json",
       "description": "Identifier of the counterparty's financial institution."
     },
     "description": {
@@ -44,15 +76,15 @@
       "description": "Detailed text description from the bank statement."
     },
     "amount": {
-      "$ref": "../fields/money_amount.json",
+      "$ref": "./money_amount.json",
       "description": "Signed monetary amount of the transaction."
     },
     "balance_after_transaction": {
-      "$ref": "../fields/money_amount.json",
+      "$ref": "./money_amount.json",
       "description": "Account balance directly after the transaction was applied."
     },
     "tags": {
-      "$ref": "../fields/tag_list.json",
+      "$ref": "./tag_list.json",
       "description": "User-defined tags categorizing the transaction."
     },
     "manual_entry": {
@@ -72,7 +104,7 @@
     "attachments": {
       "type": "array",
       "items": {
-        "$ref": "../fields/object_reference.json"
+        "$ref": "./object_reference.json"
       },
       "description": "References to supporting documents such as invoices or receipts."
     }

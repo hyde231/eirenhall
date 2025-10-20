@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "id": "std.html",
+    "name": "HTML Content",
+    "description": "HTML markup payload expected to be sanitized before display.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.content",
+    "capabilities": ["viewable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "contentMediaType": "text/html"
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": "<p><strong>Notice:</strong> Maintenance starts at 22:00.</p>",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/html_content.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HTML Content",
+  "type": "string",
+  "contentMediaType": "text/html",
+  "description": "HTML markup payload expected to be sanitized before display."
+}

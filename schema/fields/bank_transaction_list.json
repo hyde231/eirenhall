@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "std.finance.bank_transaction_list",
+    "name": "Bank Transaction List",
+    "description": "Ordered collection of bank transactions with source metadata.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.finance",
+    "capabilities": ["viewable", "workflown", "reportable"],
+    "sensitivity": "restricted",
+    "constraints": {
+      "required": ["transactions"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "transactions": [
+        {
+          "booking_date": "2024-02-15",
+          "amount": {
+            "value": -420.5,
+            "currency": "EUR"
+          }
+        }
+      ],
+      "generated_at": "2024-02-15T08:15:00Z"
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/bank_transaction_list.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bank Transaction List",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["transactions"],
+  "properties": {
+    "transactions": {
+      "type": "array",
+      "items": {
+        "$ref": "./bank_transaction.json"
+      },
+      "description": "Ordered collection of bank transactions."
+    },
+    "generated_at": {
+      "$ref": "./timestamp.json",
+      "description": "Timestamp when the list was generated or imported."
+    },
+    "source_system": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Originating system or connector that supplied the transactions."
+    }
+  }
+}

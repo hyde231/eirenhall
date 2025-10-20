@@ -10,8 +10,8 @@
     "task.yaml": {
       "checksum": "1ea8dcca1be962e54eb4a34d8d0e767f090771815fe68be814119113139fae8b"
     },
-    "wiki.yaml": {
-      "checksum": "27fa8d86274e8eeaca4acb74e4611195deccc3af5728cf83c759e5d84e8f4b51"
+    "wiki_entry.yaml": {
+      "checksum": "a0a096bcc97b94068d70a6039b58588405a90c38eee585c43168c435ca917d7e"
     }
   },
   "version": 1

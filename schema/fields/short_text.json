@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "id": "std.short_text",
+    "name": "Short Text",
+    "description": "Short user-facing text limited to 256 characters.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "public",
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": "Incident Response Runbook",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/short_text.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Short Text",
+  "type": "string",
+  "minLength": 1,
+  "maxLength": 256,
+  "description": "Short user-facing text limited to 256 characters."
+}

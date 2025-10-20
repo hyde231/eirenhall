@@ -1,4 +1,23 @@
-{
+﻿{
+  "metadata": {
+    "id": "std.identifier",
+    "name": "Identifier",
+    "description": "Stable identifier shared across services.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "pattern": "^[a-zA-Z0-9_-]{8,64}$"
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "task_456789",
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/identifier.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Identifier",

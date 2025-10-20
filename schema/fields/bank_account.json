@@ -1,5 +1,34 @@
 {
-  "$id": "https://kki.example.com/schema/data_types/bank_account.json",
+  "metadata": {
+    "id": "std.finance.bank_account",
+    "name": "Bank Account",
+    "description": "Bank account master data including identifiers, balances, and related statements.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.finance",
+    "capabilities": ["viewable", "workflown", "reportable"],
+    "sensitivity": "confidential",
+    "constraints": {
+      "required": ["account_number", "institution_code"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "account_number": "DE44500105175407324931",
+      "institution_code": "DEUTDEFF500",
+      "account_name": "Operating Account",
+      "institution_name": "Example Bank",
+      "primary_currency": "EUR",
+      "current_balance": {
+        "value": 15230.12,
+        "currency": "EUR"
+      }
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/bank_account.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Bank Account",
   "type": "object",
@@ -7,11 +36,11 @@
   "required": ["account_number", "institution_code"],
   "properties": {
     "account_number": {
-      "$ref": "../fields/iban.json",
+      "$ref": "./iban.json",
       "description": "Primary account number in IBAN format."
     },
     "institution_code": {
-      "$ref": "../fields/financial_institution_identifier.json",
+      "$ref": "./financial_institution_identifier.json",
       "description": "Identifier of the servicing financial institution (BIC or national code)."
     },
     "account_name": {
@@ -35,19 +64,19 @@
       "description": "Primary owner or holder of the account."
     },
     "country": {
-      "$ref": "../fields/country_code.json",
+      "$ref": "./country_code.json",
       "description": "Country where the account is domiciled."
     },
     "primary_currency": {
-      "$ref": "../fields/currency_code.json",
+      "$ref": "./currency_code.json",
       "description": "Default operating currency for the account."
     },
     "current_balance": {
-      "$ref": "../fields/money_amount.json",
+      "$ref": "./money_amount.json",
       "description": "Most recent posted balance."
     },
     "available_balance": {
-      "$ref": "../fields/money_amount.json",
+      "$ref": "./money_amount.json",
       "description": "Available balance including pending transactions."
     },
     "transactions": {
@@ -62,7 +91,7 @@
       "description": "Historical account statements."
     },
     "contact": {
-      "$ref": "../fields/postal_address.json",
+      "$ref": "./postal_address.json",
       "description": "Mailing address associated with the account."
     }
   }

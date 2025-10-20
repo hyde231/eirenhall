@@ -12,7 +12,7 @@ from .base import (
 from .document import DocumentType
 from .finance import AccountStatementType, FinancialAccountType, FinancialTransactionType
 from .task import TaskType
-from .wiki import WikiType
+from .wiki_entry import WikiEntryType, WikiType
 
 __all__ = [
     "bootstrap_types",
@@ -26,6 +26,7 @@ __all__ = [
     "AccountStatementType",
     "FinancialAccountType",
     "TaskType",
+    "WikiEntryType",
     "WikiType",
 ]
 

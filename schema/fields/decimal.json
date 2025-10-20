@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "id": "std.decimal",
+    "name": "Decimal",
+    "description": "High precision decimal string compliant with IEEE 754 decimal128.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "public",
+    "constraints": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+    },
+    "localization": {
+      "translatable": false,
+      "formatting": "decimal"
+    },
+    "example": "12345.6789",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/decimal.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Decimal",
+  "type": "string",
+  "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+  "description": "High precision decimal string compliant with IEEE 754 decimal128."
+}

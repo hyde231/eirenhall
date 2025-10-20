@@ -1,4 +1,23 @@
 {
+  "metadata": {
+    "id": "std.currency.code",
+    "name": "Currency Code",
+    "description": "ISO 4217 three-letter currency identifier such as EUR or USD.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.schema",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "public",
+    "constraints": {
+      "pattern": "^[A-Z]{3}$"
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "EUR",
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/currency_code.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Currency Code",

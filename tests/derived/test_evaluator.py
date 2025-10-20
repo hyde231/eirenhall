@@ -19,7 +19,7 @@ def load_item(name: str) -> dict:
 
 def test_definitions_are_loaded():
     evaluator = DerivedEvaluator(schema_root=SCHEMA_ROOT)
-    assert set(evaluator.list_types()) == {"document", "task", "wiki"}
+    assert set(evaluator.list_types()) == {"document", "task", "wiki_entry"}
 
 
 def test_task_metrics_and_provenance():
@@ -49,9 +49,9 @@ def test_document_metrics_handle_delta_body():
     assert result.values["has_summary"] is False
 
 
-def test_wiki_metrics_detect_links():
+def test_wiki_entry_metrics_detect_links():
     evaluator = DerivedEvaluator(schema_root=SCHEMA_ROOT)
-    item = load_item("wiki")
+    item = load_item("wiki_entry")
     result = evaluator.evaluate_item(item)
 
     assert result.values["link_count"] == 2

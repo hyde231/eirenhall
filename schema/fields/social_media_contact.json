@@ -1,4 +1,28 @@
 {
+  "metadata": {
+    "id": "std.contact.social_media",
+    "name": "Social Media Contact",
+    "description": "Social media profile reference including platform and handle.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.directory",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["platform", "handle"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "platform": "linkedin",
+      "handle": "example-user",
+      "url": "https://www.linkedin.com/in/example-user",
+      "verified": false
+    },
+    "provenance": {}
+  },
   "$id": "https://kki.example.com/schema/fields/social_media_contact.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Social Media Contact",

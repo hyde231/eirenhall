@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "id": "std.duration",
+    "name": "Duration",
+    "description": "Duration value encoded using the ISO 8601 duration format.",
+    "fieldType": "primitive",
+    "dataType": "string",
+    "version": "1.0.0",
+    "owner": "core.workflow",
+    "capabilities": ["viewable", "schedulable", "reportable"],
+    "sensitivity": "public",
+    "constraints": {
+      "pattern": "^P(?=.+)(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$"
+    },
+    "localization": {
+      "translatable": false,
+      "formatting": "duration"
+    },
+    "example": "PT4H30M",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/duration.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Duration",
+  "type": "string",
+  "pattern": "^P(?=.+)(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$",
+  "description": "Duration value encoded using the ISO 8601 duration format."
+}
