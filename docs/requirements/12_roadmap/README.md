@@ -2,6 +2,8 @@
 
 Each milestone now ties directly to backlog entries so progress can be tracked incrementally.
 
+- See [Milestone M1 Detailed Plan](./M1_detailed_plan.md) for a deeper breakdown of the discovery sprint deliverables.
+
 - **M1 Discovery (Weeks 1‑2):**
   - Establish storage + repository, realm model validation → groundwork for FR‑003, NFR‑SEC.
   - Document baselines for formats and data contracts → FR‑002, FR‑015, Formats & Compatibility commitments.
