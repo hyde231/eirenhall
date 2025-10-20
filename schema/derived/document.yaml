@@ -1,0 +1,24 @@
+{
+  "type": "document",
+  "metrics": [
+    {
+      "key": "word_count",
+      "description": "Estimated word count based on the collaborative editor body.",
+      "operation": "word_count",
+      "config": {"path": "fields.body"}
+    },
+    {
+      "key": "reading_time_minutes",
+      "description": "Approximate reading time assuming 200 words per minute.",
+      "operation": "rate",
+      "depends_on": ["word_count"],
+      "config": {"metric": "word_count", "per": 200, "precision": 2}
+    },
+    {
+      "key": "has_summary",
+      "description": "Whether a short summary field is present for the document.",
+      "operation": "exists",
+      "config": {"path": "fields.summary"}
+    }
+  ]
+}
