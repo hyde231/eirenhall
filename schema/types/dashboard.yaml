@@ -1,0 +1,7 @@
+type: dashboard
+schema: item_base.json
+capabilities:
+  - read
+  - write
+  - comment
+  - configure

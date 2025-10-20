@@ -71,3 +71,10 @@ Each primitive data type maps to an interactive widget for desktop and mobile cl
 
 ### Static Collection (Snapshot)
 `id, name, realm, item_ids[], manifest` (checksums, capture ids, paths). Export: Markdown/CSV + assets.
+
+## 9.2 Dashboards & Entry Pages
+
+- **User-defined layouts:** Dashboards are composable canvases where operators place widgets sourced from saved searches, reports, quick links, realm switches, and pinned automations. Layout changes persist per user and can be duplicated or shared as templates.
+- **Widget palette:** Provide widgets for saved search result lists, metric callouts, embedded documents/wiki sections, shortcut groups, and automation status cards. Widgets pull metadata hints from schemas (e.g., recommended fields, realm filters) to speed configuration.
+- **Default experience:** Ship an initial dashboard that highlights a hierarchical browser spanning data items, metadata facets, and the schema registry, giving new operators an immediate overview without building a custom layout first.
+- **Navigation parity with wikis:** Dashboards support inline editing, drag-and-drop reordering, and link previews so they function as living entry pages comparable to wiki home screens.
