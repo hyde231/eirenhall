@@ -95,14 +95,44 @@ class SchemaLoader:
     def _load_schema(self, path: Path) -> Mapping[str, object]:
         suffix = path.suffix.lower()
         with path.open("r", encoding="utf-8") as handle:
-            if suffix == ".json":
-                return json.load(handle)
-            if suffix in {".yaml", ".yml"}:
-                if yaml is None:  # pragma: no cover - depends on environment
-                    raise RuntimeError("PyYAML is required to load YAML schemas")
-                data = yaml.safe_load(handle)
-                return data or {}
+            content = handle.read()
+        if suffix == ".json":
+            return json.loads(content)
+        if suffix in {".yaml", ".yml"}:
+            if yaml is None:
+                return self._load_simple_yaml(content)
+            data = yaml.safe_load(content)
+            return data or {}
         raise ValueError(f"Unsupported schema format: {path.suffix}")
+
+    @staticmethod
+    def _load_simple_yaml(content: str) -> Mapping[str, object]:
+        """Parse a restricted YAML subset without external dependencies."""
+
+        result: Dict[str, object] = {}
+        current_list: list[str] | None = None
+        for raw_line in content.splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if line.startswith("-"):
+                if current_list is None:
+                    raise RuntimeError("Invalid YAML structure: list item without key")
+                item = line[1:].strip()
+                current_list.append(item)
+                continue
+            if ":" not in line:
+                raise RuntimeError("Invalid YAML line: missing ':' delimiter")
+            key, value = line.split(":", 1)
+            key = key.strip()
+            value = value.strip()
+            if value:
+                result[key] = value
+                current_list = None
+            else:
+                current_list = []
+                result[key] = current_list
+        return result
 
     def _checksum(self, path: Path) -> str:
         digest = hashlib.sha256()
