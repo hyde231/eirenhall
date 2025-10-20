@@ -4,9 +4,9 @@
 Items = base fields + capabilities.
 
 ### Base Fields
-`id, type, realm, sensitivity, title, description, created_at, updated_at, tags[], source_url?, canonical_url?, captures[], attachments[], links[], checksum, size, metadata{}`
+`id, type, realm_id, realm_access_level, sensitivity, title, description, created_at, updated_at, tags[], source_url?, canonical_url?, captures[], attachments[], links[], checksum, size, metadata{}`
 
-Session context assigns the default `realm`; overrides are expressed through dedicated share relation items so that scoping changes remain auditable and composable.
+Session context assigns the default `realm_id` + `realm_access_level` pair; overrides are expressed through dedicated share relation items so that scoping changes remain auditable and composable. Realm records capture lineage (`parent_realm_id?`, `origin_access_level`, `clone_of?`) to support split/merge history and policy inheritance checks.
 
 ### Capabilities (Mix-ins)
 Viewable, Listable, Queryable, Storable, Importable/Exportable, Versioned, Scrapeable, Downloadable, Readable, Playable, Workflown, Schedulable, Annotatable, Geocoded.
