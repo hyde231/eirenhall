@@ -1,0 +1,75 @@
+{
+  "id": "conv_health_insurance",
+  "item_type": "conversation_thread",
+  "title": "Health Insurance Follow-up",
+  "realm": {
+    "id": "household",
+    "path": ["root", "household"],
+    "sensitivity_floor": "confidential"
+  },
+  "sensitivity": {
+    "classification": "confidential",
+    "inherited": true
+  },
+  "capabilities": {
+    "conversations.timeline": {
+      "enabled": true,
+      "version": "1.0.0",
+      "config": null
+    }
+  },
+  "owner": {
+    "id": "user_household",
+    "display_name": "Household Operator"
+  },
+  "created_at": "2025-02-12T07:50:00Z",
+  "fields": {
+    "timeline": {
+      "messages": [
+        {
+          "message_id": "msg_20250212T075000Z",
+          "timestamp": "2025-02-12T07:50:00Z",
+          "speaker": {
+            "role": "owner",
+            "display_name": "Household Operator"
+          },
+          "body": {
+            "type": "delta",
+            "ops": [
+              {"insert": "Sent reminder with invoice copy.\n"}
+            ]
+          },
+          "references": [
+            {
+              "object_type": "correspondence",
+              "object_id": "corr_20250211_001",
+              "uri": "kki://item/corr_20250211_001"
+            }
+          ]
+        },
+        {
+          "message_id": "msg_20250213T093100Z",
+          "timestamp": "2025-02-13T09:31:00Z",
+          "speaker": {
+            "role": "external",
+            "display_name": "Musterstadt Health Insurance"
+          },
+          "body": {
+            "type": "delta",
+            "ops": [
+              {"insert": "Acknowledged receipt and processing timeframe.\n"}
+            ]
+          }
+        }
+      ],
+      "last_synced_at": "2025-02-13T09:35:00Z"
+    }
+  },
+  "metadata": {
+    "cap.conversations.timeline.filters": []
+  },
+  "derived": {
+    "message_count": 2
+  }
+}
+

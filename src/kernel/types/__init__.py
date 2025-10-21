@@ -9,8 +9,13 @@ from .base import (
     iter_manifests,
     list_registered_types,
 )
+from .conversation_thread import ConversationThreadType
+from .correspondence import CorrespondenceType
 from .document import DocumentType
 from .finance import AccountStatementType, FinancialAccountType, FinancialTransactionType
+from .organization import OrganizationType
+from .person import PersonType
+from .project import ProjectType
 from .task import TaskType
 from .wiki_entry import WikiEntryType, WikiType
 
@@ -26,6 +31,11 @@ __all__ = [
     "AccountStatementType",
     "FinancialAccountType",
     "TaskType",
+    "ProjectType",
+    "PersonType",
+    "OrganizationType",
+    "CorrespondenceType",
+    "ConversationThreadType",
     "WikiEntryType",
     "WikiType",
 ]

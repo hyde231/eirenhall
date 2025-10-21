@@ -1,0 +1,72 @@
+{
+  "id": "project_alpha",
+  "item_type": "project",
+  "title": "Household Archive Consolidation",
+  "realm": {
+    "id": "household",
+    "path": ["root", "household"],
+    "sensitivity_floor": "confidential"
+  },
+  "sensitivity": {
+    "classification": "confidential",
+    "inherited": true
+  },
+  "capabilities": {
+    "projects.workspace": {
+      "enabled": true,
+      "version": "1.0.0",
+      "config": {
+        "default_dashboard": "workspace-default"
+      }
+    }
+  },
+  "owner": {
+    "id": "user_caretaker",
+    "display_name": "Casey Caretaker"
+  },
+  "created_at": "2025-01-05T09:00:00Z",
+  "updated_at": "2025-01-15T11:45:00Z",
+  "fields": {
+    "summary": {
+      "status": "active",
+      "stage": "implementation",
+      "health": "on_track",
+      "start_at": "2025-01-08T09:00:00Z",
+      "target_completion_at": "2025-02-28T17:00:00Z",
+      "lead": {
+        "id": "user_caretaker",
+        "display_name": "Casey Caretaker"
+      },
+      "progress": {
+        "total": 8,
+        "completed": 3,
+        "percent": 0.375
+      }
+    },
+    "notes": {
+      "type": "delta",
+      "ops": [
+        {"insert": "Kick-off session completed.\n"}
+      ]
+    },
+    "tags": ["archive", "household"],
+    "related_items": [
+      {
+        "object_type": "task",
+        "object_id": "task_prepare_bins",
+        "uri": "kki://item/task_prepare_bins",
+        "relationship": "tracks"
+      }
+    ]
+  },
+  "metadata": {
+    "cap.projects.workspace.layout": "default-summary"
+  },
+  "derived": {
+    "progress_summary": {
+      "total": 8,
+      "completed": 3,
+      "percent": 0.375
+    }
+  }
+}

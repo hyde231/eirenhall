@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterator, Mapping, Sequence, Tuple
 
+from kernel.capabilities import bootstrap_capabilities, get_capability
 from kernel.registry import SchemaLoader, TypeRegistry
 
 __all__ = [
@@ -93,6 +94,7 @@ def bootstrap_types(*, force: bool = False) -> None:
             return
 
         _manifests_by_type.clear()
+        bootstrap_capabilities(force=force)
         loader = SchemaLoader(
             schema_root=_schema_root(),
             registry=_registry,
@@ -107,6 +109,7 @@ def bootstrap_types(*, force: bool = False) -> None:
             manifest = TypeManifest.from_mapping(payload, source=source)
             if manifest.type_key in _manifests_by_type:
                 raise ValueError(f"Duplicate type key '{manifest.type_key}' detected")
+            _validate_manifest_capabilities(manifest)
             _manifests_by_type[manifest.type_key] = manifest
 
         _bootstrapped = True
@@ -134,6 +137,24 @@ def list_registered_types() -> Tuple[str, ...]:
 
     bootstrap_types()
     return tuple(_manifests_by_type.keys())
+
+
+def _validate_manifest_capabilities(manifest: TypeManifest) -> None:
+    for capability_key in manifest.capabilities:
+        try:
+            definition = get_capability(capability_key)
+        except KeyError as exc:
+            raise ValueError(
+                f"Type '{manifest.type_key}' references unknown capability '{capability_key}'"
+            ) from exc
+        missing = [
+            dependency for dependency in definition.dependencies if dependency not in manifest.capabilities
+        ]
+        if missing:
+            raise ValueError(
+                f"Type '{manifest.type_key}' is missing capability dependencies {missing} required by "
+                f"'{capability_key}'"
+            )
 
 
 class TypeDefinitionMixin:

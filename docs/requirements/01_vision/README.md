@@ -50,3 +50,12 @@ _A realm-aware, privacy-first personal hub that unifies knowledge, tasks, and au
 
 ## 1.7 Out-of-Scope Considerations
 The owner retains responsibility for legal, ethical, and social compliance. The system will not second-guess these decisions; its role is to faithfully execute within the boundaries the owner defines.
+
+## 1.8 Relationship & Directory Expansion (CRM-lite)
+- **Unified contact graph:** Track people, households, organisations, service providers, and commercial entities the owner interacts with. Contacts link to correspondence, projects, tasks, automations, and conversation threads for full-context recall.
+- **Lifecycle awareness:** Capture relationship stages (prospect, active, dormant), review cadences, and last-touch analytics so follow-ups and obligations never fall through the cracks.
+- **Multi-channel profiles:** Store verified email, phone, postal addresses, portals, and social/contact handles with provenance, sensitivity, and retention cues mirroring core privacy expectations.
+- **Role-based grouping:** Model organisational hierarchies, shared accounts, and role assignments (e.g., family doctor, insurer, repair vendor) to make delegation and GTD routing effortless.
+- **Privacy-preserving CRM:** Contacts inherit realm/sensitivity policies; exports default to redaction profiles; optional automation suggests relationship updates without disclosing private data beyond the owner’s trust boundary.
+- **Directory-driven automations:** Contacts feed orchestration triggers—wake devices before scheduled calls, pre-fill correspondence drafts, or surface required documents during service interactions—while logging provenance for audits.
+- **Generic core surfaces:** The default installation ships with a neutral browse/query/edit shell that renders any registered item type without relying on persona-specific widgets. Personal or intimate workflows layer on as optional plugins so friends can run the stock system without inheriting bespoke add-ons.

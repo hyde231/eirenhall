@@ -1,0 +1,33 @@
+{
+  "type": "conversation_thread",
+  "metrics": [
+    {
+      "key": "message_count",
+      "description": "Number of messages recorded in the conversation timeline.",
+      "operation": "length",
+      "config": {"path": "fields.timeline.messages"}
+    },
+    {
+      "key": "external_message_count",
+      "description": "Messages posted by external participants.",
+      "operation": "count_where",
+      "config": {
+        "path": "fields.timeline.messages",
+        "field": "speaker.role",
+        "equals": "external"
+      }
+    },
+    {
+      "key": "has_summary",
+      "description": "Whether the thread includes a summary entry.",
+      "operation": "exists",
+      "config": {"path": "fields.timeline.summary"}
+    },
+    {
+      "key": "has_last_synced",
+      "description": "Whether the thread captures a last-synced timestamp.",
+      "operation": "exists",
+      "config": {"path": "fields.timeline.last_synced_at"}
+    }
+  ]
+}

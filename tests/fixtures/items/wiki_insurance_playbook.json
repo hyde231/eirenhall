@@ -1,0 +1,76 @@
+{
+  "id": "wiki_insurance_playbook",
+  "item_type": "wiki_entry",
+  "title": "Household Insurance Renewal Playbook",
+  "realm": {
+    "id": "household",
+    "path": ["root", "household"],
+    "sensitivity_floor": "internal"
+  },
+  "sensitivity": {
+    "classification": "internal",
+    "inherited": true
+  },
+  "capabilities": {
+    "read": {"enabled": true, "version": "1.0.0"},
+    "write": {"enabled": true, "version": "1.0.0"},
+    "comment": {"enabled": true, "version": "1.0.0"}
+  },
+  "owner": {
+    "id": "user_household",
+    "display_name": "Household Operator",
+    "email": "household.operator@example.com"
+  },
+  "created_at": "2024-11-02T11:00:00Z",
+  "updated_at": "2025-02-17T09:05:00Z",
+  "fields": {
+    "slug": "household-insurance-renewal-playbook",
+    "summary": {
+      "type": "delta",
+      "ops": [
+        {
+          "insert": "Quick reference for annual insurance renewal workflow and required documents.\n"
+        }
+      ]
+    },
+    "body": {
+      "type": "delta",
+      "ops": [
+        {"insert": "1. Review prior policy and note changes.\n"},
+        {"insert": "2. Gather outstanding claims information.\n"},
+        {"insert": "3. Confirm meeting with assigned agent.\n"},
+        {"insert": "4. Upload signed documents to the portal.\n"}
+      ]
+    },
+    "tags": ["insurance", "playbook"],
+    "related_items": [
+      {
+        "object_type": "task",
+        "object_id": "task_insurance_followup",
+        "uri": "kki://item/task_insurance_followup",
+        "relationship": "workflow"
+      },
+      {
+        "object_type": "document",
+        "object_id": "doc_insurance_policy_pdf",
+        "uri": "kki://item/doc_insurance_policy_pdf",
+        "relationship": "reference"
+      }
+    ],
+    "links": [
+      {
+        "title": "Nordlicht renewal guidelines",
+        "url": "https://portal.nordlicht.example/guides/renewal",
+        "kind": "reference"
+      }
+    ]
+  },
+  "metadata": {
+    "sys.section": "operations",
+    "sys.review_interval_days": 180
+  },
+  "derived": {
+    "word_count": 158,
+    "last_indexed_at": "2025-02-17T09:10:00Z"
+  }
+}

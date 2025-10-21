@@ -1,0 +1,9 @@
+type: organization
+schema: item_base.json
+capabilities:
+  - read
+  - write
+  - comment
+  - manage
+  - directory.profile
+

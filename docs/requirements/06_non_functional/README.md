@@ -34,3 +34,16 @@ stack defined in the operability section and reviewed at each milestone demo.
 - **SDK:** Plugin SDK published with semver hooks; incompatible plugins rejected during installation.
 - **Testing:** Core plugins covered by end-to-end regression tests running nightly on the lab machine.
 - **Sandboxing:** Plugin execution isolated via container or process sandbox with resource quotas enforced.
+
+## Traceability
+
+| Requirement | Spec references | Automated coverage |
+| --- | --- | --- |
+| Reliability targets | docs/specs/capture_storage_blueprint.md; docs/requirements/12_roadmap/README.md | Monitoring canary scripts (planned) |
+| Performance targets | docs/specs/spec_scaffold.md; docs/specs/generic_item_surface.md | tests/derived/test_project_metrics (latency proxies), performance benchmark harness (planned) |
+| Security & privacy | docs/requirements/10_governance/README.md; docs/adr/ADR-001-agent-capability-model.md | Security drill scripts (TBD) |
+| Observability | docs/specs/spec_scaffold.md; docs/specs/capture_storage_blueprint.md | Observability stub instrumentation (pending) |
+| Formats & compatibility | docs/specs/item_schema.md; docs/specs/field_library.md | scripts/validate_schema.py; export/import regression tests (planned) |
+| Maintainability | docs/specs/capability_contracts.md; docs/specs/field_library.md | tests/capabilities/test_capabilities.py |
+
+Link additional specs or tests as they come online to maintain coverage visibility.

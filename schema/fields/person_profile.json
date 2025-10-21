@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "id": "std.directory.person",
+    "name": "Person Profile",
+    "description": "Structured profile for an individual contact, including identity, roles, and review cadence.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.directory",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["display_name"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "display_name": "Dr. Eva Schneider",
+      "given_name": "Eva",
+      "family_name": "Schneider",
+      "preferred_name": "Eva",
+      "pronouns": "she/her",
+      "roles": ["family_doctor"],
+      "affiliations": [
+        {
+          "organization": "org_hausarztpraxis",
+          "role": "General Practitioner"
+        }
+      ],
+      "relationship_stage": "active",
+      "review_cadence_days": 180,
+      "last_reviewed_at": "2025-01-15T10:00:00Z"
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/person_profile.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Person Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["display_name"],
+  "properties": {
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "given_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "family_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "preferred_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "pronouns": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "birthdate": {
+      "$ref": "./calendar_date.json"
+    },
+    "timezone": {
+      "type": "string",
+      "pattern": "^[A-Za-z_]+/[A-Za-z_]+$"
+    },
+    "relationship_stage": {
+      "type": "string",
+      "enum": ["prospect", "active", "dormant", "former", "archived"]
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+      },
+      "uniqueItems": true,
+      "maxItems": 16
+    },
+    "affiliations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["organization"],
+        "properties": {
+          "organization": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          }
+        }
+      },
+      "maxItems": 16
+    },
+    "review_cadence_days": {
+      "type": "integer",
+      "minimum": 7,
+      "maximum": 3650
+    },
+    "last_reviewed_at": {
+      "$ref": "./timestamp.json"
+    },
+    "next_review_at": {
+      "$ref": "./timestamp.json"
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 512
+    }
+  }
+}
+

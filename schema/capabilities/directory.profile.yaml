@@ -1,0 +1,17 @@
+key: directory.profile
+version: 1.0.0
+summary: >
+  Enables directory views, relationship analytics, and quick actions for contact
+  items such as people or organizations.
+configuration_schema: null
+affordances:
+  - list
+  - detail
+  - analytics
+dependencies:
+  - read
+metadata_namespace: cap.directory.profile
+events:
+  - directory.contact.review_due
+  - directory.contact.touch_logged
+

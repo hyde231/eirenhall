@@ -1,0 +1,36 @@
+{
+  "type": "project",
+  "metrics": [
+    {
+      "key": "related_item_count",
+      "description": "Number of related artifacts pinned to the project.",
+      "operation": "length",
+      "config": {"path": "fields.related_items"}
+    },
+    {
+      "key": "tag_count",
+      "description": "Number of tags associated with the project.",
+      "operation": "length",
+      "config": {"path": "fields.tags"}
+    },
+    {
+      "key": "has_notes",
+      "description": "Whether the project exposes ad-hoc notes content.",
+      "operation": "exists",
+      "config": {"path": "fields.notes.ops"}
+    },
+    {
+      "key": "has_summary",
+      "description": "Whether the project includes a structured summary field.",
+      "operation": "exists",
+      "config": {"path": "fields.summary"}
+    },
+    {
+      "key": "has_progress",
+      "description": "Whether the project captures progress rollup information.",
+      "operation": "exists",
+      "config": {"path": "fields.summary.progress"}
+    }
+  ]
+}
+

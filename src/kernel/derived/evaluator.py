@@ -10,6 +10,7 @@ try:  # Optional dependency used when available.
 except Exception:  # pragma: no cover - optional dependency fallback
     yaml = None  # type: ignore
 
+from kernel.observability import emit_event, trace_span
 from kernel.types import get_manifest
 
 __all__ = [
@@ -142,10 +143,27 @@ class DerivedEvaluator:
         definition = self.definition_for(type_key)
         computed: Dict[str, Any] = {}
         provenance: Dict[str, Tuple[str, ...]] = {}
-        for metric in definition.metrics:
-            value, sources = self._compute_metric(metric, item, computed)
-            computed[metric.key] = value
-            provenance[metric.key] = tuple(sources)
+        item_id = item.get("id") if isinstance(item, Mapping) else None
+        with trace_span("derived.evaluate_item", type_key=type_key, item_id=item_id) as span_id:
+            for metric in definition.metrics:
+                value, sources = self._compute_metric(metric, item, computed)
+                computed[metric.key] = value
+                provenance[metric.key] = tuple(sources)
+                emit_event(
+                    "derived.metric",
+                    span_id=span_id,
+                    type_key=type_key,
+                    item_id=item_id,
+                    metric=metric.key,
+                    value=value,
+                    sources=list(sources),
+                )
+        emit_event(
+            "derived.evaluation_complete",
+            type_key=type_key,
+            item_id=item_id,
+            metrics=sorted(computed),
+        )
         return EvaluationResult(type_key=type_key, values=computed, provenance=provenance)
 
     def evaluate_many(
@@ -208,7 +226,16 @@ class DerivedEvaluator:
         count = 0
         if isinstance(values, Sequence) and not isinstance(values, (str, bytes)):
             for entry in values:
-                if isinstance(entry, Mapping) and entry.get(field) == needle:
+                if not isinstance(entry, Mapping):
+                    continue
+                current: Any = entry
+                for part in field.split("."):
+                    if isinstance(current, Mapping) and part in current:
+                        current = current[part]
+                    else:
+                        current = object()
+                        break
+                if current == needle:
                     count += 1
         return count, (f"path:{path}",)
 
@@ -311,12 +338,24 @@ def _load_yaml(path: Path) -> Any:
 def _resolve_path(data: Any, path: str, default: Any = None) -> Any:
     parts = path.split(".") if path else []
     current: Any = data
-    for part in parts:
-        if isinstance(current, Mapping):
-            if part not in current:
-                return default
+    index = 0
+    while index < len(parts):
+        if not isinstance(current, Mapping):
+            return default
+        part = parts[index]
+        if part in current:
             current = current[part]
-        else:
+            index += 1
+            continue
+        matched = False
+        for end in range(len(parts), index, -1):
+            candidate = ".".join(parts[index:end])
+            if candidate in current:
+                current = current[candidate]
+                index = end
+                matched = True
+                break
+        if not matched:
             return default
     return current
 

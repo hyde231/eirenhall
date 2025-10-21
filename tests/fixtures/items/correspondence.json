@@ -1,0 +1,59 @@
+{
+  "id": "corr_20250211_001",
+  "item_type": "correspondence",
+  "title": "Insurance Letter - Missing Invoice",
+  "realm": {
+    "id": "household",
+    "path": ["root", "household"],
+    "sensitivity_floor": "confidential"
+  },
+  "sensitivity": {
+    "classification": "confidential",
+    "inherited": true
+  },
+  "capabilities": {
+    "correspondence.archive": {
+      "enabled": true,
+      "version": "1.0.0",
+      "config": {
+        "retention_policy": "household-finance"
+      }
+    }
+  },
+  "owner": {
+    "id": "user_household",
+    "display_name": "Household Operator"
+  },
+  "created_at": "2025-02-11T08:00:00Z",
+  "fields": {
+    "direction": "inbound",
+    "channel": "postal_mail",
+    "received_at": "2025-02-10T15:23:00Z",
+    "subject": "Health insurance reimbursement",
+    "tags": ["health", "insurance"],
+    "participants": [
+      {
+        "id": "org_insurer",
+        "display_name": "Musterstadt Health Insurance"
+      },
+      {
+        "id": "user_household",
+        "display_name": "Household Operator"
+      }
+    ],
+    "attachments": [
+      {
+        "blob_id": "blob_corr_invoice",
+        "media_type": "application/pdf"
+      }
+    ]
+  },
+  "metadata": {
+    "cap.correspondence.archive.retention": {
+      "retain_indefinitely": true
+    }
+  },
+  "derived": {
+    "has_follow_up": true
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "person_eva_schneider",
+  "item_type": "person",
+  "title": "Dr. Eva Schneider",
+  "realm": {
+    "id": "household",
+    "path": ["root", "household"],
+    "sensitivity_floor": "confidential"
+  },
+  "sensitivity": {
+    "classification": "confidential",
+    "inherited": true
+  },
+  "capabilities": {
+    "directory.profile": {
+      "enabled": true,
+      "version": "1.0.0",
+      "config": null
+    }
+  },
+  "owner": {
+    "id": "user_household",
+    "display_name": "Household Operator"
+  },
+  "created_at": "2025-01-01T09:00:00Z",
+  "fields": {
+    "profile": {
+      "display_name": "Dr. Eva Schneider",
+      "given_name": "Eva",
+      "family_name": "Schneider",
+      "pronouns": "she/her",
+      "relationship_stage": "active",
+      "roles": ["family_doctor"],
+      "affiliations": [
+        {
+          "organization": "Hausarztpraxis Mitte",
+          "role": "General Practitioner"
+        }
+      ],
+      "review_cadence_days": 180,
+      "last_reviewed_at": "2024-12-15T10:00:00Z"
+    },
+    "contact_methods": [
+      {
+        "kind": "email",
+        "value": "eva.schneider@example.de",
+        "verified": true
+      },
+      {
+        "kind": "phone",
+        "value": "+49 30 123456",
+        "verified": true
+      }
+    ],
+    "related_items": [
+      {
+        "object_type": "correspondence",
+        "object_id": "corr_20250211_001",
+        "uri": "kki://item/corr_20250211_001",
+        "relationship": "inbound"
+      }
+    ],
+    "tags": ["healthcare", "provider"]
+  },
+  "metadata": {
+    "cap.directory.profile.last_contact_at": "2025-02-13T09:31:00Z"
+  },
+  "derived": {}
+}
+

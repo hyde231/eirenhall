@@ -1,0 +1,6 @@
+pytest>=8.2
+hypothesis>=6.102
+jsonschema>=4.21
+PyYAML>=6.0
+pre-commit>=3.6
+detect-secrets>=1.4

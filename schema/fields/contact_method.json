@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "id": "std.contact.method",
+    "name": "Contact Method",
+    "description": "Single contact channel (email, phone, messenger, portal) with verification state.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.directory",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["kind", "value"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "kind": "email",
+      "value": "care@hausarztpraxis.example",
+      "label": "Praxis",
+      "verified": true
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/contact_method.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Contact Method",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "value"],
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": [
+        "email",
+        "phone",
+        "mobile",
+        "fax",
+        "portal",
+        "messenger",
+        "website",
+        "other"
+      ]
+    },
+    "value": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "verified": {
+      "type": "boolean"
+    },
+    "last_verified_at": {
+      "$ref": "./timestamp.json"
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 256
+    }
+  }
+}
+

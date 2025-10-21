@@ -39,7 +39,7 @@ class RefResolver:
             raise ValueError("Network references are not supported in stub validator")
         base = base_path or self.base_path
         ref_path = (base / ref).resolve()
-        with ref_path.open("r", encoding="utf-8") as handle:
+        with ref_path.open("r", encoding="utf-8-sig") as handle:
             schema = json.load(handle)
         schema["__base_path__"] = ref_path.parent
         return ref, schema

@@ -1,0 +1,86 @@
+{
+  "id": "org_hausarztpraxis_mitte",
+  "item_type": "organization",
+  "title": "Hausarztpraxis Mitte",
+  "realm": {
+    "id": "household",
+    "path": ["root", "household"],
+    "sensitivity_floor": "confidential"
+  },
+  "sensitivity": {
+    "classification": "confidential",
+    "inherited": true
+  },
+  "capabilities": {
+    "directory.profile": {
+      "enabled": true,
+      "version": "1.0.0",
+      "config": null
+    }
+  },
+  "owner": {
+    "id": "user_household",
+    "display_name": "Household Operator"
+  },
+  "created_at": "2024-11-20T08:30:00Z",
+  "fields": {
+    "profile": {
+      "display_name": "Hausarztpraxis Mitte",
+      "legal_name": "Hausarztpraxis Mitte GmbH",
+      "kind": "healthcare_provider",
+      "relationship_stage": "active",
+      "identifiers": [
+        {
+          "type": "tax_id",
+          "value": "DE123456789"
+        }
+      ],
+      "sites": [
+        {
+          "label": "Berlin Mitte",
+          "address": {
+            "address_lines": ["Example Straße 12"],
+            "locality": "Berlin",
+            "postal_code": "10117",
+            "country": "DE"
+          },
+          "contact_methods": [
+            {
+              "kind": "phone",
+              "value": "+49 30 123456"
+            }
+          ]
+        }
+      ],
+      "review_cadence_days": 365,
+      "last_reviewed_at": "2024-12-20T09:00:00Z"
+    },
+    "contact_methods": [
+      {
+        "kind": "email",
+        "value": "kontakt@hausarztpraxis.example",
+        "verified": true
+      }
+    ],
+    "related_items": [
+      {
+        "object_type": "project",
+        "object_id": "project_alpha",
+        "uri": "kki://item/project_alpha",
+        "relationship": "supporting"
+      },
+      {
+        "object_type": "correspondence",
+        "object_id": "corr_20250211_001",
+        "uri": "kki://item/corr_20250211_001",
+        "relationship": "inbound"
+      }
+    ],
+    "tags": ["healthcare", "vendor"]
+  },
+  "metadata": {
+    "cap.directory.profile.last_contact_at": "2025-02-13T09:31:00Z"
+  },
+  "derived": {}
+}
+

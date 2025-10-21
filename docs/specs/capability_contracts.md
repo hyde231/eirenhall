@@ -30,11 +30,21 @@ capability contract consists of:
 
 Capability definitions live under `schema/capabilities/<key>.yaml` (directory to
 be introduced) and are registered during bootstrap alongside type manifests.
+Because they live in the same registry infrastructure, capabilities enjoy the
+same introspection, checksum tracking, and evolution workflows as schemas, types,
+and fields. Tooling can list capability versions, diff definitions across commits,
+and validate dependency graphs during CI just like it does for schema documents.
 
 ## Declaring Capabilities on Item Types
 - Type manifests (`schema/types/<type_key>.yaml`) list required capability keys
   in `capabilities: []`. Ordering is preserved for deterministic tooling output.
 - During bootstrap, `kernel.types.bootstrap_types` verifies that every declared
+
+## Registry Integration
+- Capability documents are loaded by the same `SchemaLoader` used for types and fields, so checksum manifests, change detection, and CLI tooling (e.g., `registry list`) behave identically across artifacts.
+- Registry inspectors can iterate capabilities alongside schemas, enabling generic UI and automation components to introspect affordances without bespoke code.
+- Version bumps, deprecations, and dependency validation follow the same review workflow (docs, tests, migrations) as schema changes to keep audits consistent.
+
   capability is registered and that dependencies are satisfied.
 - Item payloads store capability activation under `capabilities.<key>` with
   these fields:
@@ -94,3 +104,4 @@ types inherit powerful UX features without bespoke code.
 - `projects.workspace` (`schema/capabilities/projects.workspace.yaml`) - enables project rollups, dashboard widgets, and saved-search integrations for `project` items.
 - `conversations.timeline` (`schema/capabilities/conversations.timeline.yaml`) - provides transcript timeline rendering, search facets, and excerpt linking for `conversation_thread` items.
 - `correspondence.archive` (`schema/capabilities/correspondence.archive.yaml`) - unlocks ingestion, retention controls, and export workflows for `correspondence` items.
+- `directory.profile` (`schema/capabilities/directory.profile.yaml`) - surfaces contact directory views, relationship analytics, and quick actions for `person` and `organization` items.

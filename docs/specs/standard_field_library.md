@@ -260,6 +260,13 @@ Composites compose primitives to capture real-world constructs.
       (`std.rich_text`).
     - Use cases: Registry catalogs, plugin negotiation.
 
+#### Directory & CRM Composites
+- **Contact Method** (`schema/fields/contact_method.json`) – single communication channel (email, phone, portal, messenger) with verification metadata for automation routing.
+- **Person Profile** (`schema/fields/person_profile.json`) – individual identity, pronouns, roles, relationship stage, affiliations, and review cadence.
+- **Organization Profile** (`schema/fields/organization_profile.json`) – institutional identity, legal metadata, roles, site addresses, and cadence expectations.
+
+These composites extend the contact library introduced for correspondence to power the new directory capability. They share primitives (postal address, identifiers, contact methods) so ingestion pipelines and automations can reconcile contacts across correspondence, projects, and conversations.
+
 ### Derived Field Catalog
 Derived fields MUST declare evaluator logic following the derived value
 specification. Each derived field definition extends the metadata envelope with

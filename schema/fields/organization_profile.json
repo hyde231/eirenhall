@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "id": "std.directory.organization",
+    "name": "Organization Profile",
+    "description": "Structured profile for an organization, company, or institution with sites and relationship data.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.directory",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["display_name"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "display_name": "Hausarztpraxis Mitte",
+      "legal_name": "Hausarztpraxis Mitte GmbH",
+      "kind": "healthcare_provider",
+      "relationship_stage": "active",
+      "identifiers": [
+        {
+          "type": "tax_id",
+          "value": "DE123456789"
+        }
+      ],
+      "sites": [
+        {
+          "label": "Berlin Mitte",
+          "address": {
+            "address_lines": ["Example Straße 12"],
+            "locality": "Berlin",
+            "postal_code": "10117",
+            "country": "DE"
+          }
+        }
+      ],
+      "review_cadence_days": 365,
+      "last_reviewed_at": "2025-01-10T09:00:00Z"
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/organization_profile.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Organization Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["display_name"],
+  "properties": {
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "legal_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "kind": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
+    "relationship_stage": {
+      "type": "string",
+      "enum": ["prospect", "active", "dormant", "former", "archived"]
+    },
+    "identifiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "value"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "issuer": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      },
+      "maxItems": 16
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+      },
+      "uniqueItems": true,
+      "maxItems": 16
+    },
+    "sites": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "address"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "address": {
+            "$ref": "./postal_address.json"
+          },
+          "contact_methods": {
+            "type": "array",
+            "items": {
+              "$ref": "./contact_method.json"
+            },
+            "maxItems": 16
+          }
+        }
+      },
+      "maxItems": 32
+    },
+    "review_cadence_days": {
+      "type": "integer",
+      "minimum": 30,
+      "maximum": 3650
+    },
+    "last_reviewed_at": {
+      "$ref": "./timestamp.json"
+    },
+    "next_review_at": {
+      "$ref": "./timestamp.json"
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 512
+    }
+  }
+}
+

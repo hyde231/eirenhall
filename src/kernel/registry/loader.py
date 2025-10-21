@@ -14,6 +14,8 @@ try:  # Optional dependency, used only when available.
 except Exception:  # pragma: no cover - optional dependency
     yaml = None  # type: ignore
 
+from kernel.observability import emit_event, trace_span
+
 from . import TypeRegistry
 
 SUPPORTED_EXTENSIONS = {".json", ".yaml", ".yml"}
@@ -55,32 +57,67 @@ class SchemaLoader:
         self.manifest_path = self.manifest_dir / manifest_name
 
     def load(self) -> SchemaLoadReport:
-        manifest = self._read_manifest()
-        report = SchemaLoadReport()
-        discovered = {}
+        with trace_span(
+            "registry.load_schemas",
+            schema_root=str(self.schema_root),
+            manifest_path=str(self.manifest_path),
+        ) as span_id:
+            manifest = self._read_manifest()
+            report = SchemaLoadReport()
+            discovered = {}
 
-        for path in self._discover_schema_files():
-            key = path.relative_to(self.schema_root).as_posix()
-            checksum = self._checksum(path)
-            previous_checksum = manifest.get("schemas", {}).get(key, {}).get("checksum")
-            should_skip = previous_checksum == checksum and key in self.registry
+            for path in self._discover_schema_files():
+                key = path.relative_to(self.schema_root).as_posix()
+                checksum = self._checksum(path)
+                previous_checksum = manifest.get("schemas", {}).get(key, {}).get("checksum")
+                should_skip = previous_checksum == checksum and key in self.registry
 
-            if should_skip:
-                report.unchanged.append(key)
+                if should_skip:
+                    report.unchanged.append(key)
+                    discovered[key] = {"checksum": checksum}
+                    emit_event(
+                        "registry.schema.skipped",
+                        span_id=span_id,
+                        key=key,
+                        checksum=checksum,
+                    )
+                    continue
+
+                data = self._load_schema(path)
+                self.registry.register(key, data, overwrite=True)
+                report.loaded.append(key)
                 discovered[key] = {"checksum": checksum}
-                continue
+                emit_event(
+                    "registry.schema.loaded",
+                    span_id=span_id,
+                    key=key,
+                    checksum=checksum,
+                )
 
-            data = self._load_schema(path)
-            self.registry.register(key, data, overwrite=True)
-            report.loaded.append(key)
-            discovered[key] = {"checksum": checksum}
+            for key in sorted(set(manifest.get("schemas", {})) - set(discovered)):
+                if key in self.registry:
+                    self.registry.deregister(key)
+                report.removed.append(key)
+                emit_event(
+                    "registry.schema.removed",
+                    span_id=span_id,
+                    key=key,
+                )
 
-        for key in sorted(set(manifest.get("schemas", {})) - set(discovered)):
-            if key in self.registry:
-                self.registry.deregister(key)
-            report.removed.append(key)
-
-        self._write_manifest(discovered)
+            self._write_manifest(discovered)
+            emit_event(
+                "registry.schema.manifest_written",
+                span_id=span_id,
+                manifest=str(self.manifest_path),
+                count=len(discovered),
+            )
+            emit_event(
+                "registry.schema.load_complete",
+                span_id=span_id,
+                loaded=len(report.loaded),
+                skipped=len(report.unchanged),
+                removed=len(report.removed),
+            )
         return report
 
     def _discover_schema_files(self) -> Iterable[Path]:

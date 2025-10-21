@@ -23,5 +23,6 @@ This directory captures the System X requirements for phase one of the project. 
 | `14_acceptance/` | Acceptance Criteria Patterns | Acceptance patterns and quality expectations. |
 | `15_glossary/` | Glossary | Canonical terminology. |
 | `16_references/` | References | Source documents and bibliography placeholders. |
+| `MVP.md` | Minimum Viable Product | Entry/exit criteria, scope guardrails, and “won’t do” list for the first release. |
 
-Each chapter README is intended to remain small and focused so we can iterate on them independently without reintroducing a monolithic artifact.
+Each chapter README is intended to remain small and focused so we can iterate on them independently without reintroducing a monolithic artifact. Refer to `MVP.md` when triaging backlog additions to ensure new work aligns with the agreed scope.

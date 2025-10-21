@@ -59,6 +59,8 @@
 | FR-030 | First-class relations & composable queries | Named relations (tags, sharing, links) are represented as items managed by core plugins; plugins extend via composition rather than deep inheritance, with expensive relation traversals cacheable as saved lists. | Should | Relations persist as items with source/target metadata; plugins reuse core relation types; heavy multi-hop queries can be materialized into saved searches without schema changes. |
 | FR-038 | Derived value pipeline | Schema-declared formulas generate read-only fields (e.g., BMI, age) using canonicalized source data and register provenance for recalculation. | Should | Measurement values normalize to canonical units before evaluation; derived fields refresh whenever inputs change; API/UI flag derived status with traceable formula metadata. |
 | FR-039 | Multi-value & annotation support | Schemas declare cardinality and supply list widgets, ratings, and note threads so repeated fields, reviews, and inline commentary remain first-class without custom plugins. | Should | List fields enforce element type validation; rating scales expose configurable bounds; notes/annotations capture scope, author, timestamps, and resolution metadata; list editors can spawn permitted child items inline so flows like "festival → add concert" never require leaving the parent form. |
+| FR-046 | Generic item shell | Provide a default web browse/query/view/edit surface that renders any registered item type using schema metadata without bespoke widgets. | Must | Item manifests auto-render with field inspectors and inline editors generated from schema definitions; integration tests cover document/task/wiki/person/organization flows without type-specific code. |
+| FR-047 | Plugin-isolated extensions | Allow optional bundles (schemas, ingest flows, views, editors) to register as plugins without modifying core distributions, ensuring the stock system remains neutral. | Must | Core ships with plugin loader enabling/disabling bundles per installation; baseline build passes tests with only stock plugins; personalized bundles install via plugin manifest without altering system defaults. |
 
 ### Plugin & Recipe Ecosystem
 
@@ -97,3 +99,21 @@
 - **Duplicate Detection:** Normalize titles, hashes, and metadata similarity to surface collisions.
 - **Similarity Search:** Support vector or heuristic comparisons to reveal related content.
 - **Security & Provenance:** Encrypt sensitive values at rest, log every AI/conversion step with inputs/outputs, and require user confirmation before applying automated transformations.
+
+## Traceability
+
+| Requirement | Spec references | Automated coverage |
+| --- | --- | --- |
+| FR-001 | docs/specs/metadata_governance.md | tests/types/test_core_types.py |
+| FR-002 | docs/specs/item_schema.md | scripts/validate_schema.py; tests/fixtures/items/*.json |
+| FR-003 | docs/specs/metadata_governance.md; docs/specs/capture_storage_blueprint.md | tests/derived/test_project_metrics |
+| FR-014 | docs/specs/capture_storage_blueprint.md; docs/adr/ADR-000-data-sinks-and-replication.md | tests/derived/test_evaluator.py::test_document_metrics_handle_delta_body |
+| FR-015 | docs/adr/ADR-003-conflict-resolution-and-offline-policy.md | Acceptance scenario AC‑FR‑015 (manual) |
+| FR-018 | docs/specs/generic_item_surface.md; docs/specs/spec_scaffold.md | tests/derived/test_project_metrics |
+| FR-020 | docs/specs/project_workspace.md | tests/derived/test_project_metrics |
+| FR-027 | docs/adr/ADR-003-conflict-resolution-and-offline-policy.md | Cache drill script (planned) |
+| FR-032 | docs/requirements/06_non_functional/README.md; docs/specs/spec_scaffold.md | Observability stub (pending automation) |
+| FR-045 | docs/specs/correspondence_management.md; docs/specs/field_library.md | tests/fixtures/items/correspondence.json |
+
+Keep this table in sync with `docs/specs/spec_scaffold.md` so requirement,
+specification, and test mappings stay coherent.

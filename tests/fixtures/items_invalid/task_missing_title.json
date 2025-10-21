@@ -1,0 +1,17 @@
+{
+  "id": "task_invalid_001",
+  "item_type": "task",
+  "realm": {
+    "id": "eng-data",
+    "path": ["global", "engineering", "eng-data"],
+    "sensitivity_floor": "internal"
+  },
+  "sensitivity": {
+    "classification": "internal",
+    "inherited": true
+  },
+  "capabilities": {},
+  "fields": {},
+  "metadata": {},
+  "derived": {}
+}

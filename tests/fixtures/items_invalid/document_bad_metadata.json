@@ -1,0 +1,20 @@
+{
+  "id": "doc_invalid_001",
+  "item_type": "document",
+  "title": "Invalid Metadata Sample",
+  "realm": {
+    "id": "knowledge-base",
+    "path": ["global", "knowledge-base"],
+    "sensitivity_floor": "internal"
+  },
+  "sensitivity": {
+    "classification": "internal",
+    "inherited": true
+  },
+  "capabilities": {},
+  "fields": {},
+  "metadata": {
+    "badNamespace": "should fail pattern check"
+  },
+  "derived": {}
+}

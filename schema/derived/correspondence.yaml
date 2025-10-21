@@ -1,0 +1,36 @@
+{
+  "type": "correspondence",
+  "metrics": [
+    {
+      "key": "participant_count",
+      "description": "Number of participants referenced on the correspondence item.",
+      "operation": "length",
+      "config": {"path": "fields.participants"}
+    },
+    {
+      "key": "tag_count",
+      "description": "Number of domain tags attached to the correspondence.",
+      "operation": "length",
+      "config": {"path": "fields.tags"}
+    },
+    {
+      "key": "has_subject",
+      "description": "Whether a subject or summary is recorded.",
+      "operation": "exists",
+      "config": {"path": "fields.subject"}
+    },
+    {
+      "key": "has_retention_policy",
+      "description": "Whether a retention policy is present in capability metadata.",
+      "operation": "exists",
+      "config": {"path": "metadata.cap.correspondence.archive.retention"}
+    },
+    {
+      "key": "has_attachments",
+      "description": "Whether the correspondence includes preserved attachments.",
+      "operation": "exists",
+      "config": {"path": "fields.attachments"}
+    }
+  ]
+}
+

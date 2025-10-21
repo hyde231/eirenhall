@@ -1,0 +1,36 @@
+{
+  "type": "organization",
+  "metrics": [
+    {
+      "key": "contact_method_count",
+      "description": "Number of contact methods registered for the organization.",
+      "operation": "length",
+      "config": {"path": "fields.contact_methods"}
+    },
+    {
+      "key": "site_count",
+      "description": "Number of physical or virtual sites listed in the profile.",
+      "operation": "length",
+      "config": {"path": "fields.profile.sites"}
+    },
+    {
+      "key": "linked_item_count",
+      "description": "Number of related items pinned to the organization record.",
+      "operation": "length",
+      "config": {"path": "fields.related_items"}
+    },
+    {
+      "key": "has_review_cadence",
+      "description": "Whether a review cadence is defined.",
+      "operation": "exists",
+      "config": {"path": "fields.profile.review_cadence_days"}
+    },
+    {
+      "key": "has_last_contact",
+      "description": "Whether the last contact timestamp is recorded.",
+      "operation": "exists",
+      "config": {"path": "metadata.cap.directory.profile.last_contact_at"}
+    }
+  ]
+}
+

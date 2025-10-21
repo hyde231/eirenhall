@@ -1,0 +1,103 @@
+{
+  "id": "task_insurance_followup",
+  "item_type": "task",
+  "title": "Schedule insurance renewal call",
+  "realm": {
+    "id": "household",
+    "path": ["root", "household"],
+    "sensitivity_floor": "internal"
+  },
+  "sensitivity": {
+    "classification": "internal",
+    "inherited": true
+  },
+  "capabilities": {
+    "read": {"enabled": true, "version": "1.0.0"},
+    "write": {"enabled": true, "version": "1.0.0"},
+    "comment": {"enabled": true, "version": "1.0.0"},
+    "manage": {"enabled": true, "version": "1.0.0"}
+  },
+  "owner": {
+    "id": "user_household",
+    "display_name": "Household Operator",
+    "email": "household.operator@example.com"
+  },
+  "created_at": "2025-02-16T07:45:00Z",
+  "updated_at": "2025-02-17T16:45:00Z",
+  "fields": {
+    "description": {
+      "type": "delta",
+      "ops": [
+        {
+          "insert": "Coordinate renewal meeting with Lena Fischer and review updated liability coverage terms.\n"
+        }
+      ]
+    },
+    "status": "in_progress",
+    "due_at": "2025-02-20T17:00:00Z",
+    "assignees": [
+      {
+        "id": "user_household",
+        "display_name": "Household Operator",
+        "email": "household.operator@example.com"
+      }
+    ],
+    "checklist": [
+      {
+        "id": "chka9b8c7",
+        "label": "Collect latest policy PDF",
+        "checked": true
+      },
+      {
+        "id": "chkb8c7d6",
+        "label": "Draft renewal questions",
+        "checked": false
+      },
+      {
+        "id": "chkc7d6e5",
+        "label": "Confirm meeting slot with Lena",
+        "checked": false
+      }
+    ],
+    "related_items": [
+      {
+        "object_type": "person",
+        "object_id": "person_lena_fischer",
+        "uri": "kki://item/person_lena_fischer",
+        "relationship": "stakeholder"
+      },
+      {
+        "object_type": "document",
+        "object_id": "doc_insurance_policy_pdf",
+        "uri": "kki://item/doc_insurance_policy_pdf",
+        "relationship": "supporting-doc"
+      },
+      {
+        "object_type": "wiki_entry",
+        "object_id": "wiki_insurance_playbook",
+        "uri": "kki://item/wiki_insurance_playbook",
+        "relationship": "playbook"
+      }
+    ],
+    "links": [
+      {
+        "title": "Insurer appointments",
+        "url": "https://portal.nordlicht.example/appointments",
+        "kind": "reference"
+      }
+    ],
+    "tags": ["insurance", "todo"]
+  },
+  "metadata": {
+    "sys.priority": "p1",
+    "sys.created_via": "web"
+  },
+  "derived": {
+    "progress_summary": {
+      "total": 3,
+      "completed": 1,
+      "percent_complete": 0.33
+    },
+    "last_activity_at": "2025-02-17T16:45:00Z"
+  }
+}
