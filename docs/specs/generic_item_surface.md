@@ -94,6 +94,13 @@ functionality once their schemas are registered—no bespoke UI work required.
 - **Theme Layer:** Base UI uses neutral theme tokens; plugins can supply custom
   palettes without altering layout logic.
 
+## Rich Text Authoring Strategy
+- **Adopt delta-native editor:** Embed an off-the-shelf rich text editor that speaks Quill-style delta operations so `fields.body` continues to persist the `std.rich_text` payload without lossy Markdown<->delta conversions.
+- **Generic knowledge plugin:** Provide one extensible plugin that understands wiki links, `kki://` URIs, include directives, and Markdown export tokens. It consults the registered item types/capabilities at runtime, so new schemas appear automatically in link pickers and validation routines.
+- **Plugin contract:** The core plugin supplies insertion menus, hover previews, and validation hooks. Type manifests (and future capability metadata) can contribute optional affordance hints via declarative descriptors rather than bespoke code.
+- **Extension slots:** Specialized bundles can extend the generic plugin by registering additional resolvers (e.g., for capability panels or embeds) using the same surface registry, avoiding one-off editor forks.
+- **Roadmap alignment:** Initial phase ships the editor shell and generic plugin focused on wiki/document authoring; later phases add collaborative cursors, comment tracks, and capability-aware embeds once the registry exposes richer metadata.
+
 ## Neutral Core Distribution
 - Stock system bundles only generic components plus minimal capability panels
   for core item types (document/task/wiki/correspondence/project/contact).
@@ -111,9 +118,14 @@ functionality once their schemas are registered—no bespoke UI work required.
   behaviour without data loss.
 
 ## Roadmap
-- **Phase 1:** Implement surface registry, generic list/detail/edit pages,
-  capability panel loading, and plugin discovery.
-- **Phase 2:** Add query builder and action slot APIs, plus override priority
-  controls.
-- **Phase 3:** Deliver sample plugins (e.g., storytelling bundle) to validate
-  isolation, packaging, and deployment flows.
+- Detailed milestone activities live in [editor_milestone_plan.md](editor_milestone_plan.md).
+- **M2 Walking Skeleton:** Wire in the delta-native editor shell, support single-item editing for document/wiki types, persist rich-text deltas end-to-end, and land registry APIs so surfaces can query type manifests and capability hints.
+- **M3 Alpha:** Ship the generic knowledge plugin with wiki link parsing, include directive handling, outbound link metadata capture, and editor affordances seeded from the registry; add action slot overrides and query builder needed for richer authoring flows.
+- **M4 Beta:** Deliver collaborative editing hooks, inline comment threads, capability-aware embeds, and the sample webcomic plugin to validate the extension story while exercising sandbox, packaging, and deployment steps.
+- **M5 GA:** Harden accessibility, localization, and offline fallbacks, complete regression coverage (surface registry, plugin contract, export round-trip), and polish admin tooling so operators can audit or disable editor plugins per realm.
+
+## Sample Plugin: Webcomic Knowledge Bundle
+- **Schema fields:** Title, base_url, availability, status, synopsis (rich text), artists (role-tagged list), cover_image, starting_date, end_date, last_update, pages, images, thumbnails, language, tags, comment, rating.
+- **Operational metadata:** Optional technical block registering scraping_method, scraping_parameters, and health signals that default to hidden from the generic detail view unless the operator enables diagnostics mode.
+- **Editor affordances:** Generic plugin surfaces autocomplete for artist roles, availability/status toggles, synopsis editor with preview, and collection widgets for pages/images/thumbnails; link pickers stay registry-driven so the plugin inherits future item types without new code.
+- **Automation hooks:** Background jobs monitor base_url reachability to flip availability, refresh last_update from scraping results, and emit alerts when the scraping_method reports failures.
