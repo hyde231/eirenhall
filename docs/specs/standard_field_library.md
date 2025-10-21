@@ -344,11 +344,9 @@ Key derived fields required for Milestone M1:
    steps for deprecated fields.
 
 ### Open Questions
-- Do we require localized validation messages for constraints, and if so,
-  where do those live?
-- How should binary references integrate with external object storage
-  lifecycle policies?
-- What governance body approves new standard field additions post-M1?
+- Validation messages remain English-only system prompts; localized copies are not required.
+- Binary reference lifecycle remains an open topic (pending clarity on external storage policies).
+- Post-M1, the project maintainer (current sole developer/user) approves new standard fields.
 
 Resolving these questions is recommended before declaring the standard field
 library complete, but the above specification provides the baseline structure

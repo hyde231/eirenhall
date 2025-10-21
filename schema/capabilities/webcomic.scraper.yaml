@@ -1,0 +1,15 @@
+key: webcomic.scraper
+version: 0.1.0
+summary: >
+  Governs automated scraping, monitoring schedules, and diagnostics for webcomic update detection.
+configuration_schema: null
+affordances:
+  - automation
+  - detail
+dependencies:
+  - read
+  - write
+metadata_namespace: cap.webcomic.scraper
+events:
+  - webcomic.scrape.succeeded
+  - webcomic.scrape.failed

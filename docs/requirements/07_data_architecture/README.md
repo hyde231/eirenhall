@@ -112,6 +112,12 @@ Full-text over normalized text + fields (including **captured_at**); optional ve
 ### Retention & Deletion
 Deferred. Treat storage as fixed for now and plan cleanup workflows after functional feasibility is proven.
 
+### Human-Readable Archival Path
+- Canonical persistence remains JSON (per `schema/item_base.json`) for validation, automation, and capability contracts.
+- Nightly export job emits Markdown bundles for each realm/type via the `kki_markdown_export` pipeline so archives stay readable even if the app is offline.
+- Bundles are stored under `/backups/<date>/markdown/` alongside regular snapshots, following the standard retention window (30 daily / 12 monthly / 5 yearly).
+- Each bundle keeps its `objects.json` metadata and checksums; restores can rehydrate JSON through the importer, while operators can reference Markdown directly when needed.
+
 ## 7.1 Storage & Data Sinks (Decisions & Options)
 - **Metadata/docs/code → Git** (great for text, diffs, ADRs). Avoid huge binaries in repos.
 - **Large binaries → raw FS/object store** with open **manifests** (JSON/YAML), checksums, optional CAS/dedup.

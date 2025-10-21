@@ -1,0 +1,14 @@
+key: webcomic.library
+version: 0.1.0
+summary: >
+  Enables library-style browsing widgets, availability dashboards, and linkouts tailored for webcomic items.
+configuration_schema: null
+affordances:
+  - list
+  - detail
+  - dashboard
+dependencies:
+  - read
+metadata_namespace: cap.webcomic.library
+events:
+  - webcomic.availability.updated

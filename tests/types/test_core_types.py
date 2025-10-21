@@ -15,6 +15,7 @@ from kernel.types import (
     PersonType,
     ProjectType,
     TaskType,
+    WebcomicType,
     WikiEntryType,
     bootstrap_types,
     list_registered_types,
@@ -36,6 +37,7 @@ def test_bootstrap_registers_core_types() -> None:
         "person",
         "project",
         "task",
+        "webcomic",
         "wiki_entry",
     )
 
@@ -84,6 +86,9 @@ def test_manifest_validation_errors(payload: dict[str, object]) -> None:
         (ConversationThreadType, "conversations.timeline", True),
         (PersonType, "directory.profile", True),
         (OrganizationType, "directory.profile", True),
+        (WebcomicType, "webcomic.library", True),
+        (WebcomicType, "webcomic.scraper", True),
+        (WebcomicType, "conversations.timeline", False),
     ],
 )
 def test_capability_queries(type_cls, capability: str, expected: bool) -> None:
@@ -133,6 +138,14 @@ def test_metadata_accessors() -> None:
         "comment",
         "manage",
         "directory.profile",
+    )
+    assert WebcomicType.capabilities() == (
+        "read",
+        "write",
+        "comment",
+        "manage",
+        "webcomic.library",
+        "webcomic.scraper",
     )
 
 

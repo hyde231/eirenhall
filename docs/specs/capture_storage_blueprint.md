@@ -86,6 +86,10 @@ Cache eviction policies:
   - total bytes synced,
   - checksum validation summary (mismatches, repaired items),
   - restore drill reminder (once per quarter).
+- Schedule a companion export job that writes Markdown bundles (via
+  `kki_markdown_export`) into `/backups/<date>/markdown/` so a human-readable
+  archive exists even if the core app is unavailable. Bundles retain
+  `objects.json` metadata for round-trip restores.
 - Restore procedure:
   1. Select snapshot and run `restic restore` into an empty staging volume.
   2. Execute `scripts/verify_storage.py --root <staging>` to confirm hashes.
@@ -104,4 +108,3 @@ Cache eviction policies:
   dashboard once the telemetry stack is in place.
 - Extend the blueprint with encryption-at-rest guidance when hardware-backed
   keys are provisioned.
-

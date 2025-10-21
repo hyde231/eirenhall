@@ -106,8 +106,8 @@ Maps each token `id` to the full structured object representation.
 - Additional metadata (e.g., item-level attributes, derived metrics) can be added to `objects.json` under reserved keys like `_meta`.
 
 ## Open Questions & TODOs
-- Decide whether to embed a summary of the object catalog (IDs, types) in Markdown front matter for quick parsing.
-- Evaluate storing `objects.json` alongside Markdown as front matter to reduce file count for simple exports.
-- Define checksum/manifest requirements for `assets/` to ensure tamper detection.
-- Determine packaging format for bulk exports (zip vs. tar) and streaming support for large bundles.
+- Embed an automatic references section summarizing object IDs/types (scientific-paper style) for quick parsing.
+- Allow embedding `objects.json` as front matter when payload ≤ ~10 kB; omit separate catalog in that case.
+- Use a simple checksum per asset for tamper detection; no additional manifest required initially.
+- Package bulk exports as ZIP archives; streaming support can target ZIP-compatible tooling.
 - Provide reference exporter/importer tooling and unit tests demonstrating round-trip fidelity.

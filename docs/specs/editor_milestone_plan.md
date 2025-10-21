@@ -114,14 +114,13 @@ Outlines the execution roadmap for embedding the delta-native rich-text editor, 
   - Bundle ships with schema YAML, derived metrics definition, fixtures under `tests/fixtures/items/webcomic*.json`, ingestion script scaffolds, and UI extension manifest referencing editor affordances.
 
 ## Open Questions & Follow-ups
-- Determine whether artist roles warrant a dedicated schema or reuse of tagged user references.
-- Decide retention policy for scraped assets (pages/images) and how they map to item relations.
-- Clarify whether availability updates auto-create timeline entries for auditing.
-- Evaluate need for per-realm configuration of scraping credentials and rate limits.
+- Artist roles remain local to the webcomic bundle; no shared enum required for other media types.
+- Scraped assets inherit the owning item's retention (default infinite) and link in the same relations block.
+- Availability changes do not auto-create timeline entries; auditing is lightweight for this self-hosted deployment.
+- Scraping configurations and rate limits are item/target-specific, while credentials are managed per realm.
 
 ## Next Actions
 1. **Design Spike (M2):** Prototype editor integration with two candidate libraries and document trade-offs.
 2. **Schema Draft (M3 prep):** Author initial `schema/types/webcomic.yaml` + field composites.
 3. **Testing Plan:** Extend `tests/types/test_core_types.py` once the webcomic type registers.
 4. **Operations Alignment:** Engage reliability team to plan scraper scheduling infrastructure for M4.
-

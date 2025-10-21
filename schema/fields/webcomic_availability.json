@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "webcomic.availability",
+    "name": "Webcomic Availability",
+    "description": "Availability state derived from the reachability of the webcomic's base URL.",
+    "fieldType": "scalar",
+    "dataType": "string",
+    "version": "0.1.0",
+    "owner": "media.library",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "enum": ["online", "offline", "unknown"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "online",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/webcomic_availability.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Webcomic Availability",
+  "type": "string",
+  "enum": ["online", "offline", "unknown"]
+}

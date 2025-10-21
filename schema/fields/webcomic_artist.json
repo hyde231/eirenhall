@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "id": "webcomic.artist",
+    "name": "Webcomic Contributor",
+    "description": "Contributor entry capturing the person or team involved in a webcomic and their primary role.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "0.1.0",
+    "owner": "media.library",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["name", "role"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "name": "Jane Doe",
+      "role": "author",
+      "profile_uri": "https://example.com/creators/jane-doe"
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/webcomic_artist.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Webcomic Contributor",
+  "type": "object",
+  "required": ["name", "role"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "description": "Display name of the contributor."
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "creator",
+        "author",
+        "illustrator",
+        "colorist",
+        "letterer",
+        "translator",
+        "editor",
+        "publisher",
+        "other"
+      ],
+      "description": "Primary role performed by the contributor."
+    },
+    "role_detail": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "description": "Optional free-form description for custom roles or clarifications."
+    },
+    "profile_uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional URI pointing to the contributor's profile or home page."
+    },
+    "notes": {
+      "$ref": "./rich_text.json",
+      "description": "Optional notes about the contributor's involvement."
+    }
+  }
+}

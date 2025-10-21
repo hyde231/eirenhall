@@ -1,0 +1,9 @@
+type: webcomic
+schema: item_base.json
+capabilities:
+  - read
+  - write
+  - comment
+  - manage
+  - webcomic.library
+  - webcomic.scraper

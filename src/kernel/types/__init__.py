@@ -17,6 +17,7 @@ from .organization import OrganizationType
 from .person import PersonType
 from .project import ProjectType
 from .task import TaskType
+from .webcomic import WebcomicType
 from .wiki_entry import WikiEntryType, WikiType
 
 __all__ = [
@@ -36,6 +37,7 @@ __all__ = [
     "OrganizationType",
     "CorrespondenceType",
     "ConversationThreadType",
+    "WebcomicType",
     "WikiEntryType",
     "WikiType",
 ]

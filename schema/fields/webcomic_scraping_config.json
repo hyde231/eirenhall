@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "id": "webcomic.scraping.config",
+    "name": "Webcomic Scraping Configuration",
+    "description": "Technical configuration for automated update checks and scraping routines.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "0.1.0",
+    "owner": "media.library",
+    "capabilities": ["viewable", "workflown"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["method"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "method": "rss",
+      "parameters": {
+        "feed_url": "https://example.com/feed.xml"
+      },
+      "poll_interval_minutes": 120
+    },
+    "provenance": {
+      "managed_by": "automation"
+    }
+  },
+  "$id": "https://kki.example.com/schema/fields/webcomic_scraping_config.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Webcomic Scraping Configuration",
+  "type": "object",
+  "required": ["method"],
+  "additionalProperties": false,
+  "properties": {
+    "method": {
+      "type": "string",
+      "enum": ["manual", "rss", "html", "api", "disabled"],
+      "description": "Strategy used to detect new updates."
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Collector-specific parameters (feed URLs, CSS selectors, API keys references).",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "type": ["string", "number", "boolean"]
+      }
+    },
+    "poll_interval_minutes": {
+      "type": "integer",
+      "minimum": 5,
+      "maximum": 1440,
+      "description": "Desired polling cadence expressed in minutes."
+    },
+    "last_success_at": {
+      "$ref": "./timestamp.json",
+      "description": "Timestamp of the last successful scrape."
+    },
+    "last_error": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Optional diagnostic message from the last failed run."
+    }
+  }
+}

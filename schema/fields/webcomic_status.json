@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "webcomic.status",
+    "name": "Webcomic Lifecycle Status",
+    "description": "Lifecycle status describing whether the webcomic is active, complete, or on hold.",
+    "fieldType": "scalar",
+    "dataType": "string",
+    "version": "0.1.0",
+    "owner": "media.library",
+    "capabilities": ["viewable", "reportable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "enum": ["active", "completed", "hiatus", "abandoned", "unknown"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": "active",
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/webcomic_status.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Webcomic Lifecycle Status",
+  "type": "string",
+  "enum": ["active", "completed", "hiatus", "abandoned", "unknown"]
+}

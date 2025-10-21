@@ -100,6 +100,21 @@
             "items": {
               "$ref": "./fields/link.json"
             }
+          },
+          {
+            "$ref": "./fields/webcomic_availability.json"
+          },
+          {
+            "$ref": "./fields/webcomic_status.json"
+          },
+          {
+            "$ref": "./fields/webcomic_scraping_config.json"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "./fields/webcomic_artist.json"
+            }
           }
         ]
       }
