@@ -4,9 +4,9 @@
 Items = base fields + capabilities.
 
 ### Base Fields
-`id, type, realm_id, realm_access_level, sensitivity, title, description, created_at, updated_at, tags[], source_url?, canonical_url?, captures[], attachments[], links[], checksum, size, metadata{}`
+`id, type, realm_id, realm_access_level, sensitivity, title, description, created_at, updated_at, tags[], source_url?, canonical_url?, captures[], attachments[], links[], notes?, checksum, size, metadata{}`
 
-Session context assigns the default `realm_id` + `realm_access_level` pair; overrides are expressed through dedicated share relation items so that scoping changes remain auditable and composable. Realm records capture lineage (`parent_realm_id?`, `origin_access_level`, `clone_of?`) to support split/merge history and policy inheritance checks.
+Session context assigns the default `realm_id` + `realm_access_level` pair; overrides are expressed through dedicated share relation items so that scoping changes remain auditable and composable. Realm records capture lineage (`parent_realm_id?`, `origin_access_level`, `clone_of?`) to support split/merge history and policy inheritance checks. Optional `fields.notes` (rich text) gives every item a scratchpad for interim context, migration breadcrumbs, or commentary; because it uses the standard rich-text field, embedded `kki://` URIs or wiki links flow through the existing linking/backlink pipeline.
 
 ### Capabilities (Mix-ins)
 Viewable, Listable, Queryable, Storable, Importable/Exportable, Versioned, Scrapeable, Downloadable, Readable, Playable, Workflown, Schedulable, Annotatable, Geocoded.
@@ -17,6 +17,11 @@ Capability declarations drive derived UX: `Workflown` surfaces Kanban boards, `S
 `{type_key, version, capabilities[], schema.json, facets[], actions[], migrations[], relations[]?}`.
 
 Plugins bundle data definitions, named relations, view descriptors, workflows, and automations. Core plugins ship reusable relation item types (e.g., tags, sharing links) that downstream plugins compose rather than duplicating or introducing deep inheritance chains.
+
+### Project & Conversation Item Shapes
+- **Project (`project`)** items act as organizing workspaces that aggregate tasks, documents, dashboards, and automation runs under a shared lifecycle. The schema captures summary status, stage, outcome metrics, canonical roadmap links, and rollups sourced from related items through `fields.summary` (`std.project.summary`) plus optional narratives (`fields.objectives` rich text) and curated relations. Declaring the dedicated `projects.workspace` capability exposes cross-linked boards, progress summaries, and saved-search widgets without per-project wiring.
+- **Conversation Transcript (`conversation_thread`)** items persist assistant/operator dialog as ordered message arrays with speaker roles, timestamps, realm tags, topic labels, referenced item URIs, and optional excerpt tokens using `fields.timeline` (`std.conversation.timeline`). Conversation items inherit the same export guarantees as other content types so transcript snippets can rehydrate into Markdown bundles, dashboards, or follow-up tasks. Threads can aggregate related correspondence items and GTD tasks to represent long-running exchanges (e.g., medical billing disputes or insurance claims) without duplicating underlying artifacts while the `conversations.timeline` capability powers timeline rendering and search facets.
+- **Correspondence (`correspondence`)** items store normalized mail/email metadata via `fields.entry` (`std.correspondence.entry`) plus party lists, attachments, and retention descriptors. The `correspondence.archive` capability unlocks ingestion dashboards, retention controls, and export tooling tailored to archival workflows.
 
 ## Primitive & Structured Data Types
 

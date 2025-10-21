@@ -1,0 +1,8 @@
+type: conversation_thread
+schema: item_base.json
+capabilities:
+  - read
+  - write
+  - comment
+  - manage
+  - conversations.timeline

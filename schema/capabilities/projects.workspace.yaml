@@ -1,0 +1,15 @@
+key: projects.workspace
+version: 1.0.0
+summary: >
+  Enables project workspace features including progress rollups, dashboard widgets,
+  and saved-search integrations for linked artifacts.
+configuration_schema: null
+affordances:
+  - list
+  - detail
+  - dashboard
+dependencies:
+  - read
+metadata_namespace: cap.projects.workspace
+events:
+  - project.progress.updated

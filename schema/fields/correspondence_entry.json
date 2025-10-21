@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "id": "std.correspondence.entry",
+    "name": "Correspondence Entry",
+    "description": "Normalized metadata describing a correspondence artifact such as a letter or email.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.correspondence",
+    "capabilities": ["viewable", "classifiable", "searchable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["direction", "channel", "source_files"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "direction": "inbound",
+      "channel": "email",
+      "language": "de",
+      "sender": [
+        {
+          "display_name": "Krankenkasse Musterstadt",
+          "role": "sender",
+          "emails": ["service@krankenkasse.de"]
+        }
+      ],
+      "recipient": [
+        {
+          "display_name": "Anna Beispiel",
+          "role": "recipient"
+        }
+      ],
+      "received_at": "2025-02-11T08:15:00Z",
+      "reference_ids": ["claim-2025-00123"],
+      "topics": ["health", "insurance", "invoice"],
+      "source_files": [
+        {
+          "blob_id": "blob_01HR7BZ6NWQX1T2Z4FXN2F9H8J",
+          "media_type": "application/pdf"
+        }
+      ],
+      "retention_policy": {
+        "policy_key": "health_docs_10y"
+      }
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/correspondence_entry.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Correspondence Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["direction", "channel", "source_files"],
+  "properties": {
+    "direction": {
+      "type": "string",
+      "enum": ["inbound", "outbound"]
+    },
+    "channel": {
+      "type": "string",
+      "enum": ["postal_mail", "email", "portal", "messenger", "fax", "other"]
+    },
+    "language": {
+      "type": "string",
+      "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$",
+      "description": "Primary language identifier (BCP 47)."
+    },
+    "sender": {
+      "type": "array",
+      "items": {
+        "$ref": "./correspondence_party.json"
+      },
+      "maxItems": 16
+    },
+    "recipient": {
+      "type": "array",
+      "items": {
+        "$ref": "./correspondence_party.json"
+      },
+      "maxItems": 16
+    },
+    "sent_at": {
+      "$ref": "./timestamp.json"
+    },
+    "received_at": {
+      "$ref": "./timestamp.json"
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "summary": {
+      "$ref": "./rich_text.json"
+    },
+    "reference_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+      "uniqueItems": true,
+      "maxItems": 16
+    },
+    "topics": {
+      "$ref": "./tag_list.json"
+    },
+    "source_files": {
+      "type": "array",
+      "items": {
+        "$ref": "./binary_reference.json"
+      },
+      "minItems": 1
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "$ref": "./binary_reference.json"
+      }
+    },
+    "ocr_text": {
+      "type": "string"
+    },
+    "related_items": {
+      "type": "array",
+      "items": {
+        "$ref": "./object_reference.json"
+      }
+    },
+    "retention_policy": {
+      "$ref": "./correspondence_retention.json"
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 1024
+    }
+  }
+}

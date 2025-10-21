@@ -1,0 +1,16 @@
+key: correspondence.archive
+version: 1.0.0
+summary: >
+  Unlocks correspondence-specific ingestion, retention policy surfacing, and export
+  workflows for mail and document artifacts.
+configuration_schema: null
+affordances:
+  - list
+  - detail
+  - archive
+dependencies:
+  - read
+metadata_namespace: cap.correspondence.archive
+events:
+  - correspondence.ingested
+  - correspondence.retention.updated

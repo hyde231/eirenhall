@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "id": "std.conversation.message",
+    "name": "Conversation Message",
+    "description": "Single message within a conversation thread, capturing speaker metadata, body, and references.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.conversations",
+    "capabilities": ["viewable", "searchable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["message_id", "timestamp", "speaker", "body"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "message_id": "msg_20250211T081500Z",
+      "timestamp": "2025-02-11T08:15:00Z",
+      "speaker": {
+        "role": "external",
+        "display_name": "Krankenkasse Musterstadt",
+        "participant_id": "org_krankenkasse"
+      },
+      "body": {
+        "ops": [
+          {
+            "insert": "Bitte reichen Sie die fehlende Rechnung nach."
+          }
+        ]
+      },
+      "references": [
+        {
+          "type": "correspondence",
+          "id": "corr_20250211_001",
+          "uri": "kki://item/corr_20250211_001"
+        }
+      ],
+      "tags": ["health", "insurance"]
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/conversation_message.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Conversation Message",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["message_id", "timestamp", "speaker", "body"],
+  "properties": {
+    "message_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json"
+    },
+    "speaker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "display_name"],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["owner", "assistant", "external"]
+        },
+        "display_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "participant_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "contact": {
+          "$ref": "./correspondence_party.json"
+        }
+      }
+    },
+    "body": {
+      "$ref": "./rich_text.json"
+    },
+    "body_plain": {
+      "type": "string"
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "$ref": "./binary_reference.json"
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "$ref": "./object_reference.json"
+      }
+    },
+    "tags": {
+      "$ref": "./tag_list.json"
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "task_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 256
+          }
+        }
+      }
+    }
+  }
+}

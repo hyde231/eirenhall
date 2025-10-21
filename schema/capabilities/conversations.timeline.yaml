@@ -1,0 +1,16 @@
+key: conversations.timeline
+version: 1.0.0
+summary: >
+  Provides timeline rendering, transcript search, and excerpt linking for conversation
+  thread items.
+configuration_schema: null
+affordances:
+  - detail
+  - timeline
+  - search
+dependencies:
+  - read
+metadata_namespace: cap.conversations.timeline
+events:
+  - conversation.message.appended
+  - conversation.status.changed

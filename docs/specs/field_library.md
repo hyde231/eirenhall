@@ -36,6 +36,12 @@ in `schema/fields`.
 |  | `capabilities.json` / `capability_entry.json` | Capability map + entry structure for item payloads. |
 | **Derived & Aggregates** | `progress_summary.json` | Composite derived structure (total/completed/percent). |
 | **Domain Composites** | `weather_observation.json` | Standardized weather observation payload using measurement, geo point, and object reference primitives. |
+|  | `correspondence_party.json` | Party/contact descriptor for correspondence and conversation participants. |
+|  | `correspondence_retention.json` | Retention/hold metadata applied to correspondence artifacts. |
+|  | `correspondence_entry.json` | Normalized metadata envelope for letters, emails, and related documents. |
+|  | `conversation_message.json` | Single timeline message with speaker metadata, body, and references. |
+|  | `conversation_timeline.json` | Ordered collection of conversation messages with optional summary. |
+|  | `project_summary.json` | Project status, health, and timeline descriptor with progress rollup. |
 
 Future categories may introduce measurement fields, media descriptors, or
 relation definitions. Additions must follow the rules below.

@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "id": "std.project.summary",
+    "name": "Project Summary",
+    "description": "Captures the high-level status, timeline, and health metrics for a project workspace.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.projects",
+    "capabilities": ["viewable", "dashboardable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["status"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "status": "active",
+      "stage": "implementation",
+      "health": "on_track",
+      "start_at": "2025-01-10T09:00:00Z",
+      "target_completion_at": "2025-04-30T17:00:00Z",
+      "lead": {
+        "id": "user_anna",
+        "display_name": "Anna Beispiel"
+      },
+      "progress": {
+        "total": 25,
+        "completed": 12,
+        "percent": 0.48
+      }
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/project_summary.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Project Summary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status"],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["planned", "active", "blocked", "on_hold", "completed", "cancelled"]
+    },
+    "stage": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "health": {
+      "type": "string",
+      "enum": ["on_track", "at_risk", "off_track"]
+    },
+    "start_at": {
+      "$ref": "./timestamp.json"
+    },
+    "target_completion_at": {
+      "$ref": "./timestamp.json"
+    },
+    "completed_at": {
+      "$ref": "./timestamp.json"
+    },
+    "lead": {
+      "$ref": "./user_reference.json"
+    },
+    "sponsor": {
+      "$ref": "./user_reference.json"
+    },
+    "progress": {
+      "$ref": "./progress_summary.json"
+    },
+    "tags": {
+      "$ref": "./tag_list.json"
+    },
+    "description": {
+      "$ref": "./rich_text.json"
+    },
+    "related_saved_searches": {
+      "type": "array",
+      "items": {
+        "$ref": "./object_reference.json"
+      }
+    }
+  }
+}

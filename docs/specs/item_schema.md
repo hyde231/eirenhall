@@ -35,7 +35,11 @@ duplicated in item schemas; link-related fields must follow the
 Field payloads SHOULD reuse the cataloged composites. The base item schema now
 accepts both singular and array forms of `std.object_ref`, enabling items to
 point at related tasks, wiki entries, datasets, or other registry members without custom
-ad hoc objects.
+ad hoc objects. Every item type MAY expose an optional `fields.notes` using the
+standard rich-text field (`schema/fields/rich_text.json`) to capture ad-hoc comments,
+migration breadcrumbs, or future schema candidates. Because notes reuse the rich-text
+primitive, any embedded `kki://` URIs or wiki links participate in the canonical
+linking/backlink pipeline without extra work.
 
 ## Realm & Sensitivity Inheritance
 

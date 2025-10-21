@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "std.conversation.timeline",
+    "name": "Conversation Timeline",
+    "description": "Ordered collection of messages that constitute a conversation thread.",
+    "fieldType": "composite",
+    "dataType": "array",
+    "version": "1.0.0",
+    "owner": "core.conversations",
+    "capabilities": ["viewable", "searchable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["messages"]
+    },
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "messages": [
+        {
+          "message_id": "msg_20250211T081500Z",
+          "timestamp": "2025-02-11T08:15:00Z",
+          "speaker": {
+            "role": "owner",
+            "display_name": "Anna Beispiel"
+          },
+          "body": {
+            "ops": [
+              {
+                "insert": "Gespräch mit der Krankenkasse begonnen."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/conversation_timeline.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Conversation Timeline",
+  "type": "object",
+  "required": ["messages"],
+  "additionalProperties": false,
+  "properties": {
+    "messages": {
+      "type": "array",
+      "items": {
+        "$ref": "./conversation_message.json"
+      },
+      "minItems": 1
+    },
+    "summary": {
+      "$ref": "./rich_text.json"
+    },
+    "last_synced_at": {
+      "$ref": "./timestamp.json"
+    }
+  }
+}

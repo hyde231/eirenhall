@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "std.correspondence.party",
+    "name": "Correspondence Party",
+    "description": "Represents a sender, recipient, or participant associated with a correspondence artifact.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.correspondence",
+    "capabilities": ["viewable", "classifiable"],
+    "sensitivity": "internal",
+    "constraints": {
+      "required": ["display_name"]
+    },
+    "localization": {
+      "translatable": true
+    },
+    "example": {
+      "display_name": "Dr. Eva Schneider",
+      "role": "sender",
+      "emails": ["eva.schneider@example.de"],
+      "identifiers": [
+        {
+          "type": "customer_number",
+          "value": "A-12345"
+        }
+      ]
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/correspondence_party.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Correspondence Party",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["display_name"],
+  "properties": {
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "normalized_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "description": "Optional normalized representation for matching."
+    },
+    "role": {
+      "type": "string",
+      "enum": ["sender", "recipient", "cc", "bcc", "participant", "payer", "payee", "other"]
+    },
+    "emails": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "email"
+      },
+      "uniqueItems": true,
+      "maxItems": 8
+    },
+    "phone_numbers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\+?[0-9 ()\\-]{5,32}$"
+      },
+      "uniqueItems": true,
+      "maxItems": 8
+    },
+    "address": {
+      "$ref": "./postal_address.json"
+    },
+    "identifiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "value"],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "issuer": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      },
+      "maxItems": 16
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 512
+    }
+  }
+}

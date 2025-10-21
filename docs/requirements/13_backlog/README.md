@@ -16,8 +16,9 @@ pairing.
 | FR‑018 | FR | Unified query | Must | See AC‑FR‑018 | You | Ready for Build |
 | FR‑019 | FR | Bulk operations | Should | See AC‑FR‑019 | You | Refinement |
 | FR‑020 | FR | Dynamic & static collections | Must | See AC‑FR‑020 | You | Ready for Build |
-| FR‑026 | FR | Large-binary handling | Must | See AC‑FR‑026 | You | Ready for Build |
-| FR‑027 | FR | Tiered caching | Must | See AC‑FR‑027 | You | Ready for Build |
+| FR-026 | FR | Large-binary handling | Must | See AC‑FR‑026 | You | Ready for Build |
+| FR-027 | FR | Tiered caching | Must | See AC‑FR‑027 | You | Ready for Build |
 | NFR‑SEC | NFR | E2E encryption & egress block | Must | See AC‑NFR‑SEC | You | Ready for Build |
 | NFR‑PERF | NFR | Capture/search performance | Must | See AC‑NFR‑PERF | You | Ready for Build |
+| FR-044 | FR | Health records domain modeling | Should | Define health record schemas, sensitivity overlays, and ingestion recipes for medical documents before implementation | You | Draft |
 

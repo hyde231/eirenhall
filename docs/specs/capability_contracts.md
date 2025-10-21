@@ -89,3 +89,8 @@ be introduced) and are registered during bootstrap alongside type manifests.
 
 Adhering to this contract keeps capability-driven behavior predictable and lets
 types inherit powerful UX features without bespoke code.
+
+## Initial Capability Catalog
+- `projects.workspace` (`schema/capabilities/projects.workspace.yaml`) - enables project rollups, dashboard widgets, and saved-search integrations for `project` items.
+- `conversations.timeline` (`schema/capabilities/conversations.timeline.yaml`) - provides transcript timeline rendering, search facets, and excerpt linking for `conversation_thread` items.
+- `correspondence.archive` (`schema/capabilities/correspondence.archive.yaml`) - unlocks ingestion, retention controls, and export workflows for `correspondence` items.

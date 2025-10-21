@@ -1,0 +1,8 @@
+type: project
+schema: item_base.json
+capabilities:
+  - read
+  - write
+  - comment
+  - manage
+  - projects.workspace

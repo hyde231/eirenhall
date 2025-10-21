@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "std.correspondence.retention",
+    "name": "Correspondence Retention Policy",
+    "description": "Retention and legal hold metadata applied to correspondence items.",
+    "fieldType": "composite",
+    "dataType": "object",
+    "version": "1.0.0",
+    "owner": "core.correspondence",
+    "capabilities": ["viewable", "governed"],
+    "sensitivity": "internal",
+    "constraints": {},
+    "localization": {
+      "translatable": false
+    },
+    "example": {
+      "policy_key": "tax_docs_10y",
+      "retain_until": "2035-12-31T23:59:59Z",
+      "retain_indefinitely": false,
+      "legal_hold": true,
+      "review_at": "2030-01-01T00:00:00Z",
+      "notes": "Retain until tax audit window closes."
+    },
+    "provenance": {}
+  },
+  "$id": "https://kki.example.com/schema/fields/correspondence_retention.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Correspondence Retention Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "policy_key": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "retain_indefinitely": {
+      "type": "boolean",
+      "description": "When true, the artifact is kept permanently regardless of retain_until.",
+      "default": true
+    },
+    "retain_until": {
+      "$ref": "./timestamp.json"
+    },
+    "review_at": {
+      "$ref": "./timestamp.json"
+    },
+    "legal_hold": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 512
+    }
+  }
+}
