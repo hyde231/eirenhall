@@ -10,6 +10,7 @@ _A realm-aware, privacy-first personal hub that unifies knowledge, tasks, and au
 - **Holistic life substrate:** Notes, files, archives, tasks, household records, and ad-hoc automations live in one place with consistent structure and provenance.
 - **Realm-aware sharing:** Individuals retain absolute control but can selectively expose read or write access to family members or trusted contacts across personal, family, and guest realms.
 - **Longevity & portability:** Data rests in long-lived, open formats with straightforward export so that no tool lock-in threatens future access.
+- **Opinionated on-ramps:** Curated realm templates and guided setup flows get households productive immediately while showcasing extensibility.
 - **AI-augmented evolution:** Core functionality operates without AI. Local models—when available—assist with organization, summarization, workflow design, and eventually richer automations, always under explicit human approval.
 - **Local coding companion:** On-device AI delivers developer support for personal projects and the platform itself—suggesting code, refactors, and tests while honoring guardrails and demanding human review before changes land.
 - **Personal sovereignty:** The owner defines boundaries, reviews automations, and assumes responsibility for social, ethical, and legal considerations; the system never overrides those decisions.
@@ -26,12 +27,14 @@ _A realm-aware, privacy-first personal hub that unifies knowledge, tasks, and au
 8. **On-device coding assistant:** Equip a local model to provide code generation, refactoring, testing, and self-improvement proposals for the system and adjacent projects, with enforced review gates and audit trails.
 9. **Extensible schema & workflows:** Allow the owner to evolve data types, integrations, and automations over time with transparent diffs and rollback paths.
 10. **Operational simplicity:** Favor predictable maintenance, straightforward monitoring, and the ability to scale up to tens of terabytes without complex orchestration.
+11. **Curated onboarding & templates:** Ship realm-specific starter kits, migration helpers, and example automations so new operators see value within the first session while retaining full control to customize or disable them.
 
 ## 1.4 Guiding Principles
 - **User agency first:** The human remains the final arbiter for every automated action or AI proposal.
 - **Security by design:** Default-deny access, compartmentalized realms, and strong authentication protect household data.
 - **Offline resilience:** Core operations must continue when external connectivity is unavailable.
 - **Clarity over metrics:** Qualitative outcomes (control, longevity, usability) matter more than numeric KPIs in this phase.
+- **Compatibility by contract:** Every plugin, schema migration, and automation publishes manifests and health signals so overrides remain trustworthy over time.
 
 ## 1.5 Non-Goals (Current Phase)
 - Supporting broad multi-tenant deployments beyond a single household.
@@ -59,3 +62,9 @@ The owner retains responsibility for legal, ethical, and social compliance. The 
 - **Privacy-preserving CRM:** Contacts inherit realm/sensitivity policies; exports default to redaction profiles; optional automation suggests relationship updates without disclosing private data beyond the owner’s trust boundary.
 - **Directory-driven automations:** Contacts feed orchestration triggers—wake devices before scheduled calls, pre-fill correspondence drafts, or surface required documents during service interactions—while logging provenance for audits.
 - **Generic core surfaces:** The default installation ships with a neutral browse/query/edit shell that renders any registered item type without relying on persona-specific widgets. Personal or intimate workflows layer on as optional plugins so friends can run the stock system without inheriting bespoke add-ons.
+
+## 1.9 Competitive Learnings
+- **Templated ramps drive adoption:** Tools like Fibery, Capacities, and Airtable succeed when fresh installs surface meaningful workspaces immediately. We must curate realm starter kits and seeded queries that still respect the neutral core defaults.
+- **Plugin ecosystems need guardrails:** Coda Packs and AppFlowy plugins reveal the cost of drift; versioned manifests, compatibility matrices, and automated health telemetry are mandatory so overrides never silently fail.
+- **Manifest-first capture is a differentiator:** ArchiveBox and Tropy validate deterministic storage paired with human-readable manifests. We should invest in lightweight clipper and inbox tooling that always emits compliant manifests by default.
+- **Round-trip exports earn trust:** Operators adopt systems that guarantee reversible exports (e.g., Omeka, Zotero). Markdown + metadata bundles must remain first-class, with restore drills and verification tasks woven into operations.

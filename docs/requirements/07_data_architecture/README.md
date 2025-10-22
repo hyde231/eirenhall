@@ -18,6 +18,15 @@ Capability declarations drive derived UX: `Workflown` surfaces Kanban boards, `S
 
 Plugins bundle data definitions, named relations, view descriptors, workflows, and automations. Core plugins ship reusable relation item types (e.g., tags, sharing links) that downstream plugins compose rather than duplicating or introducing deep inheritance chains.
 
+### Starter Kits & Templates
+- **Realm manifests:** Opinionated bundles combine schema sets, saved queries, dashboards, and automation defaults as signed manifests so operators can diff, audit, and roll back installations per realm.
+- **Gradual enablement:** Starter kits install without mutating core definitions and include migration guides plus capture presets for household operations, research notebooks, and archival projects.
+
+### Compatibility & Health Telemetry
+- **Version fences:** Every plugin, capability mix-in, and starter kit declares supported schema/capability ranges and migration hooks so upgrades fail safe instead of drifting silently.
+- **Manifest audits:** Scheduled checks validate bundle manifests against the registry, flagging fallbacks, skipped fields, or checksum mismatches before they reach production realms.
+- **Operator dashboards:** Admin surfaces expose compatibility status, recent failures, and remediation playbooks, with exportable reports for offline audit trails.
+
 ### Project & Conversation Item Shapes
 - **Project (`project`)** items act as organizing workspaces that aggregate tasks, documents, dashboards, and automation runs under a shared lifecycle. The schema captures summary status, stage, outcome metrics, canonical roadmap links, and rollups sourced from related items through `fields.summary` (`std.project.summary`) plus optional narratives (`fields.objectives` rich text) and curated relations. Declaring the dedicated `projects.workspace` capability exposes cross-linked boards, progress summaries, and saved-search widgets without per-project wiring.
 - **Conversation Transcript (`conversation_thread`)** items persist assistant/operator dialog as ordered message arrays with speaker roles, timestamps, realm tags, topic labels, referenced item URIs, and optional excerpt tokens using `fields.timeline` (`std.conversation.timeline`). Conversation items inherit the same export guarantees as other content types so transcript snippets can rehydrate into Markdown bundles, dashboards, or follow-up tasks. Threads can aggregate related correspondence items and GTD tasks to represent long-running exchanges (e.g., medical billing disputes or insurance claims) without duplicating underlying artifacts while the `conversations.timeline` capability powers timeline rendering and search facets.

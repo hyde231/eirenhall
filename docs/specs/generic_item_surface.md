@@ -16,6 +16,8 @@ behaviour for specialized deployments.
   loading optional components when the capability is present.
 - Ensure plugin overrides can be disabled per realm or installation without
   affecting the generic shell.
+- Ship curated starter layouts, saved queries, and optional plugin bundles that
+  showcase value on day one while remaining entirely schema-driven and removable.
 
 ## Core Surfaces
 1. **Browse View**
@@ -34,6 +36,11 @@ behaviour for specialized deployments.
    - Auto-generates forms for primitive/composite fields using schema types.
    - Supports inline diff preview and undo buffer before persisting.
    - Plugins may replace the editor for specific fields/capabilities via override hooks.
+
+## Onboarding Bundles
+- **Realm starter kits:** Provide optional presets that register schema combinations, saved searches, dashboards, and preconfigured surfaces for common scenarios (household command center, research notebook) without mutating the neutral core.
+- **Template manifests:** Starter kits ship as signed manifests so operators can diff, audit, and roll back bundles; installation toggles occur per realm.
+- **Capture shortcuts:** Offer quick actions and guided tours that call manifest-compliant ingestion scripts so operators store their first artifacts within minutes.
 
 ## Architecture
 - **Surface Registry:** Core component that maps item types + capabilities to
@@ -111,6 +118,11 @@ functionality once their schemas are registered—no bespoke UI work required.
   personal bundles never leak into deployments meant for friends/family unless
   explicitly enabled.
 
+## Plugin Governance & Telemetry
+- **Versioned manifests:** Every surface override and field renderer declares compatibility ranges, required capabilities, and migration hooks to prevent drift.
+- **Health signals:** Collect heartbeat metrics (load success, render errors, degraded fallbacks) and expose them through the surface inspector plus exportable logs.
+- **Automatic fallback:** When an override fails validation, the registry reverts to the generic renderer, flags the plugin, and prompts operators with remediation guidance.
+
 ## Testing Considerations
 - UI smoke tests render each core type with only generic components enabled.
 - Plugin integration tests ensure overrides respect fallback contracts.
@@ -120,8 +132,8 @@ functionality once their schemas are registered—no bespoke UI work required.
 ## Roadmap
 - Detailed milestone activities live in [editor_milestone_plan.md](editor_milestone_plan.md).
 - **M2 Walking Skeleton:** Wire in the delta-native editor shell, support single-item editing for document/wiki types, persist rich-text deltas end-to-end, and land registry APIs so surfaces can query type manifests and capability hints.
-- **M3 Alpha:** Ship the generic knowledge plugin with wiki link parsing, include directive handling, outbound link metadata capture, and editor affordances seeded from the registry; add action slot overrides and query builder needed for richer authoring flows.
-- **M4 Beta:** Deliver collaborative editing hooks, inline comment threads, capability-aware embeds, and the sample webcomic plugin to validate the extension story while exercising sandbox, packaging, and deployment steps.
+- **M3 Alpha:** Ship the generic knowledge plugin with wiki link parsing, include directive handling, outbound link metadata capture, and editor affordances seeded from the registry; add action slot overrides and query builder needed for richer authoring flows. Bundle the first optional realm starter kit (household operations) with saved queries and dashboards to validate the onboarding story.
+- **M4 Beta:** Deliver collaborative editing hooks, inline comment threads, capability-aware embeds, and the sample webcomic plugin to validate the extension story while exercising sandbox, packaging, and deployment steps. Introduce automated compatibility checks and health telemetry dashboards so plugin bundles remain trustworthy in production.
 - **M5 GA:** Harden accessibility, localization, and offline fallbacks, complete regression coverage (surface registry, plugin contract, export round-trip), and polish admin tooling so operators can audit or disable editor plugins per realm.
 
 ## Sample Plugin: Webcomic Knowledge Bundle

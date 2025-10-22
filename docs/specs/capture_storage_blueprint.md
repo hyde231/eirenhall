@@ -51,6 +51,11 @@ Each capture directory contains `manifest.json` with:
 Manifests are canonical; downstream services read them instead of inferring
 metadata from filenames.
 
+## Capture Entry Points
+- **Quick clipper:** Provide browser, email, and command-line shortcuts that wrap artifacts with manifests automatically and drop them into realm-aware staging queues.
+- **Inbox importer:** Watch a designated drop folder that normalizes dragged files into `captures/` structure, prompting only for realm/item selection and optional notes.
+- **Starter manifests:** Ship sample JSON manifest templates for common item types so operators and plugins can automate ingestion without reverse-engineering structure.
+
 ## Tiering & Caching
 - **Primary store:** ZFS/Btrfs pool mounted at `/data`. All canonical blobs live
   here with checksums verified during writes.
@@ -74,6 +79,7 @@ Cache eviction policies:
 - Weekly job `scripts/verify_storage.py` walks `/data`, re-hashes stored blobs,
   and compares results to manifest entries. Discrepancies trigger alerts and are
   recorded under `metadata.sys.integrity`.
+- Capture pipelines emit manifest validation metrics (success/failure counts, override fallbacks) to the telemetry bus so plugin drift or ingestion regressions surface quickly.
 - `var/registry/schemas.json` and `var/registry/capabilities.json` (populated by
   the loaders) are included in integrity checks to guard against schema drift.
 
@@ -104,6 +110,7 @@ Cache eviction policies:
 
 ## Next Steps
 - Automate manifest creation in the ingestion CLI (pending scripting work).
+- Package quick capture clients (browser clipper, inbox watcher) that emit compliant manifests by default and ship with household/research starter presets.
 - Add health metrics (capture throughput, verification lag) to the default
   dashboard once the telemetry stack is in place.
 - Extend the blueprint with encryption-at-rest guidance when hardware-backed
