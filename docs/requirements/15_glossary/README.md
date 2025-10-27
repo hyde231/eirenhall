@@ -1,4 +1,4 @@
-﻿# KKI Glossary
+# Eirenhall Glossary
 
 Comprehensive terminology reference for the Knowledge Kernel Initiative. Terms
 are grouped alphabetically for quick lookup. Definitions stay in plain ASCII to
@@ -84,7 +84,7 @@ avoid rendering issues.
 - **Hard Constraint** - Validation rule that blocks persistence when violated.
 - **Hierarchy Browser** - UI component that renders nested realms, folders, or
   schema hierarchies.
-- **Homelab** - Owner-operated infrastructure environment that hosts the KKI
+- **Homelab** - Owner-operated infrastructure environment that hosts the Eirenhall
   services.
 
 ## I
@@ -137,7 +137,7 @@ avoid rendering issues.
 ## O
 - **Operator** - Human responsible for managing organizational areas (realms),
   infrastructure, and automation across the system.
-- **Override Reason** - Text explanation recorded when an item’s sensitivity is
+- **Override Reason** - Text explanation recorded when an item�s sensitivity is
   downgraded; used to drive confirmation and audit.
 
 ## P

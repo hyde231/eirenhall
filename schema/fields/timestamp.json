@@ -20,7 +20,7 @@
     "example": "2024-05-17T12:34:56Z",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/timestamp.json",
+  "$id": "https://eirenhall.com/schema/fields/timestamp.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "ISO Timestamp",
   "type": "string",

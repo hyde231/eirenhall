@@ -10,12 +10,12 @@ the [Linking & Backlink Specification](../linking_and_backlinks.md).
   "source": {
     "object_type": "task",
     "object_id": "task_456789",
-    "uri": "kki://item/task_456789"
+    "uri": "eirenhall://item/task_456789"
   },
   "target": {
     "object_type": "wiki_entry",
     "object_id": "wiki_987654",
-    "uri": "kki://item/wiki_987654"
+    "uri": "eirenhall://item/wiki_987654"
   },
   "kind": "item",
   "context": "fields.body",
@@ -32,12 +32,12 @@ the [Linking & Backlink Specification](../linking_and_backlinks.md).
   "source": {
     "object_type": "wiki_entry",
     "object_id": "wiki_987654",
-    "uri": "kki://item/wiki_987654"
+    "uri": "eirenhall://item/wiki_987654"
   },
   "target": {
     "object_type": "task",
     "object_id": "task_456789",
-    "uri": "kki://item/task_456789#field/checklist",
+    "uri": "eirenhall://item/task_456789#field/checklist",
     "relationship": "field-anchor"
   },
   "kind": "item",
@@ -56,12 +56,12 @@ the [Linking & Backlink Specification](../linking_and_backlinks.md).
   "source": {
     "object_type": "dashboard",
     "object_id": "dashboard_home",
-    "uri": "kki://item/dashboard_home"
+    "uri": "eirenhall://item/dashboard_home"
   },
   "target": {
     "object_type": "capture",
     "object_id": "doc_123456__20240114T140000Z",
-    "uri": "kki://item/doc_123456/capture/20240114T140000Z",
+    "uri": "eirenhall://item/doc_123456/capture/20240114T140000Z",
     "relationship": "latest-capture"
   },
   "kind": "capture",
@@ -79,12 +79,12 @@ the [Linking & Backlink Specification](../linking_and_backlinks.md).
   "source": {
     "object_type": "wiki_entry",
     "object_id": "wiki_runbook",
-    "uri": "kki://item/wiki_runbook"
+    "uri": "eirenhall://item/wiki_runbook"
   },
   "target": {
     "object_type": "task",
     "object_id": "task_456789",
-    "uri": "kki://item/task_456789#field/due_at",
+    "uri": "eirenhall://item/task_456789#field/due_at",
     "relationship": "due-at"
   },
   "kind": "include",

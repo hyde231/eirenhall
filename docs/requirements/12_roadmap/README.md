@@ -7,6 +7,23 @@ Each milestone now ties directly to backlog entries so progress can be tracked i
 Note: This roadmap reflects the simplified session model. Where older language
 mentions “realm enforcement,” read it as “session-level enforcement.”
 
+## Infrastructure Stream (Containers/VMs/WoL)
+
+- M2 (Single-node baseline)
+  - Stand up a single-node Docker Compose stack (can run on a desktop VM) for all core services.
+  - Create Ansible roles and inventories for nodes (desktop GPU, NAS, Raspberry Pi orchestrator).
+  - Seed lightweight observability (e.g., Netdata or Prometheus + node_exporter).
+
+- M3 (Multi-node placement and power)
+  - Introduce placement policy across nodes (desktop GPU, NAS, Pi orchestrator); verify routing and service discovery.
+  - Implement Wake-on-LAN playbooks and tests; schedule maintenance windows for heavy jobs.
+  - Document recovery procedures for orchestrator and storage services.
+
+- M4 (Hardening and runbooks)
+  - Harden power-aware scheduling (FR-006) and tiered caching (FR-027); validate metrics and thresholds.
+  - Finalize backup/restore runbooks; exercise partial and full restore drills.
+  - Polish dashboards for health and placement visibility.
+
 - **M1 Discovery (Weeks 1‑2):**
   - Establish storage + repository, realm model validation → groundwork for FR‑003, NFR‑SEC.
   - Document baselines for formats and data contracts → FR‑002, FR‑015, Formats & Compatibility commitments.

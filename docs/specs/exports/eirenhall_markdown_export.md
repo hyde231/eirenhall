@@ -1,4 +1,4 @@
-﻿# KKI Markdown Export Specification
+# Eirenhall Markdown Export Specification
 
 ## Goals
 - Preserve full fidelity of Knowledge Kernel items while producing human-readable artifacts.
@@ -26,7 +26,7 @@ Describes the export bundle, schema versions, and metadata.
 {
   "version": "1.0",
   "generated_at": "2025-10-20T20:55:00Z",
-  "exporter": "kki.exporter/0.3.0",
+  "exporter": "eirenhall.exporter/0.3.0",
   "items": [
     {
       "id": "wiki_987654",
@@ -42,7 +42,7 @@ Describes the export bundle, schema versions, and metadata.
 - Structured field values appear inline as **tokens** using a reserved grammar:
 
 ```
-<<kki:type:id::rendered_text>>
+<<Eirenhall:type:id::rendered_text>>
 ```
 - `type`: canonical field type key (e.g., `money_amount`, `quote`, `code_snippet`).
 - `id`: unique identifier within the item (UUID or slug). Reusing the same `id` for multiple appearances references a single JSON object.
@@ -61,7 +61,7 @@ Maps each token `id` to the full structured object representation.
 {
   "amount_001": {
     "type": "std.money_amount",
-    "schema": "https://kki.example.com/schema/fields/money_amount.json",
+    "schema": "https://eirenhall.com/schema/fields/money_amount.json",
     "value": {
       "value": 150.1,
       "currency": "EUR"
@@ -69,7 +69,7 @@ Maps each token `id` to the full structured object representation.
   },
   "quote_002": {
     "type": "std.quote",
-    "schema": "https://kki.example.com/schema/fields/quote.json",
+    "schema": "https://eirenhall.com/schema/fields/quote.json",
     "value": {
       "text": "Any sufficiently advanced technology...",
       "attribution": "Arthur C. Clarke"
@@ -107,7 +107,7 @@ Maps each token `id` to the full structured object representation.
 
 ## Open Questions & TODOs
 - Embed an automatic references section summarizing object IDs/types (scientific-paper style) for quick parsing.
-- Allow embedding `objects.json` as front matter when payload ≤ ~10 kB; omit separate catalog in that case.
+- Allow embedding `objects.json` as front matter when payload = ~10?kB; omit separate catalog in that case.
 - Use a simple checksum per asset for tamper detection; no additional manifest required initially.
 - Package bulk exports as ZIP archives; streaming support can target ZIP-compatible tooling.
 - Provide reference exporter/importer tooling and unit tests demonstrating round-trip fidelity.

@@ -42,6 +42,7 @@
 | FR-020 | Dynamic & static collections | Saved dynamic (query-backed) and static (snapshot/export) | Must | Views auto-refresh; exports reproducible |
 | FR-031 | Hierarchical browsing | Provide quick, navigable browsing of stored documents mirroring directory-style hierarchies; may leverage on-demand list generation or cached dynamic queries tied to hierarchy metadata. | Must | Users can traverse arbitrarily deep hierarchy fields (e.g., full path/wiki structure with Breadcrumbs) without search input; on-demand loading keeps desktop navigation snappy while mobile performance is best-effort |
 | FR-041 | User-definable dashboards | Allow operators to build dashboard entry pages composed of saved searches, reports, quick links, and widgets surfaced from schema metadata. Ship with a default dashboard that presents a hierarchical browser for data, metadata, and schema exploration. | Must | User can create and edit dashboards, place widgets sourced from saved searches or reports, and set a default view; system boots with a stock dashboard exposing hierarchical navigation across data types and schemas |
+| FR-046 | Standards export (vCard/ICS) | Export contacts to vCard 4.0 (.vcf) and events to iCalendar (.ics) with correct field mappings and timezone handling | Should | Batch and per-item exports work; generated .vcf and .ics validate with common tools (vdirsyncer/Thunderbird/Apple Calendar); round-trip tests preserve key fields |
 
 ## 5.5 Extensibility & Evolution
 
@@ -113,7 +114,8 @@
 | FR-020 | docs/specs/project_workspace.md | tests/derived/test_project_metrics |
 | FR-027 | docs/adr/ADR-003-conflict-resolution-and-offline-policy.md | Cache drill script (planned) |
 | FR-032 | docs/requirements/06_non_functional/README.md; docs/specs/spec_scaffold.md | Observability stub (pending automation) |
-| FR-045 | docs/specs/correspondence_management.md; docs/specs/field_library.md | tests/fixtures/items/correspondence.json |
+
+| FR-046 | docs/specs/exports/contacts_calendar_export.md | Export validation script (planned) |
 
 Keep this table in sync with `docs/specs/spec_scaffold.md` so requirement,
 specification, and test mappings stay coherent.

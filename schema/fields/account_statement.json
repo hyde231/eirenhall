@@ -41,7 +41,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/account_statement.json",
+  "$id": "https://eirenhall.com/schema/fields/account_statement.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Account Statement",
   "type": "object",

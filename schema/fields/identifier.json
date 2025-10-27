@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "id": "std.identifier",
     "name": "Identifier",
@@ -18,7 +18,7 @@
     "example": "task_456789",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/identifier.json",
+  "$id": "https://eirenhall.com/schema/fields/identifier.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Identifier",
   "type": "string",

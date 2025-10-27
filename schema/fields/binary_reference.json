@@ -23,7 +23,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/binary_reference.json",
+  "$id": "https://eirenhall.com/schema/fields/binary_reference.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Binary Reference",
   "type": "object",

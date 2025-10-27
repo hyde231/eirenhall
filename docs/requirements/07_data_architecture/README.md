@@ -6,7 +6,7 @@ Items = base fields + capabilities.
 ### Base Fields
 `id, type, realm_id, level, title, description, created_at, updated_at, tags[], source_url?, canonical_url?, captures[], attachments[], links[], notes?, checksum, size, metadata{}`
 
-Session context assigns the default `realm_id` and item `level`; the session’s `max_level` gates all reads/search/conversations so higher-sensitivity items never surface inadvertently. Realm records are organizational only and may capture lineage (`parent_realm_id?`, `clone_of?`) for browsing and storage. Optional `fields.notes` (rich text) gives every item a scratchpad for interim context, migration breadcrumbs, or commentary; because it uses the standard rich-text field, embedded `kki://` URIs or wiki links flow through the existing linking/backlink pipeline.
+Session context assigns the default `realm_id` and item `level`; the session’s `max_level` gates all reads/search/conversations so higher-sensitivity items never surface inadvertently. Realm records are organizational only and may capture lineage (`parent_realm_id?`, `clone_of?`) for browsing and storage. Optional `fields.notes` (rich text) gives every item a scratchpad for interim context, migration breadcrumbs, or commentary; because it uses the standard rich-text field, embedded `eirenhall://` URIs or wiki links flow through the existing linking/backlink pipeline.
 
 ### Capabilities (Mix-ins)
 Viewable, Listable, Queryable, Storable, Importable/Exportable, Versioned, Scrapeable, Downloadable, Readable, Playable, Workflown, Schedulable, Annotatable, Geocoded.
@@ -123,7 +123,7 @@ Deferred. Treat storage as fixed for now and plan cleanup workflows after functi
 
 ### Human-Readable Archival Path
 - Canonical persistence remains JSON (per `schema/item_base.json`) for validation, automation, and capability contracts.
-- Nightly export job emits Markdown bundles for each realm/type via the `kki_markdown_export` pipeline so archives stay readable even if the app is offline.
+- Nightly export job emits Markdown bundles for each realm/type via the `eirenhall_markdown_export` pipeline so archives stay readable even if the app is offline.
 - Bundles are stored under `/backups/<date>/markdown/` alongside regular snapshots, following the standard retention window (30 daily / 12 monthly / 5 yearly).
 - Each bundle keeps its `objects.json` metadata and checksums; restores can rehydrate JSON through the importer, while operators can reference Markdown directly when needed.
 

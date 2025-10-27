@@ -34,7 +34,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/person_profile.json",
+  "$id": "https://eirenhall.com/schema/fields/person_profile.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Person Profile",
   "type": "object",

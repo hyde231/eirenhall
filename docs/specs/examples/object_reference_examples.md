@@ -16,7 +16,7 @@ the standard field library entry for `std.object_ref`.
 {
   "object_type": "incident",
   "object_id": "inc_20251020",
-  "uri": "kki://item/inc_20251020",
+  "uri": "eirenhall://item/inc_20251020",
   "display_name": "INC-20251020 Major Outage",
   "relationship": "depends-on",
   "version": 3

@@ -1,7 +1,7 @@
 # Persona manifests
 
 Persona manifests codify governance rules for automation agents that operate
-within Kki. Each manifest is a YAML document (JSON-compatible for ease of
+within Eirenhall. Each manifest is a YAML document (JSON-compatible for ease of
 parsing) that records the persona’s intent, data access, and required human
 checkpoints.
 

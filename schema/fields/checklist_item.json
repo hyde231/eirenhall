@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "id": "std.checklist.item",
     "name": "Checklist Item",
@@ -22,7 +22,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/checklist_item.json",
+  "$id": "https://eirenhall.com/schema/fields/checklist_item.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Checklist Item",
   "type": "object",

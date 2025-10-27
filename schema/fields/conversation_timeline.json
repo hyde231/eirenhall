@@ -36,7 +36,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/conversation_timeline.json",
+  "$id": "https://eirenhall.com/schema/fields/conversation_timeline.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Conversation Timeline",
   "type": "object",

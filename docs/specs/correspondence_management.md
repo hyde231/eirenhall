@@ -17,7 +17,7 @@ Defines how the platform ingests, normalizes, stores, and surfaces personal corr
 | --- | --- | --- |
 | Watched filesystem folders | New file arrival | Supports multi-root (e.g., `/Scans/Inbox`, `/EmailExports/2025`) with per-folder default realm and classification hints. |
 | Manual upload UI | User drag/drop or file picker | Allows batching with per-batch metadata presets (realm, sender, topic, project). |
-| Email export import | EML/MSG/MBOX dropped into watched folder or CLI command (`kki import-correspondence`) | Parser extracts headers, body, attachments, inline images, message-id/thread-id, recipients. |
+| Email export import | EML/MSG/MBOX dropped into watched folder or CLI command (`Eirenhall import-correspondence`) | Parser extracts headers, body, attachments, inline images, message-id/thread-id, recipients. |
 | Mobile/remote capture | Secure intake endpoint accepts zipped bundles or single files with metadata form | Piggybacks on remote intake from FR-008; queued for review when offline. |
 | Automation jobs | Scheduled fetch of portal downloads (e.g., insurance statements) via plugin | Requires per-realm credentials; records provenance in metadata. |
 

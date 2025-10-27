@@ -2,12 +2,12 @@
 
 - Status: Accepted
 - Date: 2025-10-21
-- Deciders: Kki core maintainers
+- Deciders: Eirenhall core maintainers
 - Related work: docs/requirements/01_vision/README.md, docs/requirements/10_governance/README.md, personas/*.yaml (new)
 
 ## Context
 
-Kki relies on a suite of automation personas (Librarian, System Advisor,
+Eirenhall relies on a suite of automation personas (Librarian, System Advisor,
 Assistant, Coding Assistant) to draft changes, enrich data, and manage system
 health. The requirements articulate high-level duties, but until now there was
 no machine-readable contract describing the authority, data access, and

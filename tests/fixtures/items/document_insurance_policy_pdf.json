@@ -48,13 +48,13 @@
       {
         "object_type": "person",
         "object_id": "person_lena_fischer",
-        "uri": "kki://item/person_lena_fischer",
+        "uri": "eirenhall://item/person_lena_fischer",
         "relationship": "account-manager"
       },
       {
         "object_type": "task",
         "object_id": "task_insurance_followup",
-        "uri": "kki://item/task_insurance_followup",
+        "uri": "eirenhall://item/task_insurance_followup",
         "relationship": "follow-up"
       }
     ],

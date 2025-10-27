@@ -103,7 +103,7 @@ functionality once their schemas are registered—no bespoke UI work required.
 
 ## Rich Text Authoring Strategy
 - **Adopt delta-native editor:** Embed an off-the-shelf rich text editor that speaks Quill-style delta operations so `fields.body` continues to persist the `std.rich_text` payload without lossy Markdown<->delta conversions.
-- **Generic knowledge plugin:** Provide one extensible plugin that understands wiki links, `kki://` URIs, include directives, and Markdown export tokens. It consults the registered item types/capabilities at runtime, so new schemas appear automatically in link pickers and validation routines.
+- **Generic knowledge plugin:** Provide one extensible plugin that understands wiki links, `eirenhall://` URIs, include directives, and Markdown export tokens. It consults the registered item types/capabilities at runtime, so new schemas appear automatically in link pickers and validation routines.
 - **Plugin contract:** The core plugin supplies insertion menus, hover previews, and validation hooks. Type manifests (and future capability metadata) can contribute optional affordance hints via declarative descriptors rather than bespoke code.
 - **Extension slots:** Specialized bundles can extend the generic plugin by registering additional resolvers (e.g., for capability panels or embeds) using the same surface registry, avoiding one-off editor forks.
 - **Roadmap alignment:** Initial phase ships the editor shell and generic plugin focused on wiki/document authoring; later phases add collaborative cursors, comment tracks, and capability-aware embeds once the registry exposes richer metadata.

@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "id": "std.measurement",
     "name": "Measurement",
@@ -21,7 +21,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/measurement.json",
+  "$id": "https://eirenhall.com/schema/fields/measurement.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Measurement",
   "type": "object",

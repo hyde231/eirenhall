@@ -18,7 +18,7 @@
     "example": "#1F75FE",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/color_reference.json",
+  "$id": "https://eirenhall.com/schema/fields/color_reference.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Color Reference",
   "description": "Color encoded either as a standard CSS color name or hexadecimal triplet.",

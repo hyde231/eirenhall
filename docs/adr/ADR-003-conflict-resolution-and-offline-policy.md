@@ -2,7 +2,7 @@
 
 - Status: Accepted
 - Date: 2025-10-21
-- Deciders: Kki core maintainers
+- Deciders: Eirenhall core maintainers
 - Related work: docs/requirements/05_functional/README.md (FR-015, FR-027), docs/requirements/14_acceptance/README.md, docs/specs/capture_storage_blueprint.md
 
 ## Context

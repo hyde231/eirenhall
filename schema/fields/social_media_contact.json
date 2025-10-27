@@ -23,7 +23,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/social_media_contact.json",
+  "$id": "https://eirenhall.com/schema/fields/social_media_contact.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Social Media Contact",
   "type": "object",

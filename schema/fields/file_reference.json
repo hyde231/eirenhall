@@ -26,7 +26,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/file_reference.json",
+  "$id": "https://eirenhall.com/schema/fields/file_reference.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "File Reference",
   "type": "object",

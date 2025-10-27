@@ -56,11 +56,11 @@ plugins while the stock system remains neutral.
   versions, checksums, and signing keys. Operators can point the CLI to multiple
   indices (official, personal).
 - **CLI Commands:**
-  - `kki plugin search <term>` – query indices and local cache.
-  - `kki plugin install <id>@<version>` – download archive, verify checksum,
+  - `Eirenhall plugin search <term>` – query indices and local cache.
+  - `Eirenhall plugin install <id>@<version>` – download archive, verify checksum,
     unpack into `var/plugins/<id>/<version>`, and register with loaders.
-  - `kki plugin enable <id>` / `disable` – toggle persisted enablement state.
-  - `kki plugin inspect <id>` – show manifest, declared overrides, conflicts.
+  - `Eirenhall plugin enable <id>` / `disable` – toggle persisted enablement state.
+  - `Eirenhall plugin inspect <id>` – show manifest, declared overrides, conflicts.
 - **Conflicts:** When multiple plugins attempt to register the same schema or
   override, the surface registry resolves via priority; conflicting schema IDs
   are blocked unless explicitly overridden with `--force`.

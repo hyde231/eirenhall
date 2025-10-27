@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "id": "std.realm.descriptor",
     "name": "Realm Descriptor",
@@ -21,7 +21,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/realm_descriptor.json",
+  "$id": "https://eirenhall.com/schema/fields/realm_descriptor.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Realm Descriptor",
   "type": "object",

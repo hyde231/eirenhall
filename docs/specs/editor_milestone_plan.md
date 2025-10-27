@@ -28,7 +28,7 @@ Outlines the execution roadmap for embedding the delta-native rich-text editor, 
 
 ### Milestone M3 – Alpha
 - **Goals**
-  - Deliver the generic knowledge plugin handling wiki links, `kki://` URIs, include directives, Markdown export tokens.
+  - Deliver the generic knowledge plugin handling wiki links, `eirenhall://` URIs, include directives, Markdown export tokens.
   - Add action slot API + query builder integration for authoring flows.
   - Capture outbound link metadata and feed backlink engine.
 - **Backlog links**
@@ -70,7 +70,7 @@ Outlines the execution roadmap for embedding the delta-native rich-text editor, 
 - **Workstreams**
   1. Accessibility audit: WCAG 2.1 AA sweep, localisation hooks for editor chrome.
   2. Admin tooling: surfaces to list active editor plugins, realm policy toggles, health diagnostics.
-  3. Export fidelity: round-trip tests across `docs/specs/exports/kki_markdown_export.md` for editor tokens.
+  3. Export fidelity: round-trip tests across `docs/specs/exports/eirenhall_markdown_export.md` for editor tokens.
   4. Playbooks: author runbooks for enabling/disabling bundles, scaling collaboration services.
 - **Exit criteria**
   - Accessibility sign-off, localisation strings externalised.

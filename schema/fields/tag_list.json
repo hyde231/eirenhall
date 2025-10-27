@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "id": "std.tag_list",
     "name": "Tag List",
@@ -18,7 +18,7 @@
     "example": ["finance", "pending_review"],
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/tag_list.json",
+  "$id": "https://eirenhall.com/schema/fields/tag_list.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Tag List",
   "type": "array",

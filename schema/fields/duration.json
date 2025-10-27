@@ -19,7 +19,7 @@
     "example": "PT4H30M",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/duration.json",
+  "$id": "https://eirenhall.com/schema/fields/duration.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Duration",
   "type": "string",

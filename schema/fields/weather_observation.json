@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "id": "std.weather.observation",
     "name": "Weather Observation",
@@ -24,7 +24,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/weather_observation.json",
+  "$id": "https://eirenhall.com/schema/fields/weather_observation.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Weather Observation",
   "type": "object",

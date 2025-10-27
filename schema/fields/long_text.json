@@ -19,7 +19,7 @@
     "example": "Runbook steps:\\n1. Verify alert.\\n2. Notify on-call.",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/long_text.json",
+  "$id": "https://eirenhall.com/schema/fields/long_text.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Long Text",
   "type": "string",

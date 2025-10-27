@@ -1,7 +1,7 @@
 # Standard Field Library Specification
 
 ## Purpose and Scope
-This specification defines the canonical field library for KKI items. It
+This specification defines the canonical field library for Eirenhall items. It
 extends the core item schema by enumerating the primitive fields the platform
 must support, outlining compositional and derived field patterns, and defining
 validation, localization, and governance expectations. The library is intended
@@ -215,7 +215,7 @@ Composites compose primitives to capture real-world constructs.
 
 10. **Object Reference** (`std.object_ref`)
     - Properties: `object_type` (`std.slug` identifying the registry item or resource class),
-      `object_id` (`std.identifier`), optional `uri` (`std.url` supporting `kki://` and
+      `object_id` (`std.identifier`), optional `uri` (`std.url` supporting `eirenhall://` and
       external schemes), optional `display_name` (`std.short_text`), optional `relationship`
       (`std.slug` scoped to the field definition), optional `version` (`std.integer`), and
       optional `notes` (`std.rich_text` describing the linkage context).

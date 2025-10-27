@@ -20,7 +20,7 @@
     "example": "9783161484100",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/isbn.json",
+  "$id": "https://eirenhall.com/schema/fields/isbn.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "ISBN",
   "type": "string",

@@ -45,7 +45,7 @@ and the weather extension workflow.
     "object_type": "weather-station",
     "object_id": "de-bayern-001",
     "display_name": "Munich Central Station",
-    "uri": "kki://station/de-bayern-001"
+    "uri": "eirenhall://station/de-bayern-001"
   }
 }
 ```

@@ -47,13 +47,13 @@
       {
         "object_type": "task",
         "object_id": "task_insurance_followup",
-        "uri": "kki://item/task_insurance_followup",
+        "uri": "eirenhall://item/task_insurance_followup",
         "relationship": "workflow"
       },
       {
         "object_type": "document",
         "object_id": "doc_insurance_policy_pdf",
-        "uri": "kki://item/doc_insurance_policy_pdf",
+        "uri": "eirenhall://item/doc_insurance_policy_pdf",
         "relationship": "reference"
       }
     ],

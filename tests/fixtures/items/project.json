@@ -54,7 +54,7 @@
       {
         "object_type": "task",
         "object_id": "task_prepare_bins",
-        "uri": "kki://item/task_prepare_bins",
+        "uri": "eirenhall://item/task_prepare_bins",
         "relationship": "tracks"
       }
     ]

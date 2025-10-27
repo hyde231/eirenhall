@@ -20,7 +20,7 @@
     "example": 0.42,
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/percentage.json",
+  "$id": "https://eirenhall.com/schema/fields/percentage.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Percentage",
   "type": "number",

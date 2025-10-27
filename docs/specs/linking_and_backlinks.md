@@ -16,17 +16,17 @@ and the relations requirements in FR-030.
   saved collections.
 
 ## Canonical Identifiers & URIs
-All internal references resolve to a `kki://` URI. Downstream services may map
+All internal references resolve to a `eirenhall://` URI. Downstream services may map
 these URIs to HTTP routes or CLI commands, but the canonical form remains
 stable.
 
 | Resource | URI pattern | Example |
 | --- | --- | --- |
-| Item | `kki://item/<item_id>` | `kki://item/task_456789` |
-| Item field anchor | `kki://item/<item_id>#field/<field_key>` | `kki://item/task_456789#field/checklist` |
-| Capture | `kki://item/<item_id>/capture/<capture_id>` | `kki://item/doc_123456/capture/20240114T140000Z` |
-| Attachment | `kki://item/<item_id>/attachment/<attachment_id>` | `kki://item/doc_123456/attachment/att_cover_pdf` |
-| Realm | `kki://realm/<realm_id>` | `kki://realm/eng-data` |
+| Item | `eirenhall://item/<item_id>` | `eirenhall://item/task_456789` |
+| Item field anchor | `eirenhall://item/<item_id>#field/<field_key>` | `eirenhall://item/task_456789#field/checklist` |
+| Capture | `eirenhall://item/<item_id>/capture/<capture_id>` | `eirenhall://item/doc_123456/capture/20240114T140000Z` |
+| Attachment | `eirenhall://item/<item_id>/attachment/<attachment_id>` | `eirenhall://item/doc_123456/attachment/att_cover_pdf` |
+| Realm | `eirenhall://realm/<realm_id>` | `eirenhall://realm/eng-data` |
 
 Rules:
 - `<item_id>` matches the item identifier stored in `id` and must remain
@@ -60,8 +60,8 @@ or ingestion. Two syntaxes are supported out of the box.
 ### Markdown Links
 
 ```
-[Label](kki://item/task_456789)
-[Checklist](kki://item/task_456789#field/checklist)
+[Label](eirenhall://item/task_456789)
+[Checklist](eirenhall://item/task_456789#field/checklist)
 [External](https://example.com/spec)
 ```
 
@@ -100,7 +100,7 @@ All detected links (including wiki references) are captured under
 metadata.sys.links = {
   "outbound": [
     {
-      "uri": "kki://item/task_456789#field/checklist",
+      "uri": "eirenhall://item/task_456789#field/checklist",
       "kind": "item",
       "context": "fields.body",
       "label": "Checklist",
@@ -119,7 +119,7 @@ Backlinks are derived values surfaced under `metadata.sys.links.inbound`:
 
 ```
 {
-  "uri": "kki://item/wiki_987654",
+  "uri": "eirenhall://item/wiki_987654",
   "kind": "item",
   "source": "task_456789",
   "context": "fields.body",
@@ -140,12 +140,12 @@ To align with FR-030, each link creates or updates a `link_relation` item with:
   "source": {
     "object_type": "task",
     "object_id": "task_456789",
-    "uri": "kki://item/task_456789"
+    "uri": "eirenhall://item/task_456789"
   },
   "target": {
     "object_type": "wiki_entry",
     "object_id": "wiki_987654",
-    "uri": "kki://item/wiki_987654"
+    "uri": "eirenhall://item/wiki_987654"
   },
   "kind": "item",
   "context": "fields.body",
@@ -210,7 +210,7 @@ backlinks remain accurate.
 
 ## Extraction & Reconciliation
 1. **Ingress:** When an item is created or updated, the ingestion pipeline
-   scans relevant fields (`fields.*`, capability configs, metadata) for `kki://`
+   scans relevant fields (`fields.*`, capability configs, metadata) for `eirenhall://`
    URIs or wiki syntax. Links are normalized and stored in outbound metadata.
 2. **Backlink Update:** For each outbound link, the system updates the target's
    inbound metadata. Missing targets are recorded as validation warnings.
@@ -221,7 +221,7 @@ backlinks remain accurate.
    write path.
 
 ## Resolution & Rendering
-- Clients resolve `kki://` URIs via registry lookups or API helpers; unresolved
+- Clients resolve `eirenhall://` URIs via registry lookups or API helpers; unresolved
   URIs render with warning banners.
 - Backlinks display in item sidebars, showing source title, context excerpt,
   and last detected timestamp.

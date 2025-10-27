@@ -2,12 +2,12 @@
 
 - Status: Accepted
 - Date: 2025-10-21
-- Deciders: Kki core maintainers
+- Deciders: Eirenhall core maintainers
 - Related work: docs/specs/capture_storage_blueprint.md, docs/requirements/00_meta/README.md, docs/requirements/07_data_architecture/README.md
 
 ## Context
 
-Kki operates on heterogeneous artifacts ranging from lightweight metadata to
+Eirenhall operates on heterogeneous artifacts ranging from lightweight metadata to
 multi-gigabyte media captures. Early discussions explored storing everything in
 Git, but binary artifacts and capture bundles quickly outgrew that approach.
 Without an explicit authoritative-store definition, contributors could diverge
@@ -30,7 +30,7 @@ We split storage responsibilities across three coordinated sinks:
    addressed by deterministic paths and includes SHA-256 hashes in
    `manifest.json`.
 3. **Indices & caches (derived, reconstructable):** Materialised search indices,
-   vector embeddings, and cache warmers live under `/var/kki`. These assets are
+   vector embeddings, and cache warmers live under `/var/eirenhall`. These assets are
    regenerated from authoritative data and excluded from primary backups.
 
 Replication and retention policies:

@@ -21,7 +21,7 @@
     "example": "DE44500105175407324931",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/iban.json",
+  "$id": "https://eirenhall.com/schema/fields/iban.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "International Bank Account Number",
   "type": "string",

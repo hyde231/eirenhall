@@ -28,7 +28,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/correspondence_party.json",
+  "$id": "https://eirenhall.com/schema/fields/correspondence_party.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Correspondence Party",
   "type": "object",

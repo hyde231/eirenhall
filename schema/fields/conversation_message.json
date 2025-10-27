@@ -34,14 +34,14 @@
         {
           "type": "correspondence",
           "id": "corr_20250211_001",
-          "uri": "kki://item/corr_20250211_001"
+          "uri": "eirenhall://item/corr_20250211_001"
         }
       ],
       "tags": ["health", "insurance"]
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/conversation_message.json",
+  "$id": "https://eirenhall.com/schema/fields/conversation_message.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Conversation Message",
   "type": "object",

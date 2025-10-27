@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "id": "std.capability.entry",
     "name": "Capability Entry",
@@ -22,7 +22,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/capability_entry.json",
+  "$id": "https://eirenhall.com/schema/fields/capability_entry.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Capability Entry",
   "type": "object",

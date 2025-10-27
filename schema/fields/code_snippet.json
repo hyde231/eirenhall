@@ -21,7 +21,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/code_snippet.json",
+  "$id": "https://eirenhall.com/schema/fields/code_snippet.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Code Snippet",
   "type": "object",

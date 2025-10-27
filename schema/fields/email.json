@@ -18,7 +18,7 @@
     "example": "user@example.com",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/email.json",
+  "$id": "https://eirenhall.com/schema/fields/email.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Email Address",
   "type": "string",

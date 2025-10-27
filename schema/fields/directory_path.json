@@ -18,7 +18,7 @@
     "example": "/var/log/app",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/directory_path.json",
+  "$id": "https://eirenhall.com/schema/fields/directory_path.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Directory Path",
   "type": "string",

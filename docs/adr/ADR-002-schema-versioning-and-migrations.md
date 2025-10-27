@@ -2,7 +2,7 @@
 
 - Status: Accepted
 - Date: 2025-10-21
-- Deciders: Kki core maintainers
+- Deciders: Eirenhall core maintainers
 - Related work: docs/specs/capability_contracts.md, docs/specs/metadata_governance.md, schema/item_base.json, scripts/validate_schema.py
 
 ## Context

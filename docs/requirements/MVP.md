@@ -1,6 +1,6 @@
 # Minimum Viable Product (MVP)
 
-This document pins the first production-quality slice of Kki so scope growth is
+This document pins the first production-quality slice of Eirenhall so scope growth is
 intentional. The MVP emphasises a traceable ingestion → enrichment → retrieval
 loop backed by storage and governance foundations.
 

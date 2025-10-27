@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "id": "std.geo.point",
     "name": "Geo Point",
@@ -21,7 +21,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/geo_point.json",
+  "$id": "https://eirenhall.com/schema/fields/geo_point.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Geo Point",
   "type": "object",

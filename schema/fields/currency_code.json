@@ -18,7 +18,7 @@
     "example": "EUR",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/currency_code.json",
+  "$id": "https://eirenhall.com/schema/fields/currency_code.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Currency Code",
   "type": "string",

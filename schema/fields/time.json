@@ -19,7 +19,7 @@
     "example": "14:30:00Z",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/time.json",
+  "$id": "https://eirenhall.com/schema/fields/time.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "ISO Time",
   "type": "string",

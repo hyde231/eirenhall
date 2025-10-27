@@ -25,7 +25,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/content_rating.json",
+  "$id": "https://eirenhall.com/schema/fields/content_rating.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Content Rating",
   "type": "object",

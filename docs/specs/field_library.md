@@ -49,7 +49,7 @@ relation definitions. Additions must follow the rules below.
 ## Schema Requirements
 All field definitions must:
 
-1. Declare a unique `$id` anchored under `https://kki.example.com/schema/fields/`.
+1. Declare a unique `$id` anchored under `https://eirenhall.com/schema/fields/`.
 2. Specify `$schema` (Draft-07 currently).
 3. Provide a `title` (Title Case) and, when helpful, a `description` field.
 4. Use `additionalProperties: false` unless extensibility is intentional.

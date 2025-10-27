@@ -38,7 +38,7 @@ point at related tasks, wiki entries, datasets, or other registry members withou
 ad hoc objects. Every item type MAY expose an optional `fields.notes` using the
 standard rich-text field (`schema/fields/rich_text.json`) to capture ad-hoc comments,
 migration breadcrumbs, or future schema candidates. Because notes reuse the rich-text
-primitive, any embedded `kki://` URIs or wiki links participate in the canonical
+primitive, any embedded `eirenhall://` URIs or wiki links participate in the canonical
 linking/backlink pipeline without extra work.
 
 ## Levels & Session Filtering

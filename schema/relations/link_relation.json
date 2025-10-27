@@ -1,5 +1,5 @@
-﻿{
-  "$id": "https://kki.example.com/schema/relations/link_relation.json",
+{
+  "$id": "https://eirenhall.com/schema/relations/link_relation.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Link Relation",
   "type": "object",

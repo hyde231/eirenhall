@@ -46,7 +46,7 @@ Each capture directory contains `manifest.json` with:
 | `hashes` | SHA-256 (required) plus optional additional hashes for the primary payload. |
 | `attachments` | Array describing related binaries (filenames, media types, hashes). |
 | `notes` | Optional free-form remarks or operator annotations. |
-| `links` | References back to the owning item (`kki://item/...`) and related captures. |
+| `links` | References back to the owning item (`eirenhall://item/...`) and related captures. |
 
 Manifests are canonical; downstream services read them instead of inferring
 metadata from filenames.
@@ -93,7 +93,7 @@ Cache eviction policies:
   - checksum validation summary (mismatches, repaired items),
   - restore drill reminder (once per quarter).
 - Schedule a companion export job that writes Markdown bundles (via
-  `kki_markdown_export`) into `/backups/<date>/markdown/` so a human-readable
+  `eirenhall_markdown_export`) into `/backups/<date>/markdown/` so a human-readable
   archive exists even if the core app is unavailable. Bundles retain
   `objects.json` metadata for round-trip restores.
 - Restore procedure:

@@ -19,7 +19,7 @@
     "example": "Incident Response Runbook",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/short_text.json",
+  "$id": "https://eirenhall.com/schema/fields/short_text.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Short Text",
   "type": "string",

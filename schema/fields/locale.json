@@ -18,7 +18,7 @@
     "example": "en-US",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/locale.json",
+  "$id": "https://eirenhall.com/schema/fields/locale.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Locale Code",
   "type": "string",

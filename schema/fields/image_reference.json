@@ -30,7 +30,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/image_reference.json",
+  "$id": "https://eirenhall.com/schema/fields/image_reference.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Image Reference",
   "type": "object",

@@ -18,7 +18,7 @@
     "example": "https://status.example.com",
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/url.json",
+  "$id": "https://eirenhall.com/schema/fields/url.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "URL",
   "type": "string",

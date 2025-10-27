@@ -23,7 +23,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/correspondence_retention.json",
+  "$id": "https://eirenhall.com/schema/fields/correspondence_retention.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Correspondence Retention Policy",
   "type": "object",

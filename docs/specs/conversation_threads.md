@@ -55,7 +55,7 @@ Removing the capability retains raw timeline data but hides specialized UI.
 
 ## Exports
 - `content.md` renders the timeline with timestamp headings and speaker labels,
-  embedding `<<kki:conversation_message:...>>` tokens for structured data.
+  embedding `<<Eirenhall:conversation_message:...>>` tokens for structured data.
 - `objects.json` stores each message (`std.conversation.message`), participants,
   and attachments to guarantee round-trip fidelity.
 - Attachments referenced in messages are exported via `assets/`.

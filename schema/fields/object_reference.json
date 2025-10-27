@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "id": "std.object.reference",
     "name": "Object Reference",
@@ -18,12 +18,12 @@
     "example": {
       "object_type": "task",
       "object_id": "task_123123",
-      "uri": "kki://item/task_123123",
+      "uri": "eirenhall://item/task_123123",
       "relationship": "depends-on"
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/object_reference.json",
+  "$id": "https://eirenhall.com/schema/fields/object_reference.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Object Reference",
   "type": "object",
@@ -42,7 +42,7 @@
     "uri": {
       "type": "string",
       "format": "uri",
-      "description": "Optional URI for dereferencing the object, supports kki:// and external schemes."
+      "description": "Optional URI for dereferencing the object, supports eirenhall:// and external schemes."
     },
     "display_name": {
       "type": "string",

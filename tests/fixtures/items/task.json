@@ -43,14 +43,14 @@
     "primary_dependency": {
       "object_type": "task",
       "object_id": "task_123123",
-      "uri": "kki://item/task_123123",
+      "uri": "eirenhall://item/task_123123",
       "relationship": "depends-on"
     },
     "related_objects": [
       {
         "object_type": "wiki_entry",
         "object_id": "wiki_runbook",
-        "uri": "kki://item/wiki_runbook",
+        "uri": "eirenhall://item/wiki_runbook",
         "relationship": "runbook"
       }
     ],

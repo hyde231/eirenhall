@@ -1,6 +1,6 @@
 # Architecture Decision Records
 
-The ADR catalog captures long-lived architectural choices for Kki. Each record
+The ADR catalog captures long-lived architectural choices for Eirenhall. Each record
 links back to the primary specifications and requirements that motivated the
 decision so contributors can trace rationale and constraints quickly.
 

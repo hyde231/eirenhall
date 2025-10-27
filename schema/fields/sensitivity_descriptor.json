@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "id": "std.sensitivity.descriptor",
     "name": "Sensitivity Descriptor",
@@ -20,7 +20,7 @@
     },
     "provenance": {}
   },
-  "$id": "https://kki.example.com/schema/fields/sensitivity_descriptor.json",
+  "$id": "https://eirenhall.com/schema/fields/sensitivity_descriptor.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Sensitivity Descriptor",
   "type": "object",

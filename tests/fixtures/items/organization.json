@@ -66,13 +66,13 @@
       {
         "object_type": "project",
         "object_id": "project_alpha",
-        "uri": "kki://item/project_alpha",
+        "uri": "eirenhall://item/project_alpha",
         "relationship": "supporting"
       },
       {
         "object_type": "correspondence",
         "object_id": "corr_20250211_001",
-        "uri": "kki://item/corr_20250211_001",
+        "uri": "eirenhall://item/corr_20250211_001",
         "relationship": "inbound"
       }
     ],
