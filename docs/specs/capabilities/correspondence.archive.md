@@ -23,7 +23,7 @@ Unlocks ingestion dashboards, retention controls, and export workflows tailored 
 - `correspondence.retention.updated` – signals changes to retention policy or legal hold.
 
 ## Configuration
-`configuration_schema: null` – current workflow relies on global configuration. Future versions may introduce per-realm retention defaults or inbox routing rules.
+`configuration_schema: null` – current workflow relies on global configuration. Future versions may introduce per-area (organizational) retention defaults or inbox routing rules.
 
 ## Usage
 1. `correspondence` manifest includes `correspondence.archive`.

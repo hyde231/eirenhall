@@ -19,8 +19,8 @@
     "follow_up_checklists"
   ],
   "data_access": {
-    "realms": ["personal", "household"],
-    "sensitivity_bands": ["internal"],
+    "areas": ["personal", "household"],
+    "max_session_level": "personal",
     "item_types": ["task", "project", "document", "conversation_thread"],
     "capability_scopes": ["view", "comment", "schedule"]
   },
@@ -47,12 +47,12 @@
       "requires_human": true
     },
     {
-      "condition": "schedule_conflict_across_realms",
+      "condition": "schedule_conflict_across_areas",
       "requires_human": true
     }
   ],
   "safety_rails": [
-    "No autonomous realm changes",
+    "No autonomous area changes",
     "May not delete captures or tasks",
     "No financial transactions"
   ],

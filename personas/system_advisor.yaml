@@ -18,8 +18,8 @@
     "infrastructure_reports"
   ],
   "data_access": {
-    "realms": ["public", "internal", "confidential"],
-    "sensitivity_bands": ["internal", "confidential"],
+    "areas": ["public", "internal", "confidential"],
+    "max_session_level": "private",
     "item_types": ["schema", "capability_manifest", "automation_run", "system_report"],
     "capability_scopes": ["inspect", "analyze"]
   },

@@ -25,11 +25,11 @@ mentions “realm enforcement,” read it as “session-level enforcement.”
   - Polish dashboards for health and placement visibility.
 
 - **M1 Discovery (Weeks 1‑2):**
-  - Establish storage + repository, realm model validation → groundwork for FR‑003, NFR‑SEC.
+  - Establish storage + repository, session model validation → groundwork for FR‑003, NFR‑SEC.
   - Document baselines for formats and data contracts → FR‑002, FR‑015, Formats & Compatibility commitments.
   - Defer infrastructure enablement (WoL, orchestration, hardware prep) to M2+ so the PoC can focus on data and storage.
 - **M2 Walking Skeleton (Weeks 3‑4):**
-  - Deliver local-only capture loop with realm enforcement → FR‑001, FR‑014, FR‑018 (happy path).
+  - Deliver local-only capture loop with session-level enforcement → FR‑001, FR‑014, FR‑018 (happy path).
   - Stand up telemetry + uptime checks → NFR‑PERF, Reliability targets.
 - **M3 Alpha (Weeks 5‑7):**
   - Expand adapters and offline workflows → FR‑015, FR‑026, FR‑027.

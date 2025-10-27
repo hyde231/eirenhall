@@ -25,7 +25,7 @@ personas/
 | `intended_outcomes` | List of expected outputs or goals. |
 | `inputs` | Data sources the persona consumes. |
 | `outputs` | Artifacts the persona produces. |
-| `data_access` | Realms, sensitivity bands, item types, and capability scopes the persona can read. |
+| `data_access` | Areas (organizational realms), session levels, item types, and capability scopes the persona can read. |
 | `write_permissions` | Actions the persona may perform, indicating whether human approval or dry-run mode is required. |
 | `escalation` | Conditions that force human involvement. |
 | `safety_rails` | Non-negotiable prohibitions. |

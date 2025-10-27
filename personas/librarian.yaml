@@ -17,8 +17,8 @@
     "search_saved_queries"
   ],
   "data_access": {
-    "realms": ["public", "internal"],
-    "sensitivity_bands": ["public", "internal"],
+    "areas": ["public","personal"],
+    "max_session_level": "personal",
     "item_types": ["document", "wiki_entry", "task", "project", "conversation_thread"],
     "capability_scopes": ["view", "search"]
   },
@@ -36,7 +36,7 @@
   ],
   "escalation": [
     {
-      "condition": "realm_boundary_violation",
+      "condition": "session_gating_violation",
       "requires_human": true
     },
     {

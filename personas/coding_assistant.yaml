@@ -19,8 +19,8 @@
     "changelog_summaries"
   ],
   "data_access": {
-    "realms": ["dev"],
-    "sensitivity_bands": ["internal"],
+    "areas": ["dev"],
+    "max_session_level": "personal",
     "item_types": ["code", "schema", "documentation"],
     "capability_scopes": ["read_repo", "propose_patch"]
   },

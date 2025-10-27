@@ -19,7 +19,7 @@ Defines how the platform ingests, normalizes, stores, and surfaces personal corr
 | Manual upload UI | User drag/drop or file picker | Allows batching with per-batch metadata presets (realm, sender, topic, project). |
 | Email export import | EML/MSG/MBOX dropped into watched folder or CLI command (`Eirenhall import-correspondence`) | Parser extracts headers, body, attachments, inline images, message-id/thread-id, recipients. |
 | Mobile/remote capture | Secure intake endpoint accepts zipped bundles or single files with metadata form | Piggybacks on remote intake from FR-008; queued for review when offline. |
-| Automation jobs | Scheduled fetch of portal downloads (e.g., insurance statements) via plugin | Requires per-realm credentials; records provenance in metadata. |
+| Automation jobs | Scheduled fetch of portal downloads (e.g., insurance statements) via plugin | Requires per-area credentials; records provenance in metadata. |
 
 ## Item Type & Capability
 - `item_type = "correspondence"` with manifest `schema/types/correspondence.yaml`.
