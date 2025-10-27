@@ -15,13 +15,13 @@ stack defined in the operability section and reviewed at each milestone demo.
 - **Instrumentation:** Export metrics via Prometheus endpoints scraped locally and preserved with the run artifacts.
 
 ## Security & Privacy
-- **Encryption:** Realm-specific keys rotated quarterly with automated re-encryption proof logged.
-- **Access:** Realm-scoped tokens enforced on every API; failed checks emit structured audit records.
+- **Encryption:** Encryption at rest for sensitive stores (vector memory, secrets); keys rotated with re-encryption proof logged.
+- **Access:** Session-level gating enforced on every query; failed checks emit structured audit records.
 - **Egress:** Default-deny firewall policy with per-service allow lists verified weekly.
 
 ## Operability
 - **Observability:** Dashboards covering capture rate, success/failure ratios, retries, storage growth, captures per URL,
-  dedupe hit rate, query latency, and realm violations (target = 0) stored in Grafana snapshots.
+  dedupe hit rate, query latency, and session-gating violations (target = 0) stored in Grafana snapshots.
 - **Runbooks:** Each high-priority requirement has a one-page runbook with restart, rollback, and verification steps.
 - **Alerting:** Pager rules for queue backlog >50 jobs (15 min) and storage saturation >80% of reserved space.
 
@@ -41,7 +41,8 @@ stack defined in the operability section and reviewed at each milestone demo.
 | --- | --- | --- |
 | Reliability targets | docs/specs/capture_storage_blueprint.md; docs/requirements/12_roadmap/README.md | Monitoring canary scripts (planned) |
 | Performance targets | docs/specs/spec_scaffold.md; docs/specs/generic_item_surface.md | tests/derived/test_project_metrics (latency proxies), performance benchmark harness (planned) |
-| Security & privacy | docs/requirements/10_governance/README.md; docs/adr/ADR-001-agent-capability-model.md | Security drill scripts (TBD) |
+| Security & privacy | docs/requirements/10_governance/README.md; docs/adr/ADR-001-agent-capability-model.md; docs/specs/vector_memory.md | Security drill scripts (TBD) |
+| Vector memory | docs/specs/vector_memory.md | Indexer tests (planned); privacy/redaction unit tests (planned) |
 | Observability | docs/specs/spec_scaffold.md; docs/specs/capture_storage_blueprint.md | Observability stub instrumentation (pending) |
 | Formats & compatibility | docs/specs/item_schema.md; docs/specs/field_library.md | scripts/validate_schema.py; export/import regression tests (planned) |
 | Maintainability | docs/specs/capability_contracts.md; docs/specs/field_library.md | tests/capabilities/test_capabilities.py |

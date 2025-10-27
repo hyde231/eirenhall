@@ -2,10 +2,11 @@
 
 ## UX Tenets
 - **Generic views auto-derived from capabilities:** list/table (facets), detail, history (captures), reader mode (stories/threads), media panel (downloads/subtitles), card views, and annotations for all items; `Workflown` adds Kanban boards, `Schedulable` adds calendar/timeline views, and `Geocoded` adds map/heatmap visualizations.
-- **Inputs:** paste box, watched folders, browser extension/bookmarklet, CLI (`eirenhall capture <url> --realm R --tags a,b`).
+- **Inputs:** paste box, watched folders, browser extension/bookmarklet, push-to-talk voice capture (local ASR), CLI (`eirenhall capture <url> --realm R --tags a,b`).
 - **Collections:** saved searches (dynamic, first-class data type) and snapshots (static exports with manifests); curated primarily on desktop UI, viewable on mobile.
 - **Exports:** handled via automation/maintenance flows; UX ensures discoverability of export status but not authoring.
 - **APIs:** ingestion and automation endpoints expose the same collection/saved-search surfaces for tooling.
+ - **Voice:** local TTS playback for confirmations and summaries when the conversations.voice capability is enabled.
 
 ## Interaction Design Principles
 

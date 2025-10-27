@@ -25,9 +25,17 @@ plugins while the stock system remains neutral.
     - name: Jane Example
       email: jane@example.net
   license: MIT
+  kind: type_bundle   # one of: type_bundle | source_ingestion | utility
   compatibility:
     min_core: 1.2.0
     max_core: 1.3.x
+  requires:
+    - id: onlinestories.bundle
+      version: ">=0.3.0 <1.0.0"   # semver constraint
+  provides:
+    features:
+      - types: ["online_story"]
+      - capabilities: ["stories.workspace"]
   declares:
     schemas:
       - schema/types/story.yaml
@@ -42,10 +50,23 @@ plugins while the stock system remains neutral.
           - capability: stories.workspace
     ingestion:
       - module: stories.ingest.v1
+        entrypoints:
+          - fetch   # network fetchers
+          - normalize
+          - schedule
     actions:
       - module: stories.actions.publish
   permissions:
     requires_manage: true
+    network:
+      allowed_hosts:
+        - "*.example.org"
+      user_agent: "EirenhallBot/1.0 (+https://eirenhall.example.com)"
+    secrets:
+      needs:
+        - key: "websitea.session_cookies"
+          description: "Cookie jar for WebsiteA"
+          scope: area
   ```
 - Assets referenced in `declares.schemas` etc. live alongside the manifest and
   are loaded via the registry/capability/type loaders when the plugin is
@@ -77,12 +98,22 @@ plugins while the stock system remains neutral.
    schemas/capabilities belonging to the plugin (after verifying no items use
    them unless `--force`).
 
+### Dependencies
+- The loader resolves `requires` before activation. If a dependency is missing
+  or incompatible by version, activation fails with a clear diagnostic.
+- Dependency graphs must be acyclic. The index may suggest install order.
+- Source-specific ingestion plugins typically depend on a base type bundle
+  providing the item type and shared capability contracts.
+
 ## Isolation & Safety
 - Plugins execute in dedicated namespaces; they cannot mutate core packages
   without explicit import.
 - Resource limits (CPU, memory) can be applied to plugin background jobs via
   the orchestration layer.
 - Sensitive areas can maintain per-area allowlists of enabled plugins.
+- Network access is opt-in per plugin via `permissions.network.allowed_hosts`.
+- Secrets are requested declaratively in the manifest and delivered through
+  the Eirenhall secrets API; raw secret exfiltration is prohibited.
 
 ## Testing & Validation
 - Automated tests include `plugin smoke` runs that load the core system with no
@@ -91,6 +122,18 @@ plugins while the stock system remains neutral.
   missing metadata.
 - Upgrade paths: when core version bumps, compatibility checks flag plugins
   requiring revisions.
+
+### Naming Conventions
+- Type bundles: `<domain>.bundle` (e.g., `onlinestories.bundle`).
+- Source ingestion: `<source>.<domain>.ingestion` (e.g., `websitea.onlinestories.ingestion`).
+- Utilities: `<domain>.utils.<name>`.
+
+### Source-Specific Ingestion
+- Source ingestion plugins package only fetch/normalize/schedule logic targeting
+  a single origin (site/service). They depend on a base type bundle.
+- Manifests declare allowed hosts, rate limits, and secrets they require.
+- Credentials, cookies, and session handling are encapsulated by the plugin and
+  stored via Eirenhall’s secrets manager with per-area scoping.
 
 ## Roadmap
 - Phase 1: Implement manifest loader, CLI install/enable/disable, schema/cap
