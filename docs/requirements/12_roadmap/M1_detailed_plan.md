@@ -1,7 +1,7 @@
 # Milestone M1 Detailed Plan
 
 ## Overview
-Milestone M1 ("Discovery") establishes the foundational capabilities required for the knowledge kernel initiative. The sprint spans Weeks 1-2 and focuses on defining the canonical data model, validating realm and sensitivity handling, and preparing ingestion and storage pathways that later milestones will extend.
+Milestone M1 ("Discovery") establishes the foundational capabilities required for the knowledge kernel initiative. The sprint spans Weeks 1-2 and focuses on defining the canonical data model, validating session-level handling (item levels and session max-level filtering), and preparing ingestion and storage pathways that later milestones will extend.
 
 > **Scope note:** Infrastructure enablement (e.g., Wake-on-LAN, power-aware orchestration, hardware readiness) is explicitly deferred to later milestones so M1 can concentrate on data modeling and storage primitives.
 
@@ -14,7 +14,7 @@ Milestone M1 ("Discovery") establishes the foundational capabilities required fo
 ## Key Deliverables
 1. **Item Base Schema**
    - Shared identifiers, timestamps, tagging, capture metadata, attachment manifests, and extensible metadata map.
-   - Realm + sensitivity enforcement rules, including inheritance behavior for attachments and annotations.
+   - Session-level enforcement rules: item-level classifications and session max-level filtering applied consistently across attachments and annotations.
 2. **Capability Contracts**
    - Definition of mix-in interfaces (Viewable, Workflown, Schedulable, Annotatable) and the UI/workflow affordances each unlocks.
    - Validation that capability declarations register automatically with list/detail/timeline boards.
@@ -45,7 +45,7 @@ Milestone M1 ("Discovery") establishes the foundational capabilities required fo
   - Validate registry lifecycle with plugin add/remove tests and document migration process.
 
 ## Dependencies & Coordination
-- Align with security to approve per-realm key management approach before registry activation.
+- Align with security to confirm encryption/backup approach; per-realm key management is not required under the session model.
 - Coordinate with operations for storage provisioning that meets manifest-first handling requirements.
 - Schedule Wake-on-LAN and broader infrastructure readiness reviews for the next milestone (M2) once the PoC storage flows are validated.
 

@@ -11,7 +11,7 @@ plugins while the stock system remains neutral.
   provenance and compatibility metadata.
 - Ensure plugins declare their footprint (schemas, capabilities, surfaces,
   actions) so the registry can validate and audit overrides.
-- Support per-realm/per-installation enablement so sensitive bundles stay
+- Support per-area/per-installation enablement so sensitive bundles stay
   scoped.
 
 ## Packaging Format
@@ -82,7 +82,7 @@ plugins while the stock system remains neutral.
   without explicit import.
 - Resource limits (CPU, memory) can be applied to plugin background jobs via
   the orchestration layer.
-- Sensitive realms can maintain per-realm allowlists of enabled plugins.
+- Sensitive areas can maintain per-area allowlists of enabled plugins.
 
 ## Testing & Validation
 - Automated tests include `plugin smoke` runs that load the core system with no
@@ -95,8 +95,7 @@ plugins while the stock system remains neutral.
 ## Roadmap
 - Phase 1: Implement manifest loader, CLI install/enable/disable, schema/cap
   integration.
-- Phase 2: Add signed index support, per-realm enablement, and conflict
+- Phase 2: Add signed index support, per-area enablement, and conflict
   resolution UI.
 - Phase 3: Provide SDK templates and sample plugins (stories, finance, health)
   demonstrating best practices.
-

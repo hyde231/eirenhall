@@ -52,7 +52,7 @@ Manifests are canonical; downstream services read them instead of inferring
 metadata from filenames.
 
 ## Capture Entry Points
-- **Quick clipper:** Provide browser, email, and command-line shortcuts that wrap artifacts with manifests automatically and drop them into realm-aware staging queues.
+- **Quick clipper:** Provide browser, email, and command-line shortcuts that wrap artifacts with manifests automatically and drop them into area-aware staging queues.
 - **Inbox importer:** Watch a designated drop folder that normalizes dragged files into `captures/` structure, prompting only for realm/item selection and optional notes.
 - **Starter manifests:** Ship sample JSON manifest templates for common item types so operators and plugins can automate ingestion without reverse-engineering structure.
 

@@ -64,9 +64,9 @@ Each primitive data type maps to an interactive widget for desktop and mobile cl
 ## 9.1 Saved Searches & Collections Specification
 
 ### Saved Search (Dynamic)
-`id, name, owner, realm_cap, query_dsl, sort, limit?, schedule?`
+`id, name, owner, max_level, query_dsl, sort, limit?, schedule?`
 
-- DSL: boolean over fields (`type, realm, tags, captured_at/published_at, plugin, duration, author, status`), operators (`=, !=, in, contains, regex?, range`).
+- DSL: boolean over fields (`type, realm, tags, captured_at/published_at, plugin, duration, author, status`), operators (`=, !=, in, contains, regex?, range`). Session `max_level` is enforced implicitly; queries may still facet by `realm` for organization.
 - Example: `type=webcomic AND captured_at>=2025-10-01`.
 
 ### Static Collection (Snapshot)
@@ -74,7 +74,7 @@ Each primitive data type maps to an interactive widget for desktop and mobile cl
 
 ## 9.2 Dashboards & Entry Pages
 
-- **User-defined layouts:** Dashboards are composable canvases where operators place widgets sourced from saved searches, reports, quick links, realm switches, and pinned automations. Layout changes persist per user and can be duplicated or shared as templates.
+- **User-defined layouts:** Dashboards are composable canvases where operators place widgets sourced from saved searches, reports, quick links, session level switches, and pinned automations. Layout changes persist per user and can be duplicated or shared as templates.
 - **Widget palette:** Provide widgets for saved search result lists, metric callouts, embedded documents/wiki sections, shortcut groups, and automation status cards. Widgets pull metadata hints from schemas (e.g., recommended fields, realm filters) to speed configuration.
 - **Default experience:** Ship an initial dashboard that highlights a hierarchical browser spanning data items, metadata facets, and the schema registry, giving new operators an immediate overview without building a custom layout first.
 - **Navigation parity with wikis:** Dashboards support inline editing, drag-and-drop reordering, and link previews so they function as living entry pages comparable to wiki home screens.

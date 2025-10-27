@@ -14,7 +14,7 @@ behaviour for specialized deployments.
   patching core code.
 - Support capability-based affordances (timeline, dashboard, analytics) by
   loading optional components when the capability is present.
-- Ensure plugin overrides can be disabled per realm or installation without
+- Ensure plugin overrides can be disabled per area (realm) or installation without
   affecting the generic shell.
 - Ship curated starter layouts, saved queries, and optional plugin bundles that
   showcase value on day one while remaining entirely schema-driven and removable.
@@ -38,8 +38,8 @@ behaviour for specialized deployments.
    - Plugins may replace the editor for specific fields/capabilities via override hooks.
 
 ## Onboarding Bundles
-- **Realm starter kits:** Provide optional presets that register schema combinations, saved searches, dashboards, and preconfigured surfaces for common scenarios (household command center, research notebook) without mutating the neutral core.
-- **Template manifests:** Starter kits ship as signed manifests so operators can diff, audit, and roll back bundles; installation toggles occur per realm.
+- **Area starter kits:** Provide optional presets that register schema combinations, saved searches, dashboards, and preconfigured surfaces for common scenarios (household command center, research notebook) without mutating the neutral core.
+- **Template manifests:** Starter kits ship as signed manifests so operators can diff, audit, and roll back bundles; installation toggles can be per area.
 - **Capture shortcuts:** Offer quick actions and guided tours that call manifest-compliant ingestion scripts so operators store their first artifacts within minutes.
 
 ## Architecture
@@ -132,9 +132,9 @@ functionality once their schemas are registered—no bespoke UI work required.
 ## Roadmap
 - Detailed milestone activities live in [editor_milestone_plan.md](editor_milestone_plan.md).
 - **M2 Walking Skeleton:** Wire in the delta-native editor shell, support single-item editing for document/wiki types, persist rich-text deltas end-to-end, and land registry APIs so surfaces can query type manifests and capability hints.
-- **M3 Alpha:** Ship the generic knowledge plugin with wiki link parsing, include directive handling, outbound link metadata capture, and editor affordances seeded from the registry; add action slot overrides and query builder needed for richer authoring flows. Bundle the first optional realm starter kit (household operations) with saved queries and dashboards to validate the onboarding story.
+- **M3 Alpha:** Ship the generic knowledge plugin with wiki link parsing, include directive handling, outbound link metadata capture, and editor affordances seeded from the registry; add action slot overrides and query builder needed for richer authoring flows. Bundle the first optional area starter kit (household operations) with saved queries and dashboards to validate the onboarding story.
 - **M4 Beta:** Deliver collaborative editing hooks, inline comment threads, capability-aware embeds, and the sample webcomic plugin to validate the extension story while exercising sandbox, packaging, and deployment steps. Introduce automated compatibility checks and health telemetry dashboards so plugin bundles remain trustworthy in production.
-- **M5 GA:** Harden accessibility, localization, and offline fallbacks, complete regression coverage (surface registry, plugin contract, export round-trip), and polish admin tooling so operators can audit or disable editor plugins per realm.
+- **M5 GA:** Harden accessibility, localization, and offline fallbacks, complete regression coverage (surface registry, plugin contract, export round-trip), and polish admin tooling so operators can audit or disable editor plugins per area.
 
 ## Sample Plugin: Webcomic Knowledge Bundle
 - **Schema fields:** Title, base_url, availability, status, synopsis (rich text), artists (role-tagged list), cover_image, starting_date, end_date, last_update, pages, images, thumbnails, language, tags, comment, rating.

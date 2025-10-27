@@ -106,8 +106,8 @@ avoid rendering issues.
 ## K
 - **Kernel** - Core services and registries that manage schemas, items, and
   capability lifecycles.
-- **Keyring** - Secure store for per-realm encryption keys used during capture,
-  archival, and backup operations.
+- **Keyring** - Secure store for encryption keys used during capture, archival,
+  and backup operations. Under the session model, per-realm keys are optional.
 
 ## L
 - **List View** - Default table-style presentation of item collections with
@@ -135,10 +135,10 @@ avoid rendering issues.
   provenance markers.
 
 ## O
-- **Operator** - Human responsible for managing realms, infrastructure, and
-  automation across the system.
-- **Override Reason** - Text explanation recorded when an item's sensitivity
-  differs from the inherited realm floor.
+- **Operator** - Human responsible for managing organizational areas (realms),
+  infrastructure, and automation across the system.
+- **Override Reason** - Text explanation recorded when an item’s sensitivity is
+  downgraded; used to drive confirmation and audit.
 
 ## P
 - **Persona (AI)** - Automation persona limited by realm and capability scopes

@@ -24,9 +24,9 @@ This chapter captures the meta-information for the System X requirements set. It
 ## Change Log (v0.5)
 
 - Merged vNext addendum into primary structure: Documents & Records now §7.5 (detailed); Collectable Content as §7.6.1; Tagging extended in §7.4.1; Health workspace §7.7.1; GTD workflows §7.8.1.
-- Standardized realm name to **Intimate** (replacing “Private-Restricted”).
+- Adopted session-level access gating; realms are organizational (GTD) only.
 - Added mini Table of Contents for navigability.
-- Clarified sensitivity labels `{low, normal, high, secret}` as canonical set.
+- Clarified sensitivity levels: `public < family < partner < personal < private < intimate`.
 - Cross-referenced FR sections to detailed narratives.
 
 ## Reconciliation Notes
@@ -37,7 +37,7 @@ This chapter captures the meta-information for the System X requirements set. It
 - **Data sinks separation**: Git for metadata/docs/code; raw FS/object store for large binaries; optional git-annex/LFS; manifests tie all together.
 - **Tiered caching** for Mini PC/Desktop/Server with policy knobs and metrics.
 - **Series/completeness detection** for archival subtypes → tasks.
-- **Redaction/export profiles** ensuring realm-safe sharing; masters remain immutable.
+- **Redaction/export profiles** ensuring level-safe sharing; masters remain immutable.
 - **Watched sources & ingestion scheduling** producing due/overdue tasks.
 - **Provenance** across captures, tagging, automation, personas, and exports.
 

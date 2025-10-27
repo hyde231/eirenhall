@@ -2,10 +2,10 @@
   "metadata": {
     "id": "std.realm.descriptor",
     "name": "Realm Descriptor",
-    "description": "Realm identifier, hierarchy path, and optional sensitivity floor.",
+    "description": "Organizational realm identifier and hierarchy path (no security semantics).",
     "fieldType": "composite",
     "dataType": "object",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "owner": "core.platform",
     "capabilities": ["viewable", "manage"],
     "sensitivity": "internal",
@@ -17,8 +17,7 @@
     },
     "example": {
       "id": "eng-data",
-      "path": ["global", "engineering", "eng-data"],
-      "sensitivity_floor": "internal"
+      "path": ["global", "engineering", "eng-data"]
     },
     "provenance": {}
   },
@@ -42,10 +41,6 @@
         "type": "string",
         "pattern": "^[a-z0-9-]+$"
       }
-    },
-    "sensitivity_floor": {
-      "type": "string",
-      "enum": ["public", "internal", "confidential", "secret"]
     }
   }
 }

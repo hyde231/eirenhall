@@ -243,15 +243,18 @@ Composites compose primitives to capture real-world constructs.
     - Use cases: Workflow automation, governance reporting.
 
 14. **Sensitivity Descriptor** (`std.sensitivity_descriptor`)
-    - Aligns with existing schema definition, extends to include `justification`
-      (`std.rich_text`) and `reviewDate` (`std.date`).
-    - Use cases: Access control, compliance attestations.
+    - Aligns with existing schema definition. Recommended ordered scale:
+      `public < family < partner < personal < private < intimate`.
+      The legacy `inherited` flag is deprecated under the session model and
+      should be treated as `false` by default until schemas are updated.
+    - Use cases: Session-level access gating, compliance attestations.
 
 15. **Realm Descriptor** (`std.realm_descriptor`)
     - Properties: `realmId` (`std.slug`), `displayName` (`std.short_text`),
-      `type` (`std.enum`), `defaultSensitivity` (`std.enum`), optional `parent`
-      (`std.slug`).
-    - Use cases: Multi-tenant scoping, capture routing, capability defaulting.
+      `type` (`std.enum`), optional `defaultSensitivity` (`std.enum` for UX
+      defaults only), optional `parent` (`std.slug`).
+    - Use cases: Organizational scoping (GTD areas/projects), capture routing,
+      capability defaulting. No security implications under the session model.
 
 16. **Capability Entry** (`std.capability_entry`)
     - Properties: `capabilityId` (`std.slug`), `version` (`std.integer`),

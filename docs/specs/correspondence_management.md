@@ -5,7 +5,7 @@ Defines how the platform ingests, normalizes, stores, and surfaces personal corr
 ## Objectives
 - Provide a single workflow for capturing inbound and outbound correspondence regardless of origin (paper, email, portal downloads, messenger exports).
 - Preserve original artifacts (PDF, image, MSG/EML, text) while extracting structured metadata for search, dashboards, and automations.
-- Support realm-aware classification, retention controls, and cross-linking to projects, tasks, wiki entries, and financial/health records.
+- Support item-level sensitivity with session-level gating, retention controls, and cross-linking to projects, tasks, wiki entries, and financial/health records.
 - Enable repeatable exports that recreate both normalized metadata and the original file hierarchy for audits or legal purposes.
 
 ## Scope
@@ -60,7 +60,7 @@ PII redaction is not enforced during ingestion because the system operates insid
 - Conversation transcript links: highlight when correspondence references or originates from assistant conversations.
 
 ## Retention & Compliance
-- Default retention per realm (e.g., household mail retained indefinitely, financial documents per tax regulations). `retain_indefinitely` defaults to `true` when no policy is supplied, ensuring archival items persist unless explicitly time-bound.
+- Default retention per area/realm (organizational) (e.g., household mail retained indefinitely, financial documents per tax regulations). `retain_indefinitely` defaults to `true` when no policy is supplied, ensuring archival items persist unless explicitly time-bound.
 - Legal hold flag prevents deletion and adds audit requirement for removal.
 - Export profiles: full archive (original files + metadata CSV/JSON), redacted share (selected fields + rendered PDFs).
 

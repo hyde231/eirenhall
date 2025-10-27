@@ -9,7 +9,7 @@ This directory captures the System X requirements for phase one of the project. 
 | `00_meta/` | Document Meta | Change log, consolidation notes, and references to source drafts. |
 | `01_vision/` | Vision & Goals | Problem statement, vision, goals, and guiding decisions. |
 | `02_stakeholders/` | Stakeholders | Primary stakeholders for the single-tenant deployment. |
-| `03_scope/` | Scope | In-scope work, exclusions, assumptions, and privacy realms. |
+| `03_scope/` | Scope | In-scope work, exclusions, assumptions, and session-level access model with organizational realms. |
 | `04_users/` | User & Use Cases | Personas, priority use cases, and example stories. |
 | `05_functional/` | Functional Requirements | Platform, capture, orchestration, search, extensibility, and large binary requirements. |
 | `06_non_functional/` | Non-Functional Requirements | Reliability, performance, security, operability, formats, and maintainability goals. |

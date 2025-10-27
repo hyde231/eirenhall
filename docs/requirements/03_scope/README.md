@@ -1,7 +1,7 @@
 # Scope
 
 ## In Scope
-Local-only models on consumer-grade hardware; file/repo operations; code execution in isolated runtimes; Git operations (Gitea/LAN); long-term memory with summarization/vector search; privacy **realms**; orchestrated agent containers; power-aware WoL/auto-sleep; secure remote intake (VPN/SSH/bot); capture/archival of web/media with **versioned time-stamped captures**; extensible plugin SDK; unified query & collections; GTD workflows.
+Local-only models on consumer-grade hardware; file/repo operations; code execution in isolated runtimes; Git operations (Gitea/LAN); long-term memory with summarization/vector search; organizational **realms** (areas/projects); orchestrated agent containers; power-aware WoL/auto-sleep; secure remote intake (VPN/SSH/bot); capture/archival of web/media with **versioned time-stamped captures**; extensible plugin SDK; unified query & collections; GTD workflows.
 
 ## Out of Scope (Current Phase)
 Cloud LLMs/embeddings; specialized accelerator dependency; multi-tenant SaaS; mobile beyond VPN + CLI/web.
@@ -14,16 +14,33 @@ End-to-end encryption; open formats (Markdown/CSV/JSON/YAML; optional WARC/MAFF/
 
 ---
 
-## 3.1 Privacy Realms & Access Control (Genericized)
+## 3.1 Sensitivity Levels & Sessions
 
-### Access Levels
-- **Intimate, Personal, Household, Shared, Guest (examples):** Named access levels define sensitivity tiers, audit expectations, and required approval flows. They are long-lived governance concepts rather than individual workspaces.
-- Each access level declares default policies (storage tiers, credential pools, authentication factors) that realm instances inherit unless explicitly overridden.
+The platform enforces access at the session level. Realms are organizational only.
 
-### Realms
-- A **realm** is an instantiation of an access level (e.g., "Project Phoenix" at the Personal level, "Family Cookbook" at the Household level). The platform must support creating, cloning, splitting, merging, and archiving realms without changing the underlying access-level catalog.
-- Realm definitions record lineage (origin realm/access level) so provenance survives operations like copy/clone/merge.
-- Sessions adopt an **active realm cap** derived from the operator’s access level allowances; retrieval includes only items in realms whose access level is ≤ cap.
-- **Selective sharing:** time-boxed read-only sessions for `Shared`-level realms; never includes `Intimate`; managed via sharable content/action types so policy variants can be versioned per realm instance.
-- **Break-glass (Personal-level realms only):** quorum + escrowed key; immutable audit; drills; expressed as a managed content/action type so policies stay flexible. `Intimate`-level realms are excluded.
-- Credentials, cookies, headless routes, and storage prefixes are scoped per realm instance, with inheritance from the parent access level for defaults.
+### Levels
+- Ordered scale: `public < family < partner < personal < private < intimate`.
+- Each item has a `level` (one of the above).
+
+### Sessions
+- Each interactive session declares a `max_level`.
+- All reads, search results, and conversations MUST filter to
+  `item.level <= session.max_level`.
+
+### Defaults and Reclassification
+- New items default to the current session’s `max_level` (overrideable).
+- Upgrading sensitivity (more restrictive) is allowed.
+- Downgrading sensitivity requires explicit confirmation and an audit entry.
+
+### Realms (Organizational)
+- Realms are GTD-style areas/projects for organization and storage paths.
+- Realms DO NOT define access; there is no “realm cap.”
+- Queries may facet by realm for navigation; security derives solely from item
+  `level` and the session filter.
+
+### Operational Notes
+- Credentials and storage prefixes can be configured per realm for convenience
+  and routing, without implying different access levels.
+- Sharing and guest flows can be layered later (e.g., link-based or copy-based)
+  without changing the session-level enforcement model.
+

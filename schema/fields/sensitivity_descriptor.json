@@ -2,23 +2,21 @@
   "metadata": {
     "id": "std.sensitivity.descriptor",
     "name": "Sensitivity Descriptor",
-    "description": "Sensitivity classification with inheritance flag and optional override reason.",
+    "description": "Item sensitivity level used for session-level access gating.",
     "fieldType": "composite",
     "dataType": "object",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "owner": "core.governance",
     "capabilities": ["viewable", "manage"],
     "sensitivity": "internal",
     "constraints": {
-      "required": ["classification", "inherited"]
+      "required": ["classification"]
     },
     "localization": {
       "translatable": true
     },
     "example": {
-      "classification": "confidential",
-      "inherited": false,
-      "override_reason": "Contains production credentials"
+      "classification": "personal"
     },
     "provenance": {}
   },
@@ -26,31 +24,12 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Sensitivity Descriptor",
   "type": "object",
-  "required": ["classification", "inherited"],
+  "required": ["classification"],
   "additionalProperties": false,
   "properties": {
     "classification": {
       "type": "string",
-      "enum": ["public", "internal", "confidential", "secret"]
-    },
-    "inherited": {
-      "type": "boolean"
-    },
-    "override_reason": {
-      "type": "string",
-      "minLength": 4,
-      "maxLength": 256
+      "enum": ["public", "family", "partner", "personal", "private", "intimate"]
     }
-  },
-  "allOf": [
-    {
-      "if": {
-        "properties": {"inherited": {"const": false}},
-        "required": ["inherited"]
-      },
-      "then": {
-        "required": ["override_reason"]
-      }
-    }
-  ]
+  }
 }

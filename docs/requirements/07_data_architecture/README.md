@@ -4,9 +4,9 @@
 Items = base fields + capabilities.
 
 ### Base Fields
-`id, type, realm_id, realm_access_level, sensitivity, title, description, created_at, updated_at, tags[], source_url?, canonical_url?, captures[], attachments[], links[], notes?, checksum, size, metadata{}`
+`id, type, realm_id, level, title, description, created_at, updated_at, tags[], source_url?, canonical_url?, captures[], attachments[], links[], notes?, checksum, size, metadata{}`
 
-Session context assigns the default `realm_id` + `realm_access_level` pair; overrides are expressed through dedicated share relation items so that scoping changes remain auditable and composable. Realm records capture lineage (`parent_realm_id?`, `origin_access_level`, `clone_of?`) to support split/merge history and policy inheritance checks. Optional `fields.notes` (rich text) gives every item a scratchpad for interim context, migration breadcrumbs, or commentary; because it uses the standard rich-text field, embedded `kki://` URIs or wiki links flow through the existing linking/backlink pipeline.
+Session context assigns the default `realm_id` and item `level`; the session’s `max_level` gates all reads/search/conversations so higher-sensitivity items never surface inadvertently. Realm records are organizational only and may capture lineage (`parent_realm_id?`, `clone_of?`) for browsing and storage. Optional `fields.notes` (rich text) gives every item a scratchpad for interim context, migration breadcrumbs, or commentary; because it uses the standard rich-text field, embedded `kki://` URIs or wiki links flow through the existing linking/backlink pipeline.
 
 ### Capabilities (Mix-ins)
 Viewable, Listable, Queryable, Storable, Importable/Exportable, Versioned, Scrapeable, Downloadable, Readable, Playable, Workflown, Schedulable, Annotatable, Geocoded.
@@ -19,12 +19,12 @@ Capability declarations drive derived UX: `Workflown` surfaces Kanban boards, `S
 Plugins bundle data definitions, named relations, view descriptors, workflows, and automations. Core plugins ship reusable relation item types (e.g., tags, sharing links) that downstream plugins compose rather than duplicating or introducing deep inheritance chains.
 
 ### Starter Kits & Templates
-- **Realm manifests:** Opinionated bundles combine schema sets, saved queries, dashboards, and automation defaults as signed manifests so operators can diff, audit, and roll back installations per realm.
+- **Area manifests:** Opinionated bundles combine schema sets, saved queries, dashboards, and automation defaults as signed manifests so operators can diff, audit, and roll back per-area installations.
 - **Gradual enablement:** Starter kits install without mutating core definitions and include migration guides plus capture presets for household operations, research notebooks, and archival projects.
 
 ### Compatibility & Health Telemetry
 - **Version fences:** Every plugin, capability mix-in, and starter kit declares supported schema/capability ranges and migration hooks so upgrades fail safe instead of drifting silently.
-- **Manifest audits:** Scheduled checks validate bundle manifests against the registry, flagging fallbacks, skipped fields, or checksum mismatches before they reach production realms.
+- **Manifest audits:** Scheduled checks validate bundle manifests against the registry, flagging fallbacks, skipped fields, or checksum mismatches before they reach production installations.
 - **Operator dashboards:** Admin surfaces expose compatibility status, recent failures, and remediation playbooks, with exportable reports for offline audit trails.
 
 ### Project & Conversation Item Shapes

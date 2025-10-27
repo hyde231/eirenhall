@@ -22,8 +22,8 @@ declares:
 
 - `id` and `name`.
 - `summary` and `intended_outcomes`.
-- `data_access`: realms, sensitivity bands, item types, and capability scopes
-  the persona can read or mutate.
+- `data_access`: session levels (max allowed), organizational realms, item types,
+  and capability scopes the persona can read or mutate.
 - `write_permissions`: enumerated actions (e.g., `propose_schema_change`,
   `apply_metadata_tag`) plus whether human approval is required.
 - `escalation`: human checkpoints and conditions that force dry-run mode.

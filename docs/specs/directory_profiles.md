@@ -12,7 +12,7 @@ first-class part of the knowledge kernel graph.
 - Link contacts to correspondence, projects, tasks, financial records, and
   conversation threads so every interaction carries full context.
 - Provide directory-aware capabilities (search, relationship analytics, quick
-  actions) without compromising realm/sensitivity guarantees.
+  actions) without compromising session-level access guarantees.
 - Enable automation pipelines (reminders, onboarding checklists, compliance
   reviews) by exposing structured role and cadence data.
 
@@ -70,9 +70,10 @@ Definitions live in `schema/derived/person.yaml` and `schema/derived/organizatio
   may show outstanding balances or recurring charges.
 
 ## Governance & Sensitivity
-- Contacts inherit the active realm/sensitivity of their parent workspace.
-- Sensitive fields (medical contacts, legal counsel) default to `high` or
-  `secret` classifications with audit requirements for capability activations.
+- Contacts organize by area/realm (organizational). Sensitivity follows the
+  item-level classification model; all surfaces respect the session `max_level`.
+- Sensitive fields (medical contacts, legal counsel) default to `private` or
+  `intimate` classifications with audit requirements for capability activations.
 - Exports respect redaction profiles; metadata namespaces under
   `cap.directory.profile.*` log automated suggestions and review results.
 
@@ -83,4 +84,3 @@ Definitions live in `schema/derived/person.yaml` and `schema/derived/organizatio
   metrics and GTD hooks.
 - Integrate directory widgets into project dashboards and correspondence review
   queues.
-

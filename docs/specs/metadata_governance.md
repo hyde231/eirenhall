@@ -9,8 +9,8 @@ and the naming rules in `docs/specs/naming_conventions.md`.
   `ext.<vendor>.*`, `tmp.*`) and guardrails for extending them.
 - Describe lifecycle expectations: registration, review, deprecation, and audit.
 - Specify storage and validation constraints applied by schemas and tooling.
-- Outline how metadata is surfaced to clients and how sensitive content is
-  protected across realms and sensitivities.
+ - Outline how metadata is surfaced to clients and how sensitive content is
+  protected by item classification and session-level gating.
 
 ## Namespace Taxonomy
 Metadata keys must conform to the pattern enforced by `item_base.json`. The
@@ -33,7 +33,7 @@ top-level namespace conveys ownership and lifecycle:
 
 ## Registration & Change Control
 1. **Proposal:** Authors document new metadata keys in a short RFC or ADR,
-   including purpose, value shape, retention expectations, and realm impact.
+   including purpose, value shape, retention expectations, and sensitivity-level impact.
 2. **Review:** Core maintainers validate naming, namespace choice, data
    sensitivity, and cross-schema reuse. Capability metadata requires approval
    from the corresponding capability owner.
@@ -49,8 +49,9 @@ top-level namespace conveys ownership and lifecycle:
 ## Storage & Validation Rules
 - Metadata values can be primitives, objects, or arrays but must stay within the
   namespace boundary (`cap.tasks.board.{...}` may contain nested objects).
-- Sensitive metadata inherits the item's realm/sensitivity. Plugins must not
-  down-scope metadata without authorization checks.
+- Sensitive metadata inherits the item's sensitivity level. Clients must enforce
+  session-level filtering and plugins must not down-scope metadata without
+  explicit authorization and audit.
 - Link tracking metadata (`metadata.sys.links`) follows the schema described in
   the [Linking & Backlink Specification](linking_and_backlinks.md).
 - Inclusion metadata (`metadata.sys.includes.*`) records dynamic value embeds,
@@ -66,8 +67,8 @@ top-level namespace conveys ownership and lifecycle:
   signal tri-state behavior.
 
 ## Access & Auditing
-- Access policies mirror those of the parent item; realm crossings require
-  explicit permission grants.
+- Access mirrors the parent item’s sensitivity; any downgrade in exposure across
+  sessions requires explicit confirmation and an audit record.
 - Mutations to `sys.*` and `cap.*` namespaces are logged with actor, timestamp,
   and change summary. Integrations must surface their own audit trail in
   addition to core logging.

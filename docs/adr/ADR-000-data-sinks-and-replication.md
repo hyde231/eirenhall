@@ -38,7 +38,7 @@ Replication and retention policies:
 - Primary object store: ZFS/Btrfs pool with nightly `restic` snapshots to
   `/backups/<date>/`, keeping 30 daily, 12 monthly, and 5 yearly copies.
 - Mini-PC cache: Hot cache at `/cache/primary` containing the last 90 days of
-  captures plus pinned favorites. Eviction uses LRU with realm-aware pinning.
+  captures plus pinned favorites. Eviction uses LRU with area-aware pinning.
 - Cold tier (optional): External USB/SATA volume at `/cache/secondary` retaining
   large media flagged `retain_indefinitely`. Metadata manifests always remain in
   `/data`.

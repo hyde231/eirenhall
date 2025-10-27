@@ -4,6 +4,9 @@ Each milestone now ties directly to backlog entries so progress can be tracked i
 
 - See [Milestone M1 Detailed Plan](./M1_detailed_plan.md) for a deeper breakdown of the discovery sprint deliverables.
 
+Note: This roadmap reflects the simplified session model. Where older language
+mentions “realm enforcement,” read it as “session-level enforcement.”
+
 - **M1 Discovery (Weeks 1‑2):**
   - Establish storage + repository, realm model validation → groundwork for FR‑003, NFR‑SEC.
   - Document baselines for formats and data contracts → FR‑002, FR‑015, Formats & Compatibility commitments.
@@ -25,4 +28,4 @@ Each milestone now ties directly to backlog entries so progress can be tracked i
 ## Dependencies
 - Wake-on-LAN readiness for FR‑006 and nightly maintenance windows is rescheduled to M2 alongside wider infrastructure tasks.
 - VPN availability for remote administration without violating FR‑001.
-- Storage planning + per-realm key management ahead of M2 security tests.
+ - Storage planning and encryption/backup approach ahead of M2 security tests (per-realm keys not required under session model).

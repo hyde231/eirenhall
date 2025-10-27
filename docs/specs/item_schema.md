@@ -14,8 +14,8 @@ All item payloads **must** include the following top-level members:
 | `id` | string | Stable unique identifier that never reflows between realms. |
 | `item_type` | string | Machine readable type discriminator (e.g. `document`, `task`, `wiki_entry`). |
 | `title` | string | Human friendly title that appears in navigation and search results. |
-| `realm` | object | Location descriptor tracking hierarchical containment. |
-| `sensitivity` | object | Classification of the item itself after realm inheritance is applied. |
+| `realm` | object | Organizational context (GTD-style area/project path). |
+| `sensitivity` | object | Item classification used for session-level filtering. |
 | `capabilities` | object | Feature flags and hooks used by capability aware clients. |
 | `fields` | object | Item specific field payloads keyed by schema field identifiers. |
 | `metadata` | object | Namespaced metadata bag reserved for integrations. |
@@ -41,34 +41,33 @@ migration breadcrumbs, or future schema candidates. Because notes reuse the rich
 primitive, any embedded `kki://` URIs or wiki links participate in the canonical
 linking/backlink pipeline without extra work.
 
-## Realm & Sensitivity Inheritance
+## Levels & Session Filtering
 
-Realms provide hierarchical context and drive default sensitivity. The schema
-encodes two cooperating structures:
+This specification adopts a simplified security model focused on session-level
+gating while keeping realms strictly organizational (GTD) rather than
+authorization-bearing.
 
-* `realm` captures the item's position.
-  * `id`: canonical realm identifier.
-  * `path`: ordered list of ancestor realm ids from root to the item's realm.
-  * `sensitivity_floor`: optional classification imposed by the realm.
-* `sensitivity` reflects the item's final classification.
-  * `classification`: enum value such as `public`, `internal`, `confidential`,
-    or `secret`.
-  * `inherited`: boolean indicating whether the value is purely inherited from
-    the realm (`true`) or the item (`false`).
-  * `override_reason`: optional short explanation required when
-    `inherited = false` and the classification is stricter than the realm floor.
+- Realms: represent areas/projects. The descriptor carries an `id` and a
+  `path` of ancestor ids. Realms do not impose sensitivity floors.
+- Sensitivity: each item declares a single classification used for filtering.
+  Recommended ordered scale: `public < family < partner < personal < private < intimate`.
+- Sessions: every interactive session declares a `max_level`. All reads, search
+  results, and conversational surfaces MUST filter items where
+  `item.level <= session.max_level`.
 
-When consumers resolve an item's effective sensitivity they must:
+Implications for the envelope:
+- `realm` remains the organizational locator for browsing, storage paths, and
+  defaulting UX only.
+- `sensitivity` is the item’s classification. Clients SHOULD default new items
+  to the current session’s `max_level` and allow explicit upgrades. Downgrades
+  require explicit confirmation and an audit event.
 
-1. Start with the realm's `sensitivity_floor` (if present) and treat it as the
-   minimum allowable classification.
-2. Apply the item's `sensitivity.classification`, ensuring it is not weaker than
-   the realm floor.
-3. Use `sensitivity.inherited` to differentiate policy driven items from user
-   managed overrides.
-
-The schema enforces these rules by constraining the sensitivity enum choices and
-requiring an `override_reason` whenever inheritance is broken.
+Compatibility notes:
+- Existing schema artifacts include `realm.sensitivity_floor` and a
+  `sensitivity` descriptor with an `inherited` flag. Under this model,
+  `sensitivity_floor` MUST NOT be used and `inherited` SHOULD be treated as
+  `false` by default. Schema updates will remove/deprecate these fields in a
+  future change.
 
 ## Capability Hooks
 
@@ -88,5 +87,5 @@ schemas can be referenced via `$ref` within `schema/fields` when tighter
 validation is needed.
 
 Clients must treat unknown capabilities as disabled and should not assume that a
-capability being absent is equivalent to `enabled = false`; the capability may
-not be available in the current realm or sensitivity band.
+capability being absent is equivalent to `enabled = false`; availability can
+depend on item type or session level.

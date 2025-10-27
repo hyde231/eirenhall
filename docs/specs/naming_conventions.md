@@ -29,8 +29,8 @@ conventions when introducing new artifacts or renaming existing ones.
   - Singular nouns represent single-value fields (`status`, `summary`).
   - Plural nouns represent collections (`assignees`, `links`, `tags`).
 - Boolean fields prefer an `is_` or `has_` prefix (e.g. `is_pinned`, `has_body`).
-  Exceptions are allowed for established domain terminology such as
-  `inherited` within sensitivity descriptors.
+  Avoid legacy flags like `inherited` in sensitivity; the session-level model
+  does not use inheritance for sensitivity.
 - Refer to nested properties using dot notation with snake_case segments
   (`fields.body.ops`, `metadata.sys.owner_team`).
 
