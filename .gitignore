@@ -4,4 +4,4 @@ __pycache__/
 .github/
 .continue/
 .venv/
-.pytest_chache/
+.pytest_cache/
